@@ -1,0 +1,7 @@
+services:
+  portfolio:
+    build: .
+    container_name: ghaith-portfolio
+    ports:
+      - "8096:80"
+    restart: unless-stopped

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghaith Mefteh — Full-Stack Engineer</title>
+<meta name="description" content="Full-stack software engineer. Symfony · FastAPI · Flutter. I ship production systems end to end — from Nabeul, Tunisia, for teams worldwide.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ghaith Mefteh — Full-Stack Engineer">
+<meta property="og:description" content="Symfony · FastAPI · Flutter. I ship production systems end to end — 3+ years in production, team lead at AzertyUI.">
+<meta property="og:image" content="assets/ghaith.png">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+<body>
+
+<a class="skip" href="#work">Skip to work</a>
+
+<header class="top">
+  <a class="mark" href="#">gm<span class="mark-dot">.</span></a>
+  <nav aria-label="Site">
+    <a href="#work">Work</a>
+    <a href="#lab">Lab</a>
+    <a href="#path">Path</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-copy">
+    <p class="hero-hello">
+      <img class="hero-avatar" src="assets/ghaith.png" alt="Portrait of Ghaith Mefteh" width="44" height="44">
+      <span>Ghaith Mefteh — Nabeul, Tunisia · working remotely, worldwide</span>
+    </p>
+    <h1>I build the whole<br>request<span class="accent">.</span></h1>
+    <p class="hero-lede">
+      Full-stack engineer, 3+ years in production. The app on the phone, the API behind it,
+      the database under that — I own the entire path. Symfony&nbsp;+&nbsp;MySQL,
+      FastAPI&nbsp;+&nbsp;MongoDB, Flutter on both stores.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#work">See the work</a>
+      <a class="btn btn-ghost" href="mailto:ghaithmeftah@gmail.com?subject=Opportunity%20for%20Ghaith">ghaithmeftah@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- Animated system diagram: request travels phone → backend → db and back -->
+  <figure class="hero-diagram" aria-label="Animated diagram: a request travels from a Flutter app to a Symfony or FastAPI backend, then to MySQL or MongoDB, and back.">
+    <svg id="sysdiagram" viewBox="0 0 560 420" role="img" aria-hidden="true">
+      <!-- wires -->
+      <path id="wire-app-api" class="wire" d="M150 210 C 210 210, 220 130, 285 118"/>
+      <path id="wire-app-api2" class="wire" d="M150 210 C 210 210, 220 290, 285 302"/>
+      <path id="wire-api-db" class="wire" d="M395 118 C 450 122, 458 165, 470 196"/>
+      <path id="wire-api2-db2" class="wire" d="M395 302 C 450 298, 458 255, 470 224"/>
+
+      <!-- phone node -->
+      <g class="node node-phone" tabindex="0" data-tip="Flutter — SOC Rugby &amp; SmartCare, live on both stores">
+        <rect x="88" y="140" width="72" height="140" rx="14"/>
+        <rect class="node-screen" x="96" y="156" width="56" height="96" rx="6"/>
+        <circle class="node-btn" cx="124" cy="266" r="5"/>
+        <text x="124" y="308" class="node-label">Flutter</text>
+      </g>
+
+      <!-- backend node 1 : Symfony -->
+      <g class="node node-api" tabindex="0" data-tip="Symfony + Doctrine — chalet-montagne.com rebuild, 390+ tests">
+        <rect x="285" y="86" width="110" height="64" rx="10"/>
+        <line class="node-line" x1="300" y1="106" x2="352" y2="106"/>
+        <line class="node-line" x1="300" y1="120" x2="376" y2="120"/>
+        <line class="node-line" x1="300" y1="134" x2="340" y2="134"/>
+        <text x="340" y="170" class="node-label">Symfony · PHP</text>
+      </g>
+
+      <!-- backend node 2 : FastAPI -->
+      <g class="node node-api" tabindex="0" data-tip="FastAPI — SmartCare healthcare backend on AWS">
+        <rect x="285" y="270" width="110" height="64" rx="10"/>
+        <line class="node-line" x1="300" y1="290" x2="360" y2="290"/>
+        <line class="node-line" x1="300" y1="304" x2="336" y2="304"/>
+        <line class="node-line" x1="300" y1="318" x2="370" y2="318"/>
+        <text x="340" y="356" class="node-label">FastAPI · Python</text>
+      </g>
+
+      <!-- db node -->
+      <g class="node node-db" tabindex="0" data-tip="MySQL &amp; MongoDB — query optimization, caching, migrations">
+        <ellipse cx="500" cy="176" rx="34" ry="12"/>
+        <path class="db-body" d="M466 176 v58 a34 12 0 0 0 68 0 v-58"/>
+        <ellipse class="db-mid" cx="500" cy="205" rx="34" ry="12"/>
+        <text x="500" y="272" class="node-label">MySQL · MongoDB</text>
+      </g>
+
+      <!-- traveling request dots (positioned by JS along the wires) -->
+      <circle class="pkt pkt-a" r="5"/>
+      <circle class="pkt pkt-b" r="5"/>
+      <circle class="pkt pkt-c" r="4"/>
+    </svg>
+    <figcaption class="diagram-tip" id="diagram-tip">Hover a node — this is the path I own.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ PROOF LINE ============ -->
+<section class="proof">
+  <p>
+    Some numbers I stand behind: page loads on a live marketplace cut from
+    <em>20–50&nbsp;s to 4–6&nbsp;s</em>, a test suite built from zero to
+    <em>390+ tests</em>, image bandwidth down <em>~60%</em>, and a Flutter app past
+    <em>2,000 downloads</em> on iOS and Android.
+  </p>
+</section>
+
+<!-- ============ WORK ============ -->
+<section id="work" class="work">
+  <h2>Selected work</h2>
+
+  <!-- Case 1 : chalet-montagne -->
+  <article class="case">
+    <div class="case-text">
+      <p class="case-role">Team lead · AzertyUI, France · 2024 — now</p>
+      <h3>chalet-montagne.com</h3>
+      <p>
+        A French chalet-rental marketplace with thousands of active users, running on a legacy
+        stack that took up to 50 seconds to render a search page. I led a 4-engineer team through
+        a full rebuild on Symfony — legacy data and business logic migrated with functional parity,
+        then the search and listing engine rewritten with caching, query optimization and
+        parallelized data processing.
+      </p>
+      <p>
+        I also built the reservation pipeline end to end: dynamic seasonal pricing, two-way iCal
+        sync with external booking channels, payment integration, and the CI/CD + PHPUnit suite
+        that lets us release to production frequently and safely.
+      </p>
+      <ul class="case-stack"><li>Symfony</li><li>Doctrine</li><li>MySQL</li><li>PHPUnit</li><li>GitLab CI</li></ul>
+    </div>
+    <div class="case-visual">
+      <!-- before/after load-time evidence, animates on scroll -->
+      <div class="loadbar-widget" role="img" aria-label="Search page load time: before 20 to 50 seconds, after 4 to 6 seconds.">
+        <div class="chalet-brand">
+          <img src="assets/chalet-logo.svg" alt="chalet-montagne.com logo" loading="lazy">
+        </div>
+        <p class="widget-title">Search page load time</p>
+        <div class="loadbar">
+          <span class="loadbar-name">before</span>
+          <div class="loadbar-track"><div class="loadbar-fill fill-before" style="--w:100%"></div></div>
+          <span class="loadbar-val">20–50 s</span>
+        </div>
+        <div class="loadbar">
+          <span class="loadbar-name">after</span>
+          <div class="loadbar-track"><div class="loadbar-fill fill-after" style="--w:14%"></div></div>
+          <span class="loadbar-val">4–6 s</span>
+        </div>
+        <p class="widget-foot">plus ~60% less image bandwidth — on-demand WebP, multi-size caching</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Case 2 : SmartCare -->
+  <article class="case case-flip">
+    <div class="case-text">
+      <p class="case-role">Full-stack engineer · Hope Horizon Health &amp; Care · 2023 – 2024</p>
+      <h3 class="case-title-logo"><img src="assets/smartcare-logo.png" alt="" width="34" height="34">SmartCare</h3>
+      <p>
+        A healthcare platform for Tunisia — appointment booking, ambulance dispatch, push
+        notifications, Google Maps integration. I designed and shipped the whole thing:
+        Flutter app on Google Play, ReactJS web at smartcare.tn, and a FastAPI backend
+        on MongoDB, deployed to AWS with GitHub Actions.
+      </p>
+      <p>
+        One person, both ends of the wire — the same request path as the diagram up top,
+        in production for real patients.
+      </p>
+      <ul class="case-stack"><li>Flutter</li><li>FastAPI</li><li>MongoDB</li><li>ReactJS</li><li>AWS</li></ul>
+    </div>
+    <div class="case-visual">
+      <div class="code-widget" aria-hidden="true">
+        <p class="widget-title">dispatch.py</p>
+<pre><code><span class="c-kw">@router.post</span>(<span class="c-str">"/ambulance/dispatch"</span>)
+<span class="c-kw">async def</span> <span class="c-fn">dispatch</span>(req: DispatchIn):
+    unit = <span class="c-kw">await</span> units.find_nearest(
+        req.location, status=<span class="c-str">"available"</span>
+    )
+    <span class="c-kw">await</span> notify.push(unit.driver_id, req)
+    <span class="c-kw">return</span> {<span class="c-str">"eta"</span>: unit.eta_minutes}</code></pre>
+      </div>
+    </div>
+  </article>
+
+  <!-- Case 3 : SOC Rugby -->
+  <article class="case">
+    <div class="case-text">
+      <p class="case-role">Mobile engineer · AzertyUI · shipped to both stores</p>
+      <h3>SOC Rugby</h3>
+      <p>
+        The official app of a French rugby club — live match results, rankings, WebSocket chat and
+        push notifications. Built in Flutter, published to the App Store and Google Play,
+        past 2,000 downloads. Fans refresh it at full time; it holds.
+      </p>
+      <ul class="case-stack"><li>Flutter</li><li>WebSockets</li><li>Push notifications</li><li>App Store</li><li>Google Play</li></ul>
+    </div>
+    <div class="case-visual">
+      <div class="score-widget widget-dark">
+        <div class="score-head">
+          <img class="soc-crest" src="assets/soc-crest.jpg" alt="SOC Chambéry club crest" width="72" height="72">
+          <p class="widget-title">Résultats — in production</p>
+        </div>
+        <div class="phone-frame">
+          <img src="assets/soc-app.jpg" alt="SOC Rugby app results screen showing match scores: SOC 24–0 CS Bourgoin-Jallieu, 21–6 Olympique Marcquois, 45–3 Stade Langonnais" loading="lazy">
+        </div>
+        <p class="widget-foot widget-foot-dark">real screen, real season — shipped to App Store &amp; Google Play</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Case 4 : L-Mobile -->
+  <article class="case case-flip">
+    <div class="case-text">
+      <p class="case-role">Engineering internship · L-Mobile · 2024</p>
+      <h3 class="case-title-logo"><img src="assets/lmobile-logo.png" alt="" width="46" height="34" style="width:46px">Forklift-mounted warehouse terminal</h3>
+      <p>
+        Tablets bolted onto forklifts, giving warehouse operators live inventory and logistics data
+        while moving. Five warehouse-management modules integrating Microsoft Dynamics 365
+        Business Central over C#/.NET and REST — my proof that I can land in an unfamiliar
+        enterprise stack and ship.
+      </p>
+      <ul class="case-stack"><li>C# / .NET</li><li>D365 Business Central</li><li>REST</li></ul>
+    </div>
+    <div class="case-visual">
+      <div class="wh-widget" aria-hidden="true">
+        <p class="widget-title">Bay B-12 · picking</p>
+        <div class="wh-grid">
+          <span></span><span class="wh-on"></span><span></span><span></span><span class="wh-on"></span><span></span>
+          <span class="wh-on"></span><span></span><span></span><span class="wh-target"></span><span></span><span class="wh-on"></span>
+          <span></span><span></span><span class="wh-on"></span><span></span><span></span><span></span>
+        </div>
+        <p class="widget-foot">SKU 4471 → aisle 2, shelf 3 · 14 units</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ LAB ============ -->
+<section id="lab" class="lab">
+  <h2>The lab</h2>
+  <p class="lab-lede">
+    Nights and weekends. Smaller builds where I try an idea end to end — hardware,
+    AI tooling, whatever the problem asks for.
+  </p>
+  <div class="lab-grid">
+    <article class="lab-item">
+      <h3>Sakia</h3>
+      <p>Remote control for farm water pumps — a Flutter-style Expo app talking MQTT to an ESP32 in the field. Arabic, French and English, built for farmers who are none of them online all day.</p>
+      <p class="lab-tags">Expo · ESP32 · MQTT</p>
+    </article>
+    <article class="lab-item">
+      <h3>Pulse</h3>
+      <p>An AI writing companion for LinkedIn — drafts posts in your own voice, mobile-first. Design system and MVP built to feel like a product, not a demo.</p>
+      <p class="lab-tags">Expo · AI · product design</p>
+    </article>
+    <article class="lab-item">
+      <h3>Conforma</h3>
+      <p>Audits documents against legal obligations — rule-based checks like forbidden vocabulary, backed by a structured catalog of legal requirements.</p>
+      <p class="lab-tags">Compliance · rules engine</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PATH ============ -->
+<section id="path" class="path">
+  <h2>The path so far</h2>
+  <ol class="timeline">
+    <li>
+      <p class="tl-when">2024 — now</p>
+      <div>
+        <h3>Team lead, AzertyUI</h3>
+        <p>Leading four engineers on a production marketplace. Architecture, code review standards, release priorities — and currently designing the backend for AzertyUI's next in-house product.</p>
+      </div>
+    </li>
+    <li>
+      <p class="tl-when">2024</p>
+      <div>
+        <h3>Engineering degree, ENISo</h3>
+        <p>Applied Computer Science (EUR-ACE accredited), National School of Engineers of Sousse. Mobile-engineering exchange at University of Technology Murang'a, Kenya.</p>
+        <div class="tl-photos">
+          <img src="assets/muranga-exchange.jpg" alt="Ghaith with fellow exchange student and faculty member at the Murang'a University of Technology monument" loading="lazy">
+          <img src="assets/muranga-campus.jpg" alt="Murang'a University of Technology — engineering building" loading="lazy">
+          <img src="assets/muranga-grounds.jpg" alt="Murang'a University of Technology — campus grounds" loading="lazy">
+        </div>
+        <p class="tl-caption">Murang'a University of Technology, Kenya — exchange semester</p>
+      </div>
+    </li>
+    <li>
+      <p class="tl-when">2023 — 2024</p>
+      <div>
+        <h3>Full-stack engineer, Hope Horizon</h3>
+        <p>SmartCare, solo across the stack — Flutter, ReactJS, FastAPI, MongoDB, AWS.</p>
+      </div>
+    </li>
+    <li>
+      <p class="tl-when">2022</p>
+      <div>
+        <h3>First production code</h3>
+        <p>Started shipping for real users, and haven't stopped. Arabic native, French and English at B2 — comfortable in international teams across time zones.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<footer id="contact" class="contact">
+  <img class="contact-photo" src="assets/ghaith.png" alt="Ghaith Mefteh" width="128" height="128" loading="lazy">
+  <p class="avail-badge"><span class="avail-dot"></span>Available for new roles &amp; freelance projects</p>
+  <h2>Let's build the next one</h2>
+  <p class="contact-lede">
+    Open to remote roles and freelance work, anywhere — full-stack, backend-leaning, or mobile.
+    Email or call, I answer fast — usually within the day.
+  </p>
+  <div class="contact-links">
+    <a class="btn btn-solid" href="mailto:ghaithmeftah@gmail.com?subject=Opportunity%20for%20Ghaith&amp;body=Hi%20Ghaith%2C%0A%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20talk%20about...">✉ Email me</a>
+    <a class="btn btn-call" href="tel:+21653324763">📞 +216 53 32 47 63</a>
+  </div>
+  <div class="contact-links contact-links-secondary">
+    <a class="btn btn-ghost" href="https://github.com/Ghaithmeftah" rel="noopener">GitHub</a>
+    <a class="btn btn-ghost" href="https://linkedin.com/in/ghaith-mefteh-995a18157" rel="noopener">LinkedIn</a>
+  </div>
+  <p class="contact-meta">Nabeul, Tunisia (CET) · <a href="mailto:ghaithmeftah@gmail.com">ghaithmeftah@gmail.com</a></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
