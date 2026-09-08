@@ -1,0 +1,114 @@
+# Ghaith Mefteh — Full-Stack & Mobile Software Engineer
+
+Last updated: 2026-09-08
+Canonical source: https://ghaithmeftah.github.io/
+
+## Identity
+
+- Name: Ghaith Mefteh (also spelled Ghaith Meftah)
+- Role: Full-stack and mobile software engineer, backend-leaning
+- Current position: Team lead at AzertyUI (2024 – present)
+- Location: Nabeul, Tunisia — timezone CET / UTC+1
+- Work mode: Remote, worldwide
+- Email: ghaithmeftah@gmail.com
+- Phone: +216 53 32 47 63
+- Website: https://ghaithmeftah.github.io/
+- GitHub: https://github.com/Ghaithmeftah
+- LinkedIn: https://www.linkedin.com/in/ghaith-mefteh-995a18157
+- Languages: Arabic (native), French (B2), English (B2)
+
+## Summary
+
+Ghaith Mefteh has 3+ years of production experience and works across the entire
+request path rather than a single layer: the screen in the browser, the app on the
+phone, the API behind them, and the database under that. He currently leads four
+engineers on a production marketplace at AzertyUI, covering architecture, code review
+standards and release priorities, and is designing the backend for AzertyUI's next
+in-house product.
+
+He is open to remote full-time engineering roles and freelance projects, anywhere —
+full-stack, backend-leaning, or mobile.
+
+## Technical skills
+
+- Backend: Symfony, PHP, Doctrine ORM, FastAPI, Python, REST API design, WebSockets
+- Databases: MySQL, MongoDB — query optimization, caching, migrations
+- Frontend: React, Angular, TypeScript
+- Mobile: Flutter, Dart — published to both the Apple App Store and Google Play,
+  including owning iOS release engineering in Xcode (signing certificates,
+  provisioning profiles, App Store Connect, TestFlight through to production)
+- Infrastructure and delivery: AWS, Docker, GitLab CI, GitHub Actions, PHPUnit
+- Practices: performance optimization, test suites, CI/CD, code review, technical leadership
+- Design-to-code: translating Figma designs screen by screen into Flutter widgets
+
+## Measured results
+
+- Search page load time on a live marketplace: reduced from 20–50 seconds to 4–6 seconds
+- Test suite: built from zero to 390+ tests
+- Image bandwidth: reduced by approximately 60% via on-demand WebP and multi-size caching
+- Flutter app: past 2,000 downloads across iOS and Android
+
+## Production projects
+
+### chalet-montagne.com — Full-stack engineer, AzertyUI, 2024–present
+French mountain-rental marketplace. Full rebuild on Symfony: legacy data and business
+logic migrated with functional parity, then the search and listing engine rewritten
+with caching, query optimization and parallelized data processing. Also built the
+reservation pipeline end to end — dynamic seasonal pricing, two-way iCal sync with
+external booking channels, payment integration, and the CI/CD plus PHPUnit suite
+enabling frequent, safe production releases.
+Stack: Symfony, Doctrine, MySQL, PHPUnit, GitLab CI.
+Live at https://www.chalet-montagne.com/
+
+### SOC Rugby — Mobile engineer, AzertyUI, 2024
+Official app of a French rugby club. Live match results, rankings, WebSocket chat and
+push notifications. Built in Flutter, published to the App Store and Google Play, past
+2,000 downloads. Started from a Figma design translated screen by screen into clean
+Dart/Flutter widgets. Owned the iOS release end to end in Xcode.
+Stack: Flutter, Dart, Xcode, iOS certificates, WebSockets, push notifications.
+
+### SmartCare — Full-stack engineer, Hope Horizon Health & Care, 2023–2024
+Healthcare platform for Tunisia: appointment booking, ambulance dispatch, push
+notifications, Google Maps integration. Designed and shipped solo across the stack —
+Flutter app on Google Play, ReactJS web at smartcare.tn, FastAPI backend on MongoDB,
+deployed to AWS with GitHub Actions. In production for real patients and doctors.
+Stack: Flutter, Dart, FastAPI, MongoDB, ReactJS, AWS.
+
+### Forklift-mounted warehouse terminal — Engineering internship, L-Mobile, 2024
+Tablets mounted on forklifts giving warehouse operators live inventory and logistics
+data while moving. Five warehouse-management modules integrating Microsoft Dynamics
+365 Business Central over C#/.NET and REST.
+Stack: C#/.NET, D365 Business Central, REST.
+
+## Side projects
+
+- Sakia: Remote control for farm water pumps — an Expo app talking MQTT to an ESP32
+  in the field, in Arabic, French and English.
+- Pulse: An AI writing companion for LinkedIn that drafts posts in the user's own
+  voice, mobile-first, with its own design system.
+- Conforma: Audits documents against legal obligations using rule-based checks backed
+  by a structured catalog of legal requirements.
+
+## Education
+
+- Engineering degree in Applied Computer Science, National School of Engineers of
+  Sousse (ENISo), Tunisia, 2024. EUR-ACE accredited.
+- Mobile-engineering exchange semester, Murang'a University of Technology, Kenya.
+
+## Timeline
+
+- 2024 – present: Team lead, AzertyUI. Leading four engineers on a production
+  marketplace; architecture, code review standards, release priorities.
+- 2024: Engineering degree, ENISo Sousse.
+- 2023 – 2024: Full-stack engineer, Hope Horizon — SmartCare, solo across the stack.
+- 2022: First production code; shipping for real users since.
+
+## Working with Ghaith
+
+- Available for: remote full-time roles and freelance projects, worldwide.
+- Best fit: full-stack ownership, backend-heavy work, or Flutter mobile delivery,
+  especially where one engineer needs to carry a feature from database to screen.
+- Timezone overlap: based at UTC+1, overlapping a full European working day and
+  the morning of US Eastern.
+- Response time: usually answers within the day.
+- Contact: ghaithmeftah@gmail.com or +216 53 32 47 63.

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://ghaithmeftah.github.io/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ghaithmeftah.github.io/assets/ghaith.png</image:loc>
+      <image:title>Ghaith Mefteh — full-stack and mobile software engineer</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ghaithmeftah.github.io/assets/cm-listings.jpg</image:loc>
+      <image:title>chalet-montagne.com rentals listing page, rebuilt on Symfony</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ghaithmeftah.github.io/assets/soc-results.jpg</image:loc>
+      <image:title>SOC Rugby Flutter app — live match results screen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ghaithmeftah.github.io/assets/sc-home.jpg</image:loc>
+      <image:title>SmartCare Flutter app — home screen</image:title>
+    </image:image>
+  </url>
+</urlset>
