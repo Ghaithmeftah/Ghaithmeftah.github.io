@@ -173,6 +173,15 @@ a { color: inherit; }
 .pkt-b { fill: var(--teal); }
 .pkt-c { fill: var(--sand); }
 
+/* clickable client skeletons */
+.node-link { cursor: pointer; }
+.node-link:hover .node-label,
+.node-link:focus-visible .node-label {
+  fill: var(--cobalt-deep);
+  text-decoration: underline;
+}
+.node-chrome { stroke: #C3CCDC; }
+
 .diagram-tip {
   text-align: center;
   font-family: var(--mono);
@@ -212,6 +221,7 @@ a { color: inherit; }
 }
 
 .case {
+  scroll-margin-top: 2rem;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
   gap: 3rem;
@@ -341,6 +351,31 @@ a { color: inherit; }
   box-shadow: 0 12px 32px rgba(0, 0, 0, .45);
 }
 .phone-frame img { display: block; width: 100%; height: auto; }
+
+/* browser-shot frame (Chalet Montagne — desktop pages) */
+.shot-frame {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0B1220;
+  box-shadow: 0 8px 22px rgba(21, 34, 56, .14);
+}
+.shot-frame img { display: block; width: 100%; height: auto; }
+
+/* two stacked cards in one case column */
+.case-visual > div + div { margin-top: 1.2rem; }
+
+/* honest scope line under a carousel */
+.carousel-note {
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-top: .7rem;
+}
+.widget-dark .carousel-note { color: #7E93AE; }
+/* centred under a centred carousel, like the dark widget's own foot */
+.shots-widget .widget-foot { text-align: center; }
 .widget-foot-dark { color: #93A9C4; text-align: center; }
 .score-row {
   display: flex; align-items: baseline; justify-content: center; gap: .9rem;
@@ -367,17 +402,124 @@ a { color: inherit; }
 @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
 
 /* warehouse widget */
-.wh-grid {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: .5rem;
+.wh-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
 }
-.wh-grid span {
-  aspect-ratio: 1; border-radius: 6px;
-  background: #E8EDF6;
+
+/* screenshot carousel (SmartCare, SOC Rugby) */
+.carousel { position: relative; margin-top: .4rem; min-width: 0; }
+.carousel-viewport {
+  overflow: hidden;
+  min-width: 0;
+  touch-action: pan-y;   /* let the page scroll vertically, we handle the swipe */
 }
-.wh-on { background: #C8D4EA !important; }
-.wh-target {
-  background: var(--sand) !important;
-  animation: blink 1.6s infinite;
+.carousel-track {
+  display: flex;
+  list-style: none;
+  transition: transform .45s cubic-bezier(.2, .7, .2, 1);
+}
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carousel-cap {
+  font-family: var(--mono);
+  font-size: .74rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-top: .8rem;
+  min-height: 2.2em;
+}
+.carousel-btn {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: rgba(255, 255, 255, .85);
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.carousel-btn:hover { border-color: var(--cobalt); background: #fff; }
+.carousel-prev { left: -8px; }
+.carousel-next { right: -8px; }
+.carousel-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: .5rem;
+}
+/* 7px dot, but a 22px touch target around it */
+.carousel-dots button {
+  width: 22px; height: 22px;
+  padding: 0;
+  border: 0;
+  background: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.carousel-dots button::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--line);
+  transition: background .15s, transform .15s;
+}
+.carousel-dots button[aria-current="true"]::before {
+  background: var(--cobalt);
+  transform: scale(1.25);
+}
+
+/* carousel on a dark widget (SOC Rugby) */
+.widget-dark .carousel-cap { color: #93A9C4; }
+.widget-dark .carousel-btn {
+  border-color: #2C4A6B;
+  background: rgba(5, 11, 20, .72);
+  color: #F3EBD5;
+}
+.widget-dark .carousel-btn:hover { border-color: #D9C289; background: #050B14; }
+.widget-dark .carousel-dots button::before { background: #2C4A6B; }
+.widget-dark .carousel-dots button[aria-current="true"]::before { background: #D9C289; }
+
+/* event proof strip (SOC Rugby) */
+.case-proof {
+  grid-column: 1 / -1;
+  order: 3;
+  margin-top: 2rem;
+  padding-top: 1.6rem;
+  border-top: 1px dashed var(--line);
+}
+.case-proof-label {
+  font-family: var(--mono);
+  font-size: .8rem;
+  color: var(--ink-soft) !important;
+  margin-bottom: 1rem;
+  max-width: none !important;
+}
+.case-proof-shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .9rem;
+}
+.case-proof-shots img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line);
 }
 
 /* ====== lab ====== */
@@ -476,7 +618,11 @@ a { color: inherit; }
 }
 .btn-call:hover { background: var(--cobalt); color: #fff; transform: translateY(-2px); }
 .contact-links-secondary { margin-top: .9rem; }
-.contact-meta a { color: inherit; }
+.contact-meta a {
+  color: inherit;
+  display: inline-block;
+  padding: .4rem .2rem;
+}
 .contact-photo {
   display: block; margin-left: auto; margin-right: auto;
   width: 128px; height: 128px; border-radius: 50%;
@@ -502,13 +648,43 @@ a { color: inherit; }
 /* ====== responsive ====== */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; padding-top: 2rem; }
-  .case { grid-template-columns: 1fr; gap: 1.6rem; }
+  .case { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
   .case-flip .case-text { order: 1; }
   .case-flip .case-visual { order: 2; }
-  .lab-grid { grid-template-columns: 1fr; }
+  .lab-grid { grid-template-columns: repeat(2, 1fr); }
+  .case-proof-shots { grid-template-columns: repeat(2, 1fr); }
   .timeline li { grid-template-columns: 1fr; gap: .3rem; }
-  .top nav { gap: 1rem; }
-  .top nav a { font-size: .85rem; }
+  .top nav { gap: .5rem; }
+  /* bigger tap targets for thumbs */
+  .top nav a { font-size: .9rem; padding: .55rem .4rem; }
+  .carousel-btn { width: 42px; height: 42px; font-size: 1.35rem; }
+  .carousel-prev { left: -12px; }
+  .carousel-next { right: -12px; }
+  .node-label { font-size: 15px; }
+  .diagram-tip { font-size: .9rem; }
+  /* 24px minimum touch target; a long dot row wraps to a second line */
+  .carousel-dots button { width: 24px; height: 24px; }
+}
+
+@media (max-width: 620px) {
+  .top { padding: 1rem 1.1rem; }
+  .hero { padding: 1.5rem 1.1rem 2.5rem; }
+  .proof p { padding: 1.8rem 1.1rem; font-size: 1.1rem; }
+  .work, .lab, .contact { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .path { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .case-visual > div { padding: 1.1rem; }
+  .case-proof-shots { grid-template-columns: 1fr; }
+  .case-proof-shots img { height: 190px; }
+  /* full-width CTAs are easier to hit one-handed */
+  .hero-actions .btn, .contact-links .btn { flex: 1 1 100%; text-align: center; }
+  .tl-photos img { flex-basis: 100%; height: 200px; }
+  .lab-grid { grid-template-columns: 1fr; }
+  /* the diagram is small here, so its labels need to grow back */
+  .node-label { font-size: 18px; }
+  /* two lines of tip, reserved, so tapping a node never shifts the page */
+  .diagram-tip { min-height: 2.8em; }
+  /* thumb-sized mail link */
+  .contact-meta a { padding: .6rem .4rem; }
 }
 
 /* ====== reduced motion ====== */
@@ -518,5 +694,6 @@ a { color: inherit; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .loadbar-fill { transition: none; width: var(--w); }
   .pkt { display: none; }
-  .feed-live::after, .wh-target { animation: none; }
+  .feed-live::after { animation: none; }
+  .carousel-track { transition: none; }
 }

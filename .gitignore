@@ -1,2 +1,6 @@
 .DS_Store
 Thumbs.db
+
+# raw full-size screenshot originals — the optimized jpgs in assets/ are what ship
+assets/CM-*.png
+assets/Cm-*.png

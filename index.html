@@ -41,9 +41,10 @@
     </p>
     <h1>I build the whole<br>request<span class="accent">.</span></h1>
     <p class="hero-lede">
-      Full-stack engineer, 3+ years in production. The app on the phone, the API behind it,
-      the database under that — I own the entire path. Symfony&nbsp;+&nbsp;MySQL,
-      FastAPI&nbsp;+&nbsp;MongoDB, Flutter on both stores.
+      Full-stack engineer, 3+ years in production. The screen in the browser, the app on the
+      phone, the API behind them, the database under that — I own the entire path.
+      React&nbsp;&amp;&nbsp;Angular on the front, Symfony&nbsp;+&nbsp;MySQL and
+      FastAPI&nbsp;+&nbsp;MongoDB behind, Flutter on both stores.
     </p>
     <div class="hero-actions">
       <a class="btn btn-solid" href="#work">See the work</a>
@@ -51,47 +52,68 @@
     </div>
   </div>
 
-  <!-- Animated system diagram: request travels phone → backend → db and back -->
-  <figure class="hero-diagram" aria-label="Animated diagram: a request travels from a Flutter app to a Symfony or FastAPI backend, then to MySQL or MongoDB, and back.">
-    <svg id="sysdiagram" viewBox="0 0 560 420" role="img" aria-hidden="true">
+  <!-- Animated system diagram: request travels client → backend → db and back -->
+  <figure class="hero-diagram" aria-label="Animated diagram: a request travels from a React or Angular web app or a Flutter mobile app to a Symfony or FastAPI backend, then to MySQL or MongoDB, and back. The web and mobile skeletons link to the matching projects below.">
+    <svg id="sysdiagram" viewBox="0 0 560 400" role="img">
       <!-- wires -->
-      <path id="wire-app-api" class="wire" d="M150 210 C 210 210, 220 130, 285 118"/>
-      <path id="wire-app-api2" class="wire" d="M150 210 C 210 210, 220 290, 285 302"/>
-      <path id="wire-api-db" class="wire" d="M395 118 C 450 122, 458 165, 470 196"/>
-      <path id="wire-api2-db2" class="wire" d="M395 302 C 450 298, 458 255, 470 224"/>
+      <path id="wire-ph-sym" class="wire" d="M164 96 C 216 96, 250 132, 292 133"/>
+      <path id="wire-ph-fa" class="wire" d="M164 110 C 214 150, 240 296, 292 304"/>
+      <path id="wire-web-sym" class="wire" d="M194 272 C 240 248, 252 126, 292 141"/>
+      <path id="wire-web-fa" class="wire" d="M194 288 C 238 300, 258 306, 292 307"/>
+      <path id="wire-sym-db" class="wire" d="M404 136 C 450 140, 470 160, 480 190"/>
+      <path id="wire-fa-db" class="wire" d="M404 306 C 450 300, 470 250, 480 214"/>
 
-      <!-- phone node -->
-      <g class="node node-phone" tabindex="0" data-tip="Flutter — SOC Rugby &amp; SmartCare, live on both stores">
-        <rect x="88" y="140" width="72" height="140" rx="14"/>
-        <rect class="node-screen" x="96" y="156" width="56" height="96" rx="6"/>
-        <circle class="node-btn" cx="124" cy="266" r="5"/>
-        <text x="124" y="308" class="node-label">Flutter</text>
+      <!-- phone node (click → Flutter work) -->
+      <g class="node node-phone node-link" tabindex="0" role="link"
+         aria-label="Mobile — see the Flutter projects below"
+         data-tip="Flutter — tap to jump to the mobile projects"
+         data-target="#case-soc">
+        <rect x="90" y="40" width="72" height="118" rx="15"/>
+        <rect class="node-screen" x="98" y="54" width="56" height="82" rx="6"/>
+        <circle class="node-btn" cx="126" cy="147" r="4"/>
+        <text x="126" y="182" class="node-label">Flutter · mobile</text>
+      </g>
+
+      <!-- web node (click → React/Angular work) -->
+      <g class="node node-web node-link" tabindex="0" role="link"
+         aria-label="Web — see the React and Angular projects below"
+         data-tip="React &amp; Angular — tap to jump to the web projects"
+         data-target="#case-smartcare">
+        <rect x="60" y="228" width="132" height="96" rx="10"/>
+        <line class="node-line node-chrome" x1="60" y1="246" x2="192" y2="246"/>
+        <circle class="node-btn" cx="74" cy="237" r="3"/>
+        <circle class="node-btn" cx="84" cy="237" r="3"/>
+        <circle class="node-btn" cx="94" cy="237" r="3"/>
+        <line class="node-line" x1="76" y1="266" x2="140" y2="266"/>
+        <line class="node-line" x1="76" y1="281" x2="176" y2="281"/>
+        <line class="node-line" x1="76" y1="296" x2="128" y2="296"/>
+        <text x="126" y="348" class="node-label">React · Angular</text>
       </g>
 
       <!-- backend node 1 : Symfony -->
       <g class="node node-api" tabindex="0" data-tip="Symfony + Doctrine — chalet-montagne.com rebuild, 390+ tests">
-        <rect x="285" y="86" width="110" height="64" rx="10"/>
-        <line class="node-line" x1="300" y1="106" x2="352" y2="106"/>
-        <line class="node-line" x1="300" y1="120" x2="376" y2="120"/>
-        <line class="node-line" x1="300" y1="134" x2="340" y2="134"/>
-        <text x="340" y="170" class="node-label">Symfony · PHP</text>
+        <rect x="292" y="106" width="112" height="60" rx="10"/>
+        <line class="node-line" x1="308" y1="124" x2="360" y2="124"/>
+        <line class="node-line" x1="308" y1="138" x2="384" y2="138"/>
+        <line class="node-line" x1="308" y1="152" x2="348" y2="152"/>
+        <text x="348" y="188" class="node-label">Symfony · PHP</text>
       </g>
 
       <!-- backend node 2 : FastAPI -->
       <g class="node node-api" tabindex="0" data-tip="FastAPI — SmartCare healthcare backend on AWS">
-        <rect x="285" y="270" width="110" height="64" rx="10"/>
-        <line class="node-line" x1="300" y1="290" x2="360" y2="290"/>
-        <line class="node-line" x1="300" y1="304" x2="336" y2="304"/>
-        <line class="node-line" x1="300" y1="318" x2="370" y2="318"/>
-        <text x="340" y="356" class="node-label">FastAPI · Python</text>
+        <rect x="292" y="282" width="112" height="60" rx="10"/>
+        <line class="node-line" x1="308" y1="300" x2="368" y2="300"/>
+        <line class="node-line" x1="308" y1="314" x2="344" y2="314"/>
+        <line class="node-line" x1="308" y1="328" x2="378" y2="328"/>
+        <text x="348" y="364" class="node-label">FastAPI · Python</text>
       </g>
 
       <!-- db node -->
       <g class="node node-db" tabindex="0" data-tip="MySQL &amp; MongoDB — query optimization, caching, migrations">
-        <ellipse cx="500" cy="176" rx="34" ry="12"/>
-        <path class="db-body" d="M466 176 v58 a34 12 0 0 0 68 0 v-58"/>
-        <ellipse class="db-mid" cx="500" cy="205" rx="34" ry="12"/>
-        <text x="500" y="272" class="node-label">MySQL · MongoDB</text>
+        <ellipse cx="504" cy="182" rx="34" ry="12"/>
+        <path class="db-body" d="M470 182 v58 a34 12 0 0 0 68 0 v-58"/>
+        <ellipse class="db-mid" cx="504" cy="211" rx="34" ry="12"/>
+        <text x="504" y="278" class="node-label">MySQL · MongoDB</text>
       </g>
 
       <!-- traveling request dots (positioned by JS along the wires) -->
@@ -99,7 +121,7 @@
       <circle class="pkt pkt-b" r="5"/>
       <circle class="pkt pkt-c" r="4"/>
     </svg>
-    <figcaption class="diagram-tip" id="diagram-tip">Hover a node — this is the path I own.</figcaption>
+    <figcaption class="diagram-tip" id="diagram-tip">Tap the mobile or web screen to see those projects.</figcaption>
   </figure>
 </section>
 
@@ -155,11 +177,116 @@
         </div>
         <p class="widget-foot">plus ~60% less image bandwidth — on-demand WebP, multi-size caching</p>
       </div>
+
+      <!-- pages from the live site -->
+      <div class="shots-widget">
+        <p class="widget-title">The site, page by page</p>
+        <div class="carousel" data-carousel data-carousel-autoplay="6000">
+          <div class="carousel-viewport">
+            <ul class="carousel-track">
+              <li class="carousel-slide">
+                <div class="shot-frame"><img src="assets/cm-home.jpg" alt="chalet-montagne.com home page — search bar for destination, dates and travellers over a mountain terrace photo" width="1400" height="702" loading="lazy"></div>
+                <p class="carousel-cap">Accueil — search by destination, dates, travellers</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="shot-frame"><img src="assets/cm-listings.jpg" alt="chalet-montagne.com rentals listing page — filter sidebar for price, capacity and rental type beside a grid of chalet cards with weekly prices" width="1400" height="714" loading="lazy"></div>
+                <p class="carousel-cap">Locations — filters over the rewritten search engine</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="shot-frame"><img src="assets/cm-rental.jpg" alt="chalet-montagne.com rental detail page — photo gallery, check-in and check-out times, contact panel and verified-owner badge" width="1400" height="717" loading="lazy"></div>
+                <p class="carousel-cap">Détail d'une location — gallery, dispo, contact owner</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="shot-frame"><img src="assets/cm-insurance.jpg" alt="chalet-montagne.com cancellation insurance page — hero headline Voyagez l'esprit plus léger with three guarantee highlights" width="1400" height="710" loading="lazy"></div>
+                <p class="carousel-cap">Assurance annulation — partner-backed cover</p>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="carousel-btn carousel-prev" aria-label="Previous page">‹</button>
+          <button type="button" class="carousel-btn carousel-next" aria-label="Next page">›</button>
+          <div class="carousel-dots" aria-hidden="true"></div>
+        </div>
+        <p class="carousel-note">Some of the site's pages — not all of them.</p>
+        <p class="widget-foot">live at chalet-montagne.com</p>
+      </div>
     </div>
   </article>
 
-  <!-- Case 2 : SmartCare -->
-  <article class="case case-flip">
+  <!-- Case 2 : SOC Rugby -->
+  <article id="case-soc" class="case case-flip">
+    <div class="case-text">
+      <p class="case-role">Mobile engineer · AzertyUI · shipped to both stores · 2024</p>
+      <h3>SOC Rugby</h3>
+      <p>
+        The official app of a French rugby club — live match results, rankings, WebSocket chat and
+        push notifications. Built in Flutter, published to the App Store and Google Play,
+        past 2,000 downloads. Fans refresh it at full time; it holds.
+      </p>
+      <p>
+        Like every Flutter project I build, it started from a Figma design that I translated
+        screen by screen into clean Dart&nbsp;/&nbsp;Flutter widgets. I also owned the iOS
+        release end to end in Xcode — signing certificates, provisioning profiles and
+        App&nbsp;Store&nbsp;Connect, from TestFlight through to production.
+      </p>
+      <ul class="case-stack"><li>Flutter</li><li>Dart</li><li>Figma → Flutter</li><li>Xcode</li><li>iOS certificates</li><li>WebSockets</li><li>Push notifications</li><li>App Store</li><li>Google Play</li></ul>
+    </div>
+    <div class="case-visual">
+      <div class="score-widget widget-dark">
+        <div class="score-head">
+          <img class="soc-crest" src="assets/soc-crest.jpg" alt="SOC Chambéry club crest" width="72" height="72">
+          <p class="widget-title">The app, screen by screen</p>
+        </div>
+        <div class="carousel" data-carousel data-carousel-autoplay="5500">
+          <div class="carousel-viewport">
+            <ul class="carousel-track">
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/soc-results.jpg" alt="SOC Rugby app — Résultats screen: SENIOR M1 24–0 CS Bourgoin-Jallieu, 21–6 Olympique Marcquois, 45–3 Stade Langonnais" loading="lazy"></div>
+                <p class="carousel-cap">Résultats — live scores by matchday</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/soc-standings.jpg" alt="SOC Rugby app — Classement screen with SOC Rugby Chambéry top of the table on 61 points" loading="lazy"></div>
+                <p class="carousel-cap">Classement — full league table</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/soc-calendar.jpg" alt="SOC Rugby app — Calendrier screen showing December 2024 month view with event markers" loading="lazy"></div>
+                <p class="carousel-cap">Calendrier — matches &amp; club events</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/soc-events.jpg" alt="SOC Rugby app — Évenements list filtered by date range" loading="lazy"></div>
+                <p class="carousel-cap">Évènements — filterable by date</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/soc-event-detail.jpg" alt="SOC Rugby app — event detail screen for Sample Event02, organiser SOC Rugby" loading="lazy"></div>
+                <p class="carousel-cap">Détail d'un événement</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/soc-tickets.jpg" alt="SOC Rugby app — Billetterie screen with a Mes billets button" loading="lazy"></div>
+                <p class="carousel-cap">Billetterie</p>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="carousel-btn carousel-prev" aria-label="Previous screen">‹</button>
+          <button type="button" class="carousel-btn carousel-next" aria-label="Next screen">›</button>
+          <div class="carousel-dots" aria-hidden="true"></div>
+        </div>
+        <p class="carousel-note">Some of the app's screens — not all of them.</p>
+        <p class="widget-foot widget-foot-dark">real screens, real season — shipped to App Store &amp; Google Play</p>
+      </div>
+    </div>
+    <div class="case-proof">
+      <p class="case-proof-label">
+        Unveiled by AzertyUI at the SOC Rugby sponsors' evening — Château de Tresserve, Bonport (Chambéry).
+      </p>
+      <div class="case-proof-shots">
+        <img src="assets/soc-event-venue.jpg" alt="Château de Tresserve façade at night, the venue logo projected on the wall and a SOC Chambéry banner by the entrance" loading="lazy">
+        <img src="assets/soc-event-slide-app.jpg" alt="Presentation slide on the venue screen titled Application Partenaires, showing the SOC Rugby partners app welcome screen" loading="lazy">
+        <img src="assets/soc-event-slide-credits.jpg" alt="Presentation slide crediting the app to NEXTIES &amp; AzertyUI" loading="lazy">
+      </div>
+    </div>
+  </article>
+
+  <!-- Case 3 : SmartCare -->
+  <article id="case-smartcare" class="case">
     <div class="case-text">
       <p class="case-role">Full-stack engineer · Hope Horizon Health &amp; Care · 2023 – 2024</p>
       <h3 class="case-title-logo"><img src="assets/smartcare-logo.png" alt="" width="34" height="34">SmartCare</h3>
@@ -170,47 +297,83 @@
         on MongoDB, deployed to AWS with GitHub Actions.
       </p>
       <p>
-        One person, both ends of the wire — the same request path as the diagram up top,
-        in production for real patients.
+        As on every Flutter project I build, the app started as a Figma design and I
+        translated it screen by screen into clean, reusable Dart&nbsp;/&nbsp;Flutter widgets —
+        pixel-faithful to the mockups. One person, both ends of the wire — the same request
+        path as the diagram up top, in production for real patients.
       </p>
-      <ul class="case-stack"><li>Flutter</li><li>FastAPI</li><li>MongoDB</li><li>ReactJS</li><li>AWS</li></ul>
+      <ul class="case-stack"><li>Flutter</li><li>Dart</li><li>Figma → Flutter</li><li>FastAPI</li><li>MongoDB</li><li>ReactJS</li><li>AWS</li></ul>
     </div>
     <div class="case-visual">
-      <div class="code-widget" aria-hidden="true">
-        <p class="widget-title">dispatch.py</p>
-<pre><code><span class="c-kw">@router.post</span>(<span class="c-str">"/ambulance/dispatch"</span>)
-<span class="c-kw">async def</span> <span class="c-fn">dispatch</span>(req: DispatchIn):
-    unit = <span class="c-kw">await</span> units.find_nearest(
-        req.location, status=<span class="c-str">"available"</span>
-    )
-    <span class="c-kw">await</span> notify.push(unit.driver_id, req)
-    <span class="c-kw">return</span> {<span class="c-str">"eta"</span>: unit.eta_minutes}</code></pre>
-      </div>
-    </div>
-  </article>
-
-  <!-- Case 3 : SOC Rugby -->
-  <article class="case">
-    <div class="case-text">
-      <p class="case-role">Mobile engineer · AzertyUI · shipped to both stores</p>
-      <h3>SOC Rugby</h3>
-      <p>
-        The official app of a French rugby club — live match results, rankings, WebSocket chat and
-        push notifications. Built in Flutter, published to the App Store and Google Play,
-        past 2,000 downloads. Fans refresh it at full time; it holds.
-      </p>
-      <ul class="case-stack"><li>Flutter</li><li>WebSockets</li><li>Push notifications</li><li>App Store</li><li>Google Play</li></ul>
-    </div>
-    <div class="case-visual">
-      <div class="score-widget widget-dark">
-        <div class="score-head">
-          <img class="soc-crest" src="assets/soc-crest.jpg" alt="SOC Chambéry club crest" width="72" height="72">
-          <p class="widget-title">Résultats — in production</p>
+      <div class="shots-widget">
+        <p class="widget-title">The Flutter app, screen by screen</p>
+        <div class="carousel" data-carousel data-carousel-autoplay="5000">
+          <div class="carousel-viewport">
+            <ul class="carousel-track">
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-home.jpg" alt="SmartCare app — Accueil home screen with a grid of feature tiles: global search, medical profile, AI assistance, ambulance call, my doctors, share profile" loading="lazy"></div>
+                <p class="carousel-cap">Accueil — every feature one tap away</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-appt-1-doctor.jpg" alt="SmartCare app — doctor profile screen with the next free appointment slot" loading="lazy"></div>
+                <p class="carousel-cap">Doctor profile — book from the next free slot</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-appt-2-date.jpg" alt="SmartCare app — calendar date picker with busy days and days off flagged" loading="lazy"></div>
+                <p class="carousel-cap">Date picker — busy &amp; closed days flagged</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-appt-3-slot.jpg" alt="SmartCare app — time-slot picker with morning and afternoon hour-range sliders" loading="lazy"></div>
+                <p class="carousel-cap">Time slots, with hour-range preferences</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-appt-4-reason.jpg" alt="SmartCare app — visit reason screen with a searchable symptom picker" loading="lazy"></div>
+                <p class="carousel-cap">Visit reason — searchable symptom picker</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-appt-5-review.jpg" alt="SmartCare app — appointment review screen before sending the request" loading="lazy"></div>
+                <p class="carousel-cap">Review before sending the request</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-appt-6-success.jpg" alt="SmartCare app — success dialog confirming the appointment request was sent" loading="lazy"></div>
+                <p class="carousel-cap">Request sent — confirmation</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-appt-7-push.jpg" alt="SmartCare app — Android push notification confirming the appointment request" loading="lazy"></div>
+                <p class="carousel-cap">Push notification back to the patient</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-appt-8-doctor-confirm.jpg" alt="SmartCare app — doctor's screen to accept or reject the pending appointment request" loading="lazy"></div>
+                <p class="carousel-cap">Doctor side — accept or reject the request</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-urgent-1-list.jpg" alt="SmartCare app — urgent calls screen listing nearby ambulance requests sorted by distance, with take-charge and itinerary actions" loading="lazy"></div>
+                <p class="carousel-cap">Urgent calls — nearby requests, by distance</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-urgent-2-push.jpg" alt="SmartCare app — push notifications alerting that a nearby contact launched an ambulance call" loading="lazy"></div>
+                <p class="carousel-cap">Push alert when a contact calls for help nearby</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-urgent-3-detail.jpg" alt="SmartCare app — urgent call detail with a Google Map of the patient location, status, and patient information" loading="lazy"></div>
+                <p class="carousel-cap">Call detail — live map &amp; patient info</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-medic-1-picker.jpg" alt="SmartCare app — drug interaction feature, selecting several medicines then Detect interactions" loading="lazy"></div>
+                <p class="carousel-cap">Drug interactions — pick the patient's medicines</p>
+              </li>
+              <li class="carousel-slide">
+                <div class="phone-frame"><img src="assets/sc-medic-2-results.jpg" alt="SmartCare app — drug interaction results listing flagged medicine pairs with dosage and form" loading="lazy"></div>
+                <p class="carousel-cap">Flagged interaction pairs, with dosage &amp; form</p>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="carousel-btn carousel-prev" aria-label="Previous screen">‹</button>
+          <button type="button" class="carousel-btn carousel-next" aria-label="Next screen">›</button>
+          <div class="carousel-dots" aria-hidden="true"></div>
         </div>
-        <div class="phone-frame">
-          <img src="assets/soc-app.jpg" alt="SOC Rugby app results screen showing match scores: SOC 24–0 CS Bourgoin-Jallieu, 21–6 Olympique Marcquois, 45–3 Stade Langonnais" loading="lazy">
-        </div>
-        <p class="widget-foot widget-foot-dark">real screen, real season — shipped to App Store &amp; Google Play</p>
+        <p class="carousel-note">Some of the app's screens — not all of them.</p>
+        <p class="widget-foot">real screens from the Flutter app — in production for patients and doctors</p>
       </div>
     </div>
   </article>
@@ -229,14 +392,12 @@
       <ul class="case-stack"><li>C# / .NET</li><li>D365 Business Central</li><li>REST</li></ul>
     </div>
     <div class="case-visual">
-      <div class="wh-widget" aria-hidden="true">
-        <p class="widget-title">Bay B-12 · picking</p>
-        <div class="wh-grid">
-          <span></span><span class="wh-on"></span><span></span><span></span><span class="wh-on"></span><span></span>
-          <span class="wh-on"></span><span></span><span></span><span class="wh-target"></span><span></span><span class="wh-on"></span>
-          <span></span><span></span><span class="wh-on"></span><span></span><span></span><span></span>
-        </div>
-        <p class="widget-foot">SKU 4471 → aisle 2, shelf 3 · 14 units</p>
+      <div class="wh-widget">
+        <p class="widget-title">Where the terminals live</p>
+        <img class="wh-photo" src="assets/lmobile-warehouse.png"
+             alt="Warehouse aisle stacked with blue crates, forklifts driving between them, location pins marking tracked positions on the floor"
+             loading="lazy" width="1200" height="600">
+        <p class="widget-foot">tablets ride the forklifts — live inventory and picking data while the operator moves</p>
       </div>
     </div>
   </article>
