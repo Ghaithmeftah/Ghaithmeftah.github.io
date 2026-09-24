@@ -99,7 +99,23 @@
 
 // ===== scroll reveal + load-bar trigger =====
 (function () {
-  const targets = document.querySelectorAll(".case, .lab-item, .timeline li, .loadbar-widget");
+  // siblings that arrive together get a small stagger through --i
+  const groups = [
+    ".glance-grid > div", ".lab-item", ".timeline li", ".lane", ".howiwork li",
+    ".says-grid .say", ".clients-row li",
+  ];
+  groups.forEach((sel) => {
+    document.querySelectorAll(sel).forEach((el, i) => el.style.setProperty("--i", i % 6));
+  });
+  document.querySelectorAll(".case-stack").forEach((ul) => {
+    ul.querySelectorAll("li").forEach((li, i) => li.style.setProperty("--i", i));
+  });
+  document.querySelectorAll(".mon-feed li").forEach((li, i) => li.style.setProperty("--i", i));
+
+  const targets = document.querySelectorAll(
+    ".case, .loadbar-widget, .mon-widget, .glance h2, .work > h2, .lab > h2, .path > h2, " +
+    ".hire > h2, .says-head, " + groups.join(", ")
+  );
   targets.forEach((t) => t.classList.add("reveal"));
 
   const io = new IntersectionObserver(
@@ -116,23 +132,6 @@
     { threshold: 0, rootMargin: "0px 0px -12% 0px" }
   );
   targets.forEach((t) => io.observe(t));
-})();
-
-// ===== live score ticks up once, a small wink =====
-(function () {
-  const el = document.getElementById("score-home");
-  if (!el) return;
-  const io = new IntersectionObserver((entries) => {
-    if (!entries[0].isIntersecting) return;
-    io.disconnect();
-    let n = 17;
-    const iv = setInterval(() => {
-      n++;
-      el.textContent = n;
-      if (n >= 24) clearInterval(iv);
-    }, 120);
-  }, { threshold: 0.5 });
-  io.observe(el);
 })();
 
 // ===== screenshot carousel =====
@@ -218,4 +217,177 @@
     go(0);
     restart();
   });
+})();
+
+// ===== sticky header: frosted once scrolled, reading progress, current section =====
+(function () {
+  const top = document.querySelector(".top");
+  if (!top) return;
+  const bar = top.querySelector(".top-progress");
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const y = window.scrollY;
+    top.classList.toggle("is-stuck", y > 24);
+    if (bar) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.setProperty("--p", max > 0 ? Math.min(1, y / max).toFixed(4) : 0);
+    }
+  }
+  window.addEventListener("scroll", () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+
+  // the nav link of the section under the header gets the underline
+  const links = Array.from(document.querySelectorAll('.top nav a[href^="#"]'));
+  const byId = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
+  const sections = links
+    .map((a) => document.getElementById(a.getAttribute("href").slice(1)))
+    .filter(Boolean);
+  if (!sections.length) return;
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      links.forEach((a) => a.classList.remove("is-active"));
+      const a = byId.get(e.target.id);
+      if (a) a.classList.add("is-active");
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  sections.forEach((s) => spy.observe(s));
+})();
+
+// ===== proof numbers count up the first time they are seen =====
+(function () {
+  const nums = document.querySelectorAll("[data-count]");
+  if (!nums.length) return;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const locale = document.documentElement.lang === "fr" ? "fr-FR" : "en-US";
+
+  function fmt(v, decimals) {
+    return v.toLocaleString(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  }
+  // the final value is already in the HTML, so no-JS readers and crawlers see it
+  if (reduced) return;
+
+  function run(el) {
+    const to = parseFloat(el.dataset.count);
+    const decimals = parseInt(el.dataset.decimals || "0", 10);
+    // a 99.8% counts up from 90, not from zero, so it reads as precision, not a race
+    const from = to < 100 && decimals ? Math.floor(to * 0.9) : 0;
+    const dur = 1400;
+    let start = null;
+    function frame(ts) {
+      if (start === null) start = ts;
+      const t = Math.min(1, (ts - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = fmt(from + (to - from) * eased, decimals);
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.6 });
+  nums.forEach((n) => io.observe(n));
+})();
+
+// ===== platform schematic: requests fan out from the gateway, services talk over gRPC =====
+(function () {
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const svg = document.getElementById("archdiagram");
+  if (!svg || reduced) return;
+  const w = (id) => document.getElementById(id);
+  const pk = svg.querySelectorAll(".arch-pkt");
+  const trips = [
+    { el: pk[0], legs: [[w("arch-w0"), false], [w("arch-w2"), false], [w("arch-w2"), true], [w("arch-w0"), true]], delay: 0 },
+    { el: pk[1], legs: [[w("arch-w0"), false], [w("arch-w4"), false], [w("arch-w4"), true], [w("arch-w0"), true]], delay: 1700 },
+    { el: pk[2], legs: [[w("arch-g1"), false], [w("arch-g1"), true], [w("arch-g2"), false], [w("arch-g2"), true]], delay: 900 },
+  ];
+  const speed = 0.09; // svg units per ms
+
+  function play(trip) {
+    let leg = 0, dist = 0, last = null;
+    trip.el.style.opacity = 1;
+    function frame(ts) {
+      if (last === null) last = ts;
+      dist += speed * (ts - last);
+      last = ts;
+      const [path, rev] = trip.legs[leg];
+      const len = path.getTotalLength();
+      const p = path.getPointAtLength(rev ? len - Math.min(dist, len) : Math.min(dist, len));
+      trip.el.setAttribute("cx", p.x);
+      trip.el.setAttribute("cy", p.y);
+      if (dist >= len) {
+        dist = 0;
+        leg = (leg + 1) % trip.legs.length;
+        if (leg === 0) { last = null; setTimeout(() => requestAnimationFrame(frame), 700); return; }
+      }
+      requestAnimationFrame(frame);
+    }
+    setTimeout(() => requestAnimationFrame(frame), trip.delay);
+  }
+
+  // start only once the diagram is on screen
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) { trips.forEach(play); io.disconnect(); }
+  }, { threshold: 0.3 });
+  io.observe(svg);
+})();
+
+// ===== monitoring feed: the flagged row gets its highlight =====
+(function () {
+  document.querySelectorAll(".mon-feed li").forEach((li) => {
+    if (li.querySelector(".mon-warn")) li.classList.add("is-flag");
+  });
+})();
+
+// ===== language hint: offer the other language once, to readers whose browser prefers it =====
+(function () {
+  const lang = document.documentElement.lang === "fr" ? "fr" : "en";
+  const KEY = "gm-lang";
+  let saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) { /* storage blocked: just ask */ }
+
+  function remember(v) { try { localStorage.setItem(KEY, v); } catch (e) { /* ignore */ } }
+
+  // choosing a language from the nav counts as an answer too
+  document.querySelectorAll(".nav-lang, [data-lang-switch]").forEach((a) => {
+    a.addEventListener("click", () => remember(lang === "fr" ? "en" : "fr"));
+  });
+
+  if (saved) return;
+  const prefs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""])
+    .map((l) => String(l).toLowerCase());
+  const prefersFr = prefs[0] && prefs[0].startsWith("fr");
+  const wantOther = lang === "en" ? prefersFr : !prefersFr && prefs[0];
+  if (!wantOther) return;
+
+  // same page in the other language: /x -> /fr/x on the English side, and back
+  const file = location.pathname.split("/").pop();
+  const target = lang === "en" ? "fr/" + file : "../" + file;
+  const copy = lang === "en"
+    ? { text: "Ce portfolio existe aussi en français, avec le CV en français.", go: "Version française", stay: "Rester en anglais", hl: "fr" }
+    : { text: "This portfolio is also in English, with the English CV.", go: "English version", stay: "Stay in French", hl: "en" };
+
+  const box = document.createElement("div");
+  box.className = "lang-hint";
+  box.setAttribute("role", "dialog");
+  box.setAttribute("aria-label", copy.go);
+  box.lang = copy.hl;
+  box.innerHTML =
+    '<p></p><a class="btn btn-solid" hreflang="' + copy.hl + '"></a><button type="button"></button>';
+  box.querySelector("p").textContent = copy.text;
+  const go = box.querySelector("a");
+  go.href = target || "./";
+  go.textContent = copy.go;
+  go.addEventListener("click", () => remember(copy.hl));
+  const stay = box.querySelector("button");
+  stay.textContent = copy.stay;
+  stay.addEventListener("click", () => { remember(lang); box.remove(); });
+  document.body.appendChild(box);
 })();

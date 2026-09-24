@@ -1,78 +1,104 @@
-# Ghaith Mefteh — Full-Stack & Mobile Software Engineer
+# Ghaith Mefteh — Full-Stack and Mobile Software Engineer
 
-Last updated: 2026-09-08
+Last updated: 2026-09-24
 Canonical source: https://ghaithmeftah.github.io/
 
 ## Identity
 
 - Name: Ghaith Mefteh (also spelled Ghaith Meftah)
-- Role: Full-stack and mobile software engineer, backend-leaning
-- Current position: Team lead at AzertyUI (2024 – present)
+- Role: Full-stack and mobile software engineer
+- Current position: Technical director (Directeur Technique) at AzertyUI (2024 – present)
 - Location: Nabeul, Tunisia — timezone CET / UTC+1
-- Work mode: Remote, worldwide
+- Work mode: Remote, or relocation within the EU
 - Email: ghaithmeftah@gmail.com
 - Phone: +216 53 32 47 63
 - Website: https://ghaithmeftah.github.io/
+- Website in French: https://ghaithmeftah.github.io/fr/
+- CV: https://ghaithmeftah.github.io/cv.html
+- CV PDFs, English: /assets/Ghaith-Mefteh-CV-EN.pdf (full-stack), /assets/Ghaith-Mefteh-CV-Mobile-EN.pdf (mobile)
+- CV PDFs, French: /assets/Ghaith-Mefteh-CV-FR.pdf (full-stack), /assets/Ghaith-Mefteh-CV-Mobile-FR.pdf (mobile)
 - GitHub: https://github.com/Ghaithmeftah
 - LinkedIn: https://www.linkedin.com/in/ghaith-mefteh-995a18157
-- Languages: Arabic (native), French (B2), English (B2)
+- Languages: French (B2), English (B2, TOEIC), German (B1)
 
 ## Summary
 
 Ghaith Mefteh has 3+ years of production experience and works across the entire
 request path rather than a single layer: the screen in the browser, the app on the
-phone, the API behind them, and the database under that. He currently leads four
-engineers on a production marketplace at AzertyUI, covering architecture, code review
-standards and release priorities, and is designing the backend for AzertyUI's next
-in-house product.
+phone, the API behind them, and the database under that. As technical director at
+AzertyUI he leads a team of four engineers end to end, from task planning to code
+review and deployment. He led four engineers for 14 months building the ski-chalet
+marketplace chalet-montagne.com (10,000+ chalets) from scratch, and now leads the team
+building AzertyUI's own management platform on .NET microservices.
 
-He is open to remote full-time engineering roles and freelance projects, anywhere —
+He is open to remote roles, relocation within the EU, and freelance projects —
 full-stack, backend-leaning, or mobile.
 
 ## Technical skills
 
-- Backend: Symfony, PHP, Doctrine ORM, FastAPI, Python, REST API design, WebSockets
-- Databases: MySQL, MongoDB — query optimization, caching, migrations
-- Frontend: React, Angular, TypeScript
-- Mobile: Flutter, Dart — published to both the Apple App Store and Google Play,
-  including owning iOS release engineering in Xcode (signing certificates,
-  provisioning profiles, App Store Connect, TestFlight through to production)
-- Infrastructure and delivery: AWS, Docker, GitLab CI, GitHub Actions, PHPUnit
-- Practices: performance optimization, test suites, CI/CD, code review, technical leadership
+- Backend: .NET, ASP.NET Core, microservices, gRPC, API Gateway, Symfony, PHP,
+  Doctrine ORM, FastAPI, Python, REST API design, WebSockets
+- Databases: MySQL, PostgreSQL, MongoDB, SQLite, Hive — query optimization, caching
+- Frontend: Angular 21, React, TypeScript
+- Mobile: Flutter, Dart, SwiftUI, GetX, Provider, Firebase — published to both the
+  Apple App Store and Google Play, owning release engineering (Codemagic CI/CD,
+  signing certificates, provisioning profiles, Xcode, store review)
+- Infrastructure and delivery: Docker, Docker Compose, Apache2, GitLab CI/CD,
+  GitHub Actions, AWS, Linux, WireGuard, SSH
+- Quality: PHPUnit, PyTest, SonarQube, Sentry, code review, SOLID
+- AI-assisted development: Claude Code
 - Design-to-code: translating Figma designs screen by screen into Flutter widgets
 
 ## Measured results
 
-- Search page load time on a live marketplace: reduced from 20–50 seconds to 4–6 seconds
+- Marketplace scale: 10,000+ chalets listed on chalet-montagne.com
+- Search page load time on that marketplace: reduced from 20–50 seconds to 4–6 seconds
 - Test suite: built from zero to 390+ tests
 - Image bandwidth: reduced by approximately 60% via on-demand WebP and multi-size caching
-- Flutter app: past 2,000 downloads across iOS and Android
+- SOC Rugby app: 2,000+ fans, 99.8% crash-free sessions (Sentry)
+- SmartCare app: 40+ doctors and 3,000+ patients
 
 ## Production projects
 
-### chalet-montagne.com — Full-stack engineer, AzertyUI, 2024–present
-French mountain-rental marketplace. Full rebuild on Symfony: legacy data and business
-logic migrated with functional parity, then the search and listing engine rewritten
-with caching, query optimization and parallelized data processing. Also built the
-reservation pipeline end to end — dynamic seasonal pricing, two-way iCal sync with
-external booking channels, payment integration, and the CI/CD plus PHPUnit suite
-enabling frequent, safe production releases.
-Stack: Symfony, Doctrine, MySQL, PHPUnit, GitLab CI.
+### Company management platform — Technical director, AzertyUI, current
+AzertyUI's own product, where developers, executives and accountants manage absences,
+vacations, expenses, tickets and requests, and access contracts, payslips and company
+paperwork. Ghaith leads the team of four building it. .NET (ASP.NET Core) microservices
+behind an API Gateway, gRPC between services, Angular 21 front end, automated tests.
+Alongside it he built the company's server monitoring dashboard: SSH login tracking
+with suspicious-login alerts, per-developer access through generated WireGuard VPN
+configs, container monitoring, alerts when the master server goes down, and backups.
+Stack: .NET, ASP.NET Core, gRPC, API Gateway, Angular 21, WireGuard, Docker.
+
+### chalet-montagne.com — Team lead, AzertyUI, 2024–2025
+French ski-chalet rental marketplace listing 10,000+ chalets. Led four engineers for 14
+months building it from scratch on Symfony, following SOLID with SonarQube quality
+gates, shipped through GitLab CI/CD, Docker Compose and Apache2. Legacy data and
+business logic migrated with functional parity; the search and listing engine rewritten
+with caching, query optimization and parallelized data processing. Delivered the
+public booking site, an owner back office (listing setup, availability calendars,
+automated emails and reminders) and an admin dashboard (revenue tracking, user
+blocking, secure user impersonation for support), plus seasonal pricing, two-way iCal
+sync, suspicious-login detection and database-cleaning cron jobs.
+Stack: Symfony, Doctrine, MySQL, PHPUnit, SonarQube, GitLab CI/CD, Docker.
 Live at https://www.chalet-montagne.com/
 
 ### SOC Rugby — Mobile engineer, AzertyUI, 2024
-Official app of a French rugby club. Live match results, rankings, WebSocket chat and
-push notifications. Built in Flutter, published to the App Store and Google Play, past
-2,000 downloads. Started from a Figma design translated screen by screen into clean
-Dart/Flutter widgets. Owned the iOS release end to end in Xcode.
-Stack: Flutter, Dart, Xcode, iOS certificates, WebSockets, push notifications.
+Official app of the Chambéry rugby club. Match calendar and reminders, live scores,
+rankings, messaging and push notifications. Built in Flutter with GetX and SQLite, plus
+SwiftUI, published to the App Store and Google Play, used by 2,000+ fans at 99.8%
+crash-free sessions. Started from a Figma design translated screen by screen into
+Dart/Flutter widgets. Owned releases end to end with Codemagic CI/CD and Sentry.
+Stack: Flutter, Dart, GetX, SQLite, SwiftUI, Codemagic, Sentry, Xcode.
 
-### SmartCare — Full-stack engineer, Hope Horizon Health & Care, 2023–2024
-Healthcare platform for Tunisia: appointment booking, ambulance dispatch, push
-notifications, Google Maps integration. Designed and shipped solo across the stack —
-Flutter app on Google Play, ReactJS web at smartcare.tn, FastAPI backend on MongoDB,
-deployed to AWS with GitHub Actions. In production for real patients and doctors.
-Stack: Flutter, Dart, FastAPI, MongoDB, ReactJS, AWS.
+### SmartCare — Mobile engineer (part-time, remote), Hope Horizon Health & Care, 2023–2024
+Patient–doctor app for Tunisia, live on Google Play and used by 40+ doctors and 3,000+
+patients: appointment booking and reminders, real-time messaging, push notifications,
+ambulance calls on Google Maps, Google Sign-In, QR code scanning, medical AI features.
+The only mobile engineer; also built the FastAPI backend on MongoDB, deployed to AWS
+with GitHub Actions, and the ReactJS web.
+Stack: Flutter, Provider, GetX, Hive, FastAPI, MongoDB, ReactJS, AWS.
+Google Play: https://play.google.com/store/apps/details?id=com.hopehorizonworld.smartcare
 
 ### Forklift-mounted warehouse terminal — Engineering internship, L-Mobile, 2024
 Tablets mounted on forklifts giving warehouse operators live inventory and logistics
@@ -93,21 +119,32 @@ Stack: C#/.NET, D365 Business Central, REST.
 
 - Engineering degree in Applied Computer Science, National School of Engineers of
   Sousse (ENISo), Tunisia, 2024. EUR-ACE accredited.
-- Mobile-engineering exchange semester, Murang'a University of Technology, Kenya.
+- Summer exchange program, Murang'a University of Technology, Kenya, July – August
+  2024: fixed network issues across campus departments (LAN, Ethernet) and designed a
+  React Native app for remote student registration.
+
+## Activities
+
+- Treasurer, IEEE IAS student branch at ENISo, 2022 – 2023.
+- Interests: gym, cycling, camping.
 
 ## Timeline
 
-- 2024 – present: Team lead, AzertyUI. Leading four engineers on a production
-  marketplace; architecture, code review standards, release priorities.
-- 2024: Engineering degree, ENISo Sousse.
-- 2023 – 2024: Full-stack engineer, Hope Horizon — SmartCare, solo across the stack.
+- 2024 – present: Technical director, AzertyUI. SOC Rugby, then chalet-montagne.com
+  (team of four, 14 months), now the company management platform and server monitoring.
+- 2024: Engineering degree, ENISo Sousse; summer exchange in Kenya.
+- 2023 – 2024: Mobile engineer (part-time, remote), Hope Horizon — SmartCare.
 - 2022: First production code; shipping for real users since.
 
 ## Working with Ghaith
 
-- Available for: remote full-time roles and freelance projects, worldwide.
-- Best fit: full-stack ownership, backend-heavy work, or Flutter mobile delivery,
-  especially where one engineer needs to carry a feature from database to screen.
+- Available for: remote roles, relocation within the EU, and freelance projects.
+- Employment shape: through an employer of record, a contractor agreement, or on-site
+  employment in the EU.
+- Start date: on request.
+- Freelance rate: on request, quoted per project or per day once the scope is clear.
+- Best fit: full-stack ownership, backend-heavy work (.NET, Symfony, FastAPI), Flutter
+  mobile delivery, or leading a small team.
 - Timezone overlap: based at UTC+1, overlapping a full European working day and
   the morning of US Eastern.
 - Response time: usually answers within the day.

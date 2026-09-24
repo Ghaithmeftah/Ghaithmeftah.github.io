@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Social card source</title>
+<!-- Source for assets/og-card.png. Re-render with:
+     python tools/shot.py assets/og-card.html assets/og-card.png --w 1200 --h 630 -->
+<link rel="stylesheet" href="../fonts.css">
+<style>
+  :root {
+    --bg: #F3F1ED; --ink: #141C2E; --ink-soft: #4A5468;
+    --cobalt: #2B50E0; --teal: #0E7C7B; --line: #D8DEE9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px;
+    background: var(--bg);
+    font-family: "Archivo", system-ui, sans-serif;
+    color: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    align-items: center;
+    gap: 56px;
+    padding: 64px 72px;
+    border-bottom: 10px solid var(--cobalt);
+  }
+  h1 {
+    font-variation-settings: "wdth" 118;
+    font-weight: 800;
+    font-size: 76px;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .dot { color: var(--cobalt); }
+  .who {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 19px;
+    color: var(--cobalt);
+    margin-bottom: 26px;
+  }
+  .lede { font-size: 25px; color: var(--ink-soft); line-height: 1.4; max-width: 21em; }
+  .stack {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  .stack span {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 17px;
+    border: 1.5px solid var(--line);
+    background: #fff;
+    border-radius: 999px;
+    padding: 7px 16px;
+  }
+  .side { display: grid; justify-items: center; gap: 22px; }
+  .side img {
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    object-fit: cover; object-position: 50% 12%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 0 5px var(--cobalt);
+  }
+  .url {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 18px;
+    color: var(--teal);
+  }
+</style>
+</head>
+<body>
+  <div>
+    <p class="who">Ghaith Mefteh · Nabeul, Tunisia · remote worldwide</p>
+    <h1>I build the whole request<span class="dot">.</span></h1>
+    <p class="lede">Full-stack and mobile engineer. Browser, phone, API, database — the entire path.</p>
+    <div class="stack">
+      <span>Symfony</span><span>FastAPI</span><span>Flutter</span><span>React</span><span>AWS</span>
+    </div>
+  </div>
+  <div class="side">
+    <img src="ghaith.png" alt="">
+    <p class="url">ghaithmeftah.github.io</p>
+  </div>
+</body>
+</html>

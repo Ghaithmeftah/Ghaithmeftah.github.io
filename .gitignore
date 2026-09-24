@@ -4,3 +4,6 @@ Thumbs.db
 # raw full-size screenshot originals — the optimized jpgs in assets/ are what ship
 assets/CM-*.png
 assets/Cm-*.png
+
+# proof prints of the web CV sheet (tools/print-cv.py)
+tools/out/

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ghaith Mefteh - Mobile Resume</title>
+<style>
+@page { size: A4; margin: 9mm 12mm; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: Calibri, "Segoe UI", Arial, sans-serif; font-size: 10pt; line-height: 1.28; color:#1c2126;
+  font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0; }
+a { color:#1f4e79; text-decoration: underline; text-decoration-thickness: .5px; text-underline-offset: 1.5px; }
+header { text-align:center; border-bottom: 1.5px solid #1f4e79; padding-bottom:6px; margin-bottom:6px; }
+h1 { font-size: 21pt; letter-spacing: 1.5px; margin:0; font-weight:700; }
+.role { font-size: 11pt; color:#1f4e79; font-weight:700; margin-top:1px; }
+.contact { font-size: 9.4pt; color:#3d4750; margin-top:3px; }
+h2 { font-size: 10pt; letter-spacing:1.4px; text-transform:uppercase; color:#1f4e79; margin:7px 0 3px; padding-bottom:1px; border-bottom:.7px solid #b9c4ce; font-weight:700; }
+p { margin:0; }
+.summary { text-align:justify; }
+.job { margin-top:5px; }
+.jt { display:flex; justify-content:space-between; align-items:baseline; }
+.jt .t { font-weight:700; font-size:10.4pt; }
+.jt .d { font-weight:700; font-size:9.6pt; white-space:nowrap; padding-left:10px; }
+.co { font-style:italic; color:#3d4750; margin-bottom:1px; }
+.proj { font-weight:700; margin:3px 0 1px; color:#12181d; }
+ul { margin:0; padding-left:15px; }
+li { margin-bottom:1px; }
+b { color:#12181d; }
+.sk { margin-bottom:1.5px; }
+.sk b { color:#1f4e79; }
+</style></head><body>
+
+<header>
+  <h1>GHAITH MEFTEH</h1>
+  <div class="role">Mobile Software Engineer | Flutter · Dart · iOS &amp; Android</div>
+  <div class="contact">
+    Nabeul, Tunisia &nbsp;|&nbsp; <b>Open to relocation (EU) / remote</b> &nbsp;|&nbsp; +216 53 32 47 63 &nbsp;|&nbsp; <a href="mailto:ghaithmeftah@gmail.com">ghaithmeftah@gmail.com</a> &nbsp;|&nbsp;
+    <a href="https://www.linkedin.com/in/ghaith-mefteh-995a18157">LinkedIn</a> &nbsp;|&nbsp;
+    <a href="https://github.com/Ghaithmeftah">GitHub</a> &nbsp;|&nbsp;
+    <a href="https://ghaithmeftah.github.io">Portfolio</a>
+  </div>
+</header>
+
+<h2>Professional Summary</h2>
+<p class="summary">Mobile engineer with <b>3+ years of professional experience</b> shipping Flutter apps to the <b>App Store and Google Play</b>, used by <b>5,000+ people</b> across healthcare and sports. Owns the full cycle: pixel-perfect UI from Figma, state management, API integration, CI/CD and store releases. Also builds the backends behind the apps (Symfony, FastAPI, .NET) and leads a <b>team of 4 engineers</b>.</p>
+
+<h2>Professional Experience</h2>
+
+<div class="job">
+  <div class="jt"><span class="t">Technical Director (Directeur Technique)</span><span class="d">Aug 2024 – Present</span></div>
+  <div class="co">AzertyUI — Malissard, France (Remote)</div>
+
+  <div class="proj"><a href="https://ghaithmeftah.github.io/#case-soc">SOC Rugby</a> — official app of the Chambéry rugby club (Flutter, SwiftUI, GetX, SQLite)</div>
+  <ul>
+    <li>Built and published the app to the <b>App Store and Google Play</b>, used by <b>2,000+ fans</b>: match calendar and reminders, live scores, in-app messaging and pixel-perfect screens from Figma.</li>
+    <li>Owned iOS and Android releases end to end with <b>Codemagic CI/CD</b>: certificates and provisioning profiles, Xcode builds, store review; kept the app at <b style="white-space:nowrap">99.8% crash-free</b> sessions, monitored with <b>Sentry</b>.</li>
+  </ul>
+
+  <div class="proj"><a href="https://www.chalet-montagne.com">chalet-montagne.com</a> — ski-chalet rental marketplace, French Alps, <b>10,000+ chalets</b> (Symfony)</div>
+  <ul>
+    <li>Led a <b>team of 4 engineers for 14 months</b> to build the platform from scratch: owned architecture, task planning, code reviews and every production release.</li>
+    <li>Cut page load times from <b>20–50s to 4–6s</b> by rebuilding search and listings (geo/date/price filters, map clustering) with caching and query optimization.</li>
+    <li>Set up <b>GitLab CI/CD</b> with <b>390+ automated tests</b>, <b>SonarQube</b> quality gates and Docker deployments, making frequent releases safe.</li>
+  </ul>
+
+  <div class="proj">Company management platform &amp; server monitoring (current)</div>
+  <ul>
+    <li>Leading a <b>team of 4</b> (planning, coding, code review, deployment) on an internal HR and operations platform (absences, expenses, payslips, contracts) on <b>.NET microservices</b> with an API Gateway, <b>gRPC</b> and <b>Angular 21</b>.</li>
+    <li>Built the server monitoring dashboard: SSH login tracking, <b>WireGuard VPN</b> access for developers, container monitoring, downtime alerts and automated backups.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="jt"><span class="t">Mobile Software Engineer (Part-time)</span><span class="d">Jul 2023 – Aug 2024</span></div>
+  <div class="co">Hope Horizon Health &amp; Care — Ariana, Tunisia (Remote)</div>
+  <ul>
+    <li>Sole mobile engineer: built and published <a href="https://play.google.com/store/apps/details?id=com.hopehorizonworld.smartcare&amp;hl=en_US"><b>SmartCare</b></a>, a Flutter app (Provider, GetX, Hive) connecting patients with their doctors, live on Google Play and used by <b>40+ doctors and 3,000+ patients</b>.</li>
+    <li>Shipped real-time messaging, push notifications, appointment booking and reminders, with screens matching the Figma designs.</li>
+    <li>Integrated Google Maps, Google Sign-In, QR code scanning and medical AI models; built the <b>FastAPI (Python) + MongoDB</b> APIs behind the app, deployed on <b>AWS</b>.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="jt"><span class="t">Software Engineering Intern (End-of-Study Project)</span><span class="d">Feb 2024 – Jun 2024</span></div>
+  <div class="co">L-Mobile — Nabeul, Tunisia</div>
+  <ul>
+    <li>Built a <b>tablet app for forklift operators</b> and 5 warehouse-management modules integrated with Microsoft Dynamics 365 Business Central (C#/.NET, REST APIs), giving real-time inventory data on the move.</li>
+  </ul>
+</div>
+
+<h2>Technical Skills</h2>
+<div class="sk"><b>Mobile:</b> Flutter, Dart, SwiftUI, React Native, Firebase, push notifications, Google Maps API, Google Sign-In, WebSockets</div>
+<div class="sk"><b>State &amp; Storage:</b> Provider, GetX, Hive, SQLite</div>
+<div class="sk"><b>Release &amp; Tooling:</b> Xcode, iOS certificates &amp; provisioning, Codemagic CI/CD, App Store Connect, TestFlight, Google Play Console, Sentry, Figma, AI-assisted development (Claude Code)</div>
+<div class="sk"><b>Testing &amp; Quality:</b> PHPUnit, PyTest, SonarQube</div>
+<div class="sk"><b>Backend &amp; Data:</b> Symfony, FastAPI, .NET, gRPC, REST APIs, MySQL, PostgreSQL, MongoDB</div>
+<div class="sk"><b>Languages &amp; DevOps:</b> Dart, Swift, PHP, Python, C#, TypeScript, SQL · Docker, GitLab CI/CD, GitHub Actions, AWS, Linux</div>
+
+<h2>Education &amp; Languages</h2>
+<div class="jt"><span><b>Engineering Degree, Applied Computer Science</b> (EUR-ACE) — National School of Engineers of Sousse, Tunisia</span><span class="d">Jul 2024</span></div>
+<ul style="margin-top:1px">
+  <li><b>Exchange program, Murang'a University of Technology, Kenya</b> (Jul – Aug 2024): designed a <b>React Native</b> app for remote student registration, cutting paperwork, and fixed internet connectivity issues across departments (LAN, Ethernet).</li>
+</ul>
+<p style="margin-top:2px"><b>Languages:</b> French (B2) · English (B2, TOEIC) · German (B1)</p>
+<p style="margin-top:1px"><b>Activities:</b> Treasurer, IEEE IAS Student Branch, ENISo (2022–2023) &nbsp;·&nbsp; <b>Interests:</b> gym, cycling, camping</p>
+
+</body></html>

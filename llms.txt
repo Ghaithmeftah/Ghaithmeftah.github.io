@@ -1,13 +1,15 @@
-# Ghaith Mefteh — Full-Stack & Mobile Software Engineer
+# Ghaith Mefteh — Full-Stack and Mobile Software Engineer
 
 > Ghaith Mefteh is a full-stack and mobile software engineer based in Nabeul, Tunisia,
-> with 3+ years shipping production systems end to end. He is a team lead at AzertyUI
-> and is open to remote roles and freelance projects worldwide.
+> with 3+ years shipping production systems end to end. He is technical director at
+> AzertyUI, leading a team of four engineers, and is open to remote roles, relocation
+> within the EU, and freelance projects.
 > Contact: ghaithmeftah@gmail.com · +216 53 32 47 63
 
-Stack: Symfony and PHP with Doctrine and MySQL; FastAPI and Python with MongoDB;
-Flutter and Dart shipped to the App Store and Google Play; React and Angular on the
-front end; AWS, Docker, GitLab CI, GitHub Actions and PHPUnit around it.
+Stack: .NET and ASP.NET Core microservices with gRPC and an API Gateway; Symfony and
+PHP with Doctrine and MySQL; FastAPI and Python with MongoDB; Angular 21 and React on
+the front end; Flutter and Dart (GetX, Provider, SwiftUI) shipped to the App Store and
+Google Play; Docker, GitLab CI/CD, Codemagic, AWS, SonarQube and Sentry around it.
 
 He owns the whole request path — the screen in the browser, the app on the phone,
 the API behind them and the database under that — rather than a single layer.
@@ -15,20 +17,25 @@ the API behind them and the database under that — rather than a single layer.
 ## Profile
 
 - [Portfolio](https://ghaithmeftah.github.io/): Full site, with case studies, screenshots and contact details.
+- [Portfolio en français](https://ghaithmeftah.github.io/fr/): The same site in French.
+- [CV](https://ghaithmeftah.github.io/cv.html): Web CV, with one-page ATS PDFs (full-stack and mobile) in English and French.
 - [Full profile in plain text](https://ghaithmeftah.github.io/llms-full.txt): Every fact on this page, structured for machine reading.
 - [GitHub](https://github.com/Ghaithmeftah): Public repositories.
 - [LinkedIn](https://www.linkedin.com/in/ghaith-mefteh-995a18157): Professional profile.
 
 ## Production work
 
-- [chalet-montagne.com](https://www.chalet-montagne.com/): French mountain-rental marketplace rebuilt on Symfony. Search page load time cut from 20–50 s to 4–6 s, image bandwidth down about 60%, test suite built from zero to 390+ tests.
-- SOC Rugby: Official Flutter app of a French rugby club, on the App Store and Google Play, past 2,000 downloads. Live results, rankings, WebSocket chat, push notifications.
-- SmartCare: Healthcare platform for Tunisia — Flutter app, ReactJS web, FastAPI and MongoDB backend on AWS. Appointment booking, ambulance dispatch, push notifications.
+- Company management platform (AzertyUI, current): internal HR and operations platform on .NET microservices with an API Gateway, gRPC and Angular 21, built by a team of four he leads; plus the company's server monitoring dashboard (SSH tracking, WireGuard access, container monitoring, alerts, backups).
+- [chalet-montagne.com](https://www.chalet-montagne.com/): French ski-chalet marketplace listing 10,000+ chalets, built from scratch on Symfony by a team of four he led for 14 months. Search page load time cut from 20–50 s to 4–6 s, test suite built from zero to 390+ tests.
+- SOC Rugby: Official Flutter app of the Chambéry rugby club, on the App Store and Google Play, used by 2,000+ fans at 99.8% crash-free sessions.
+- [SmartCare](https://play.google.com/store/apps/details?id=com.hopehorizonworld.smartcare): Patient–doctor Flutter app for Tunisia used by 40+ doctors and 3,000+ patients, with a FastAPI and MongoDB backend on AWS.
 - L-Mobile warehouse terminal: Five warehouse-management modules on forklift-mounted tablets, integrating Microsoft Dynamics 365 Business Central over C#/.NET and REST.
 
 ## Availability
 
-- Open to remote full-time engineering roles and freelance projects, worldwide.
-- Full-stack, backend-leaning, or mobile.
+- Open to remote roles, relocation within the EU, and freelance projects.
+- Hiring: employment through an employer of record, a contractor agreement, or on-site in the EU; start date on request.
+- Freelance: quoted per project or per day once the scope is written down.
+- Full-stack, backend-leaning, mobile, or tech lead for a small team.
 - Based in Nabeul, Tunisia (CET / UTC+1) — overlaps a full European working day.
-- Arabic (native), French (B2), English (B2).
+- French (B2), English (B2, TOEIC), German (B1).

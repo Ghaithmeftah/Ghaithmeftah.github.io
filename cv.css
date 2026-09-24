@@ -1,0 +1,251 @@
+/* ====== CV sheet — screen preview and print/PDF ======
+   Loads after style.css, so it inherits the tokens and the type scale
+   and only overrides what a printed page needs. */
+
+body {
+  background: #EAE7E1;
+  font-size: 8.8pt;
+  line-height: 1.3;
+}
+
+/* French runs about 15% longer than English for the same content, so the
+   French sheet takes a slightly smaller base size to stay on one page. */
+body:lang(fr) { font-size: 7.9pt; }
+
+.sheet {
+  background: #fff;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 24px auto;
+  padding: 8.5mm 12.5mm 4.5mm;
+  box-shadow: 0 18px 44px rgba(21, 34, 56, .18);
+  display: grid;
+  grid-template-columns: 1fr 62mm;
+  grid-template-areas:
+    "head head"
+    "main side";
+  column-gap: 9mm;
+  align-content: start;
+}
+
+/* ---- header ---- */
+.cv-head {
+  grid-area: head;
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  gap: 6mm;
+  align-items: center;
+  padding-bottom: 3mm;
+  margin-bottom: 3.6mm;
+  border-bottom: 2px solid var(--cobalt);
+}
+.cv-portrait {
+  width: 22mm; height: 22mm;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 12%;
+  border: 2px solid var(--cobalt);
+}
+.cv-name {
+  font-size: 20pt;
+  line-height: 1;
+  margin-bottom: 1.5mm;
+}
+.cv-name .accent { color: var(--cobalt); }
+.cv-role {
+  font-family: var(--mono);
+  font-size: 9pt;
+  color: var(--cobalt-deep);
+  margin-bottom: 2mm;
+}
+.cv-contact {
+  font-size: 8.6pt;
+  color: var(--ink-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 3.5mm;
+}
+.cv-contact a { text-decoration: none; }
+.cv-contact span::before { content: "· "; color: var(--line); }
+.cv-contact span:first-child::before { content: none; }
+
+/* ---- columns ---- */
+.cv-main { grid-area: main; min-width: 0; }
+.cv-side { grid-area: side; min-width: 0; }
+
+.cv-sec { margin-bottom: 2.6mm; }
+.cv-sec > h2 {
+  font-size: 8.4pt;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--cobalt-deep);
+  margin-bottom: 2mm;
+  padding-bottom: .8mm;
+  border-bottom: 1px solid var(--line);
+}
+.cv-sec p { color: var(--ink-soft); }
+
+/* ---- summary + metrics ---- */
+.cv-summary { margin-bottom: 2.2mm; }
+.cv-metrics {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5mm;
+}
+.cv-metrics li {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 1.6mm 2.2mm;
+  background: #F7F9FC;
+}
+.cv-metrics b {
+  display: block;
+  font-size: 10.5pt;
+  color: var(--cobalt-deep);
+  line-height: 1.1;
+}
+.cv-metrics span {
+  font-size: 7.6pt;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: .8mm;
+}
+
+/* ---- experience ---- */
+.cv-job { margin-bottom: 2.4mm; }
+.cv-job:last-child { margin-bottom: 0; }
+.cv-job-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 3mm;
+}
+.cv-job h3 { font-size: 10pt; line-height: 1.2; }
+.cv-job-when {
+  font-family: var(--mono);
+  font-size: 8pt;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.cv-job-org {
+  font-size: 8.8pt;
+  color: var(--cobalt-deep);
+  font-weight: 600;
+  margin-bottom: 1.2mm;
+}
+.cv-job ul {
+  list-style: none;
+  margin-top: 1mm;
+}
+.cv-job li {
+  color: var(--ink-soft);
+  padding-left: 3.6mm;
+  position: relative;
+  margin-bottom: .8mm;
+}
+.cv-job li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .62em;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--cobalt);
+}
+.cv-job li b { color: var(--ink); font-weight: 700; }
+.cv-tools {
+  font-family: var(--mono);
+  font-size: 7.6pt;
+  color: var(--teal);
+  margin-top: 1.2mm;
+}
+
+/* ---- side column ---- */
+.cv-skills dt {
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 2.2mm;
+}
+.cv-skills dt:first-child { margin-top: 0; }
+.cv-skills dd {
+  font-size: 8.6pt;
+  color: var(--ink-soft);
+}
+.cv-side .cv-sec ul { list-style: none; }
+.cv-side .cv-sec li {
+  font-size: 8.8pt;
+  color: var(--ink-soft);
+  margin-bottom: 1.6mm;
+}
+.cv-side .cv-sec li b { color: var(--ink); display: block; font-size: 9pt; }
+.cv-side .cv-sec li em {
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: 7.6pt;
+  color: var(--ink-soft);
+}
+.cv-avail {
+  border: 1.5px solid var(--teal);
+  border-radius: 8px;
+  padding: 2.5mm 3mm;
+  background: #F2F8F8;
+}
+.cv-avail h2 { border: 0; color: var(--teal); margin-bottom: 1.5mm; padding: 0; }
+.cv-avail p { font-size: 8.6pt; }
+
+.cv-foot {
+  grid-column: 1 / -1;
+  margin-top: 3mm;
+  padding-top: 2mm;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 7.4pt;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  gap: 4mm;
+}
+
+/* ---- screen-only chrome ---- */
+.cv-bar {
+  max-width: 210mm;
+  margin: 20px auto -8px;
+  display: flex;
+  gap: .7rem;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: .78rem;
+  color: var(--ink-soft);
+}
+.cv-bar .btn { font-size: .82rem; padding: .5rem 1rem; }
+
+@media print {
+  @page { size: A4; margin: 0; }
+  body { background: #fff; }
+  .cv-bar { display: none; }
+  /* the sheet is already A4-sized, so it just drops its screen chrome */
+  .sheet {
+    margin: 0;
+    box-shadow: none;
+    width: auto;
+    min-height: 0;
+  }
+  a { text-decoration: none; }
+  .cv-job, .cv-sec { break-inside: avoid; }
+}
+
+@media (max-width: 760px) {
+  .sheet {
+    width: auto;
+    min-height: 0;
+    margin: 12px;
+    padding: 18px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "head" "main" "side";
+    row-gap: 4mm;
+  }
+  .cv-bar { margin: 12px; }
+  .cv-metrics { grid-template-columns: 1fr; }
+}
