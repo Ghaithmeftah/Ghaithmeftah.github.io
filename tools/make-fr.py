@@ -153,7 +153,7 @@ BODY = [
 ('<h2>Selected work</h2>', '<h2>Projets sélectionnés</h2>'),
 ('<p class="case-role">Technical director · leading a team of 4 · AzertyUI · now</p>',
  '<p class="case-role">Directeur technique · à la tête d\'une équipe de 4 · AzertyUI · en cours</p>'),
-('<h3>Company management platform</h3>', '<h3>Plateforme de gestion d\'entreprise</h3>'),
+('Company management platform</h3>', 'Plateforme de gestion d\'entreprise</h3>'),
 ('''        AzertyUI's own product: one place where developers, executives and accountants file
         absences, vacations, expenses, tickets and requests, and find their contracts, payslips
         and company paperwork. I lead the four engineers building it, from task planning to code
@@ -478,24 +478,23 @@ BODY = [
 # ---- recommendations band ----
 ('<a href="#said">Said</a>', '<a href="#said">Avis</a>'),
 ('<h2 id="says-h">In their words</h2>', '<h2 id="says-h">Ce qu\'ils en disent</h2>'),
-('''    <p class="says-lede">Three people who worked with me, quoted as written, in the language they
-      wrote it in.</p>''',
- '''    <p class="says-lede">Trois personnes qui ont travaillé avec moi, citées telles quelles, dans
-      la langue d'origine.</p>'''),
-('<p class="say-tag say-tag-peer">AzertyUI \u00b7 the team</p>',
- '<p class="say-tag say-tag-peer">AzertyUI \u00b7 l\'\u00e9quipe</p>'),
+('''    <p class="says-lede">Three recommendations from my LinkedIn profile, copied word for word, in
+      the language they were written in. <a class="says-verify" href="https://www.linkedin.com/in/ghaith-mefteh-995a18157/details/recommendations/" rel="noopener">Read them on LinkedIn</a></p>''',
+ '''    <p class="says-lede">Trois recommandations de mon profil LinkedIn, reprises mot pour mot, dans
+      la langue où elles ont été écrites. <a class="says-verify" href="https://www.linkedin.com/in/ghaith-mefteh-995a18157/details/recommendations/" rel="noopener">Les lire sur LinkedIn</a></p>'''),
 ('<span class="say-role">Founder, ALPIUM</span>',
  '<span class="say-role">G\u00e9rant fondateur, ALPIUM</span>'),
 ('<span class="say-role">Project manager and software engineer, Hope Horizon</span>',
  '<span class="say-role">Chef de projet et ing\u00e9nieur logiciel, Hope Horizon</span>'),
 ('<span class="say-role">Software engineer, AzertyUI</span>',
  '<span class="say-role">Ing\u00e9nieur logiciel, AzertyUI</span>'),
-('<span class="say-meta">The client \u00b7 September 2026</span>',
- '<span class="say-meta">Le client \u00b7 septembre 2026</span>'),
-('<span class="say-meta">Worked with me \u00b7 January 2026</span>',
- '<span class="say-meta">A travaill\u00e9 avec moi \u00b7 janvier 2026</span>'),
-('<span class="say-meta">Same team \u00b7 September 2026</span>',
- '<span class="say-meta">M\u00eame \u00e9quipe \u00b7 septembre 2026</span>'),
+('<span class="say-rel">The client \u00b7 14 months together</span>',
+ '<span class="say-rel">Le client \u00b7 14 mois ensemble</span>'),
+('<span class="say-rel">Worked with me on SmartCare</span>',
+ '<span class="say-rel">A travaill\u00e9 avec moi sur SmartCare</span>'),
+('<span class="say-rel">Same team at AzertyUI</span>',
+ '<span class="say-rel">M\u00eame \u00e9quipe chez AzertyUI</span>'),
+('<time datetime="2026-01">January 2026</time>', '<time datetime="2026-01">janvier 2026</time>'),
 
 # ---- image alt text ----
 ('alt="Portrait of Ghaith Mefteh"',
@@ -568,6 +567,8 @@ BODY = [
 
 # strings that legitimately appear more than once (both carousels share a caption)
 GLOBAL = [
+('<span class="say-src-kind">LinkedIn recommendation</span>', '<span class="say-src-kind">Recommandation LinkedIn</span>'),
+('<time datetime="2026-09">September 2026</time>', '<time datetime="2026-09">septembre 2026</time>'),
 ('aria-label="Next screen">›</button>', 'aria-label="Écran suivant">›</button>'),
 ('aria-label="Previous screen">‹</button>', 'aria-label="Écran précédent">‹</button>'),
 ]

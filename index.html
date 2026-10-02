@@ -13,6 +13,17 @@
 <meta name="author" content="Ghaith Mefteh">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#2B50E0">
+<meta name="color-scheme" content="light dark">
+<script>
+  // Pick the theme before the first paint, so a dark-mode visitor never sees a
+  // white flash: their saved choice if they made one, otherwise the system's.
+  (function () {
+    var t;
+    try { t = localStorage.getItem("gm-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
 
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Ghaith Mefteh">
@@ -206,7 +217,7 @@
 
   <!-- Animated system diagram: request travels client → backend → db and back -->
   <figure class="hero-diagram" aria-label="Animated diagram: a request travels from a React or Angular web app or a Flutter mobile app to a Symfony or FastAPI backend, then to MySQL or MongoDB, and back. The web and mobile skeletons link to the matching projects below.">
-    <svg id="sysdiagram" viewBox="0 0 560 400" role="img">
+    <svg id="sysdiagram" viewBox="30 0 560 400" role="img">
       <!-- wires -->
       <path id="wire-ph-sym" class="wire" d="M164 96 C 216 96, 250 132, 292 133"/>
       <path id="wire-ph-fa" class="wire" d="M164 110 C 214 150, 240 296, 292 304"/>
@@ -293,6 +304,7 @@
 <section class="clients" aria-label="Organizations whose software I have shipped">
   <p class="clients-label">Shipped for</p>
   <ul class="clients-row">
+    <li><img src="assets/azertyui-logo.png" alt="AzertyUI" loading="lazy" width="160" height="130"></li>
     <li class="on-dark"><img src="assets/chalet-logo.svg" alt="chalet-montagne.com" loading="lazy"></li>
     <li><img class="logo-crest" src="assets/soc-crest.jpg" alt="SOC Rugby Chambéry" loading="lazy" width="400" height="413"></li>
     <li><img src="assets/smartcare-logo.png" alt="SmartCare" loading="lazy" width="641" height="735"></li>
@@ -363,7 +375,7 @@
   <article id="case-platform" class="case">
     <div class="case-text">
       <p class="case-role">Technical director · leading a team of 4 · AzertyUI · now</p>
-      <h3>Company management platform</h3>
+      <h3 class="case-title-logo"><img src="assets/azertyui-logo.png" alt="" width="42" height="34" style="width:42px">Company management platform</h3>
       <p>
         AzertyUI's own product: one place where developers, executives and accountants file
         absences, vacations, expenses, tickets and requests, and find their contracts, payslips
@@ -732,52 +744,57 @@
 </section>
 
 <!-- ============ RECOMMENDATIONS ============ -->
+<!-- Copied word for word from LinkedIn, in the language each was written in. -->
 <section id="said" class="says" aria-labelledby="says-h">
   <div class="says-head">
     <h2 id="says-h">In their words</h2>
-    <p class="says-lede">Three people who worked with me, quoted as written, in the language they
-      wrote it in.</p>
+    <p class="says-lede">Three recommendations from my LinkedIn profile, copied word for word, in
+      the language they were written in. <a class="says-verify" href="https://www.linkedin.com/in/ghaith-mefteh-995a18157/details/recommendations/" rel="noopener">Read them on LinkedIn</a></p>
   </div>
   <div class="says-grid">
       <figure class="say say-lead">
-        <span class="say-mark" aria-hidden="true">”</span>
-        <p class="say-tag say-tag-client">chalet-montagne.com</p>
+        <figcaption class="say-who">
+          <span class="say-logo say-logo-dark"><img src="assets/chalet-logo.svg" alt="chalet-montagne.com" width="120" height="60" loading="lazy"></span>
+          <span class="say-id">
+            <a class="say-name" href="https://www.linkedin.com/in/mikhael-bahmed-7a200848/" rel="noopener">Mikhael Bahmed</a>
+            <span class="say-role">Founder, ALPIUM</span>
+            <span class="say-rel">The client · 14 months together</span>
+          </span>
+        </figcaption>
         <blockquote lang="fr"><p>Collaborer avec Ghaith durant 14 mois a été une excellente expérience professionnelle. Au-delà de ses solides compétences techniques en développement web, Ghaith se distingue par son sens du détail et son écoute : il comprend vite les enjeux, pose les bonnes questions et livre un travail soigné. C’est un profil fiable, investi au quotidien et très agréable à côtoyer dans une équipe. Je recommande Ghaith les yeux fermés.</p></blockquote>
         <details class="say-tr" lang="en">
           <summary>Read it in English</summary>
           <p>Working with Ghaith over 14 months was an excellent professional experience. Beyond his solid technical skills in web development, Ghaith stands out for his eye for detail and for listening: he grasps what is at stake quickly, asks the right questions and delivers careful work. He is a reliable profile, committed day to day and a pleasure to have in a team. I recommend Ghaith without the slightest hesitation.</p>
         </details>
-        <figcaption>
-          <b>Mikhael Bahmed</b>
-          <span class="say-role">Founder, ALPIUM</span>
-          <span class="say-meta">The client · September 2026</span>
-          <a href="https://www.linkedin.com/in/mikhael-bahmed-7a200848/" rel="noopener">LinkedIn</a>
-        </figcaption>
+        <p class="say-src"><span class="say-src-kind">LinkedIn recommendation</span> · <time datetime="2026-09">September 2026</time></p>
       </figure>
       <figure class="say">
-        <span class="say-mark" aria-hidden="true">”</span>
-        <p class="say-tag say-tag-lead">SmartCare</p>
+        <figcaption class="say-who">
+          <span class="say-logo"><img src="assets/smartcare-logo.png" alt="SmartCare" width="641" height="735" loading="lazy"></span>
+          <span class="say-id">
+            <span class="say-name">Chadi Fendri</span>
+            <span class="say-role">Project manager and software engineer, Hope Horizon</span>
+            <span class="say-rel">Worked with me on SmartCare</span>
+          </span>
+        </figcaption>
         <blockquote lang="en"><p>Ghaith is a diligent and hard-working person with whom I’ve had the pleasure to work with. His innovation and creative spirit were crucial in pushing our project to a higher level, which added value and helped broaden its reach. I highly recommend Ghaith for his working ethics and consistency in delivering results.</p></blockquote>
-        <figcaption>
-          <b>Chadi Fendri</b>
-          <span class="say-role">Project manager and software engineer, Hope Horizon</span>
-          <span class="say-meta">Worked with me · January 2026</span>
-        </figcaption>
+        <p class="say-src"><span class="say-src-kind">LinkedIn recommendation</span> · <time datetime="2026-01">January 2026</time></p>
       </figure>
       <figure class="say">
-        <span class="say-mark" aria-hidden="true">”</span>
-        <p class="say-tag say-tag-peer">AzertyUI · the team</p>
+        <figcaption class="say-who">
+          <span class="say-logo"><img src="assets/azertyui-logo.png" alt="AzertyUI" width="160" height="130" loading="lazy"></span>
+          <span class="say-id">
+            <a class="say-name" href="https://www.linkedin.com/in/amine-boumaiza/" rel="noopener">Amine Boumaiza</a>
+            <span class="say-role">Software engineer, AzertyUI</span>
+            <span class="say-rel">Same team at AzertyUI</span>
+          </span>
+        </figcaption>
         <blockquote lang="fr"><p>J’ai eu l’occasion de travailler avec Ghaith au sein de la même équipe. Ce que j’apprécie particulièrement chez lui, c’est son leadership. Il sait guider l’équipe efficacement, donner une direction claire et faire avancer les choses sans compliquer inutilement les sujets. C’est un collègue avec qui il est agréable de travailler, et son rôle dans la dynamique de l’équipe fait clairement la différence.</p></blockquote>
         <details class="say-tr" lang="en">
           <summary>Read it in English</summary>
           <p>I had the chance to work with Ghaith on the same team. What I particularly value in him is his leadership. He knows how to guide the team effectively, set a clear direction and move things forward without making subjects needlessly complicated. He is a colleague it is a pleasure to work with, and his part in the team's dynamic clearly makes the difference.</p>
         </details>
-        <figcaption>
-          <b>Amine Boumaiza</b>
-          <span class="say-role">Software engineer, AzertyUI</span>
-          <span class="say-meta">Same team · September 2026</span>
-          <a href="https://www.linkedin.com/in/amine-boumaiza/" rel="noopener">LinkedIn</a>
-        </figcaption>
+        <p class="say-src"><span class="say-src-kind">LinkedIn recommendation</span> · <time datetime="2026-09">September 2026</time></p>
       </figure>
   </div>
 </section>
