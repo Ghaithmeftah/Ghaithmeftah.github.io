@@ -34,7 +34,7 @@ the API behind them and the database under that — rather than a single layer.
 ## Availability
 
 - Open to remote roles, relocation within the EU, and freelance projects.
-- Hiring: employment through an employer of record, a contractor agreement, or on-site in the EU; start date on request.
+- Hiring: employment through an employer of record, a contractor agreement, or on-site in the EU; can start within two weeks.
 - Freelance: quoted per project or per day once the scope is written down.
 - Full-stack, backend-leaning, mobile, or tech lead for a small team.
 - Based in Nabeul, Tunisia (CET / UTC+1) — overlaps a full European working day.

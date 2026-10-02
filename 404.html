@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — Ghaith Mefteh</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2B50E0">
+<meta name="color-scheme" content="light dark">
+<script>
+  // same theme choice as the portfolio, before the first paint
+  (function () {
+    var t;
+    try { t = localStorage.getItem("gm-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+<!-- absolute paths: this page is served for any missing URL, at any depth -->
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<style>
+  .lost {
+    min-height: 100vh; min-height: 100dvh;
+    display: grid; place-items: center;
+    padding: 2rem 1.1rem;
+    text-align: center;
+  }
+  .lost-inner { max-width: 34rem; }
+  .lost svg { width: min(100%, 420px); height: auto; display: block; margin: 0 auto 1.6rem; overflow: visible; }
+  .lost-code { font-family: var(--mono); font-size: .8rem; letter-spacing: .2em; color: var(--teal); margin-bottom: .8rem; }
+  .lost h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: 1rem; }
+  .lost p { color: var(--ink-soft); }
+  .lost-fr { font-size: .92rem; margin-top: .4rem; }
+  .lost-actions { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+
+  .lost .node rect, .lost .node path, .lost .node ellipse { fill: var(--bg-raised); stroke: var(--ink); stroke-width: 2.5; }
+  .lost .node-screen { fill: var(--surface-2) !important; stroke-width: 0 !important; }
+  .lost .db-mid { fill: none !important; }
+  .lost .db { opacity: .35; }
+  .lost .wire { animation: flow13 2.6s linear infinite; }
+  .lost .wire-cut { stroke-dasharray: 6 7; }
+  .lost .gap { font-family: var(--mono); font-size: 13px; fill: var(--sand); text-anchor: middle; }
+  /* the request leaves the phone, reaches the break, and drops out of the diagram */
+  .lost .pkt { opacity: 1; fill: var(--cobalt); offset-path: path("M78 90 C 150 90, 190 90, 238 90"); animation: lose 3.2s cubic-bezier(.4,0,.6,1) infinite; }
+  @keyframes lose {
+    0% { offset-distance: 0%; transform: translateY(0); opacity: 0; }
+    8% { opacity: 1; }
+    62% { offset-distance: 100%; transform: translateY(0); opacity: 1; }
+    90% { offset-distance: 100%; transform: translateY(60px); opacity: 0; }
+    100% { offset-distance: 100%; transform: translateY(60px); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .lost .pkt, .lost .wire { animation: none; } .lost .pkt { offset-distance: 100%; } }
+</style>
+</head>
+<body>
+<main class="lost">
+  <div class="lost-inner">
+    <svg viewBox="0 0 420 180" role="img" aria-label="A request leaves a phone, the wire breaks halfway, and it never reaches the database.">
+      <path class="wire" d="M78 90 C 150 90, 190 90, 238 90"/>
+      <path class="wire wire-cut" d="M282 90 C 310 90, 320 90, 340 90"/>
+      <text class="gap" x="260" y="70">?</text>
+      <g class="node">
+        <rect x="30" y="40" width="48" height="96" rx="11"/>
+        <rect class="node-screen" x="37" y="52" width="34" height="64" rx="4"/>
+      </g>
+      <g class="node db">
+        <ellipse cx="370" cy="72" rx="28" ry="10"/>
+        <path d="M342 72 v44 a28 10 0 0 0 56 0 v-44"/>
+        <ellipse class="db-mid" cx="370" cy="94" rx="28" ry="10"/>
+      </g>
+      <circle class="pkt" r="6"/>
+    </svg>
+    <p class="lost-code">404</p>
+    <h1>This request never reached the database<span class="accent">.</span></h1>
+    <p>The page you asked for doesn't exist, or it has moved.</p>
+    <p class="lost-fr" lang="fr">Cette page n'existe pas, ou elle a changé d'adresse.</p>
+    <div class="lost-actions">
+      <a class="btn btn-solid" href="/">Back to the portfolio</a>
+      <a class="btn btn-ghost" href="/fr/" lang="fr" hreflang="fr">Version française</a>
+      <a class="btn btn-ghost" href="/cv.html">Read the CV</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>

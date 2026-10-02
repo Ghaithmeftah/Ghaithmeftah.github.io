@@ -27,6 +27,25 @@ function flash(el, cls, ms) {
   el._flashTimer = setTimeout(() => el.classList.remove(cls), ms);
 }
 
+// Count a number up into el, then put back the exact text the HTML had, so
+// the final wording (separators, spaces) is always the author's.
+//   a 99.8% counts up from 90, not from zero, so it reads as precision, not a race
+function countUp(el, to, decimals, finalText) {
+  const locale = FR ? "fr-FR" : "en-US";
+  const from = to < 100 && decimals ? Math.floor(to * 0.9) : 0;
+  const dur = 1400;
+  let start = null;
+  function frame(ts) {
+    if (start === null) start = ts;
+    const t = Math.min(1, (ts - start) / dur);
+    const v = from + (to - from) * (1 - Math.pow(1 - t, 3));
+    el.textContent = v.toLocaleString(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    if (t < 1) requestAnimationFrame(frame);
+    else if (finalText != null) el.textContent = finalText;
+  }
+  requestAnimationFrame(frame);
+}
+
 // Packets travelling along SVG paths. One rAF loop drives every packet of a
 // diagram, and it only runs while the diagram is on screen.
 //   trip = { el, tone, delay, legs: [[path, reversed, arrivalNode], ...] }
@@ -478,6 +497,15 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
   let ticking = false;
   let active = null;
   let ink = null;
+  let landed = false;
+  // the reading bar carries the same packet as the hero diagram
+  let packet = null;
+  if (bar) {
+    packet = document.createElement("span");
+    packet.className = "top-packet";
+    packet.setAttribute("aria-hidden", "true");
+    bar.after(packet);
+  }
 
   // one ink line slides under the nav: to the hovered link, then back to the
   // link of the section on screen
@@ -502,7 +530,13 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
     const y = window.scrollY;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     top.classList.toggle("is-stuck", y > 24);
-    if (bar) bar.style.setProperty("--p", max > 0 ? Math.min(1, y / max).toFixed(4) : 0);
+    const p = max > 0 ? Math.min(1, y / max) : 0;
+    top.style.setProperty("--p", p.toFixed(4));
+    // the request lands when the reader reaches the contact block
+    if (packet) {
+      if (p > 0.995 && !landed) { landed = true; flash(packet, "is-landed", 900); }
+      else if (p < 0.98) landed = false;
+    }
     // the last section is too short to reach the middle of the screen: at the
     // very bottom, it's the current one anyway
     if (links.length && max > 0 && y >= max - 4) setActive(links[links.length - 1]);
@@ -537,6 +571,98 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
       if (entries[0].isIntersecting) setActive(null);
     }, { rootMargin: "0px 0px -60% 0px" }).observe(hero);
   }
+})();
+
+// ===== skill finder: "show me the .NET work" =====
+// Recruiters arrive with a keyword. One click lights the cases that use it,
+// built from each case's own stack list, so it can never drift from the content.
+(function () {
+  const work = document.getElementById("work");
+  const cases = work ? Array.from(work.querySelectorAll(".case")) : [];
+  if (cases.length < 2) return;
+  const skills = [
+    { label: ".NET", match: [".NET", "ASP.NET Core", "C# / .NET"] },
+    { label: "Symfony · PHP", match: ["Symfony", "Doctrine", "PHPUnit"] },
+    { label: "Flutter", match: ["Flutter", "Dart"] },
+    { label: "Angular · React", match: ["Angular 21", "ReactJS"] },
+    { label: "Python · FastAPI", match: ["FastAPI"] },
+    { label: "DevOps", match: ["Docker", "GitLab CI/CD", "Codemagic", "AWS", "WireGuard"] },
+  ];
+  const t = FR ? { title: "Filtrer par techno", all: "Tout", cases: (n) => n + (n > 1 ? " projets" : " projet") }
+               : { title: "Filter by stack", all: "All", cases: (n) => n + (n > 1 ? " cases" : " case") };
+
+  const stackOf = (c) => Array.from(c.querySelectorAll(".case-stack li"));
+  const bar = document.createElement("div");
+  bar.className = "skill-finder";
+  bar.setAttribute("role", "group");
+  bar.setAttribute("aria-label", t.title);
+  bar.innerHTML = '<span class="skill-finder-label">' + t.title + "</span>";
+  const status = document.createElement("span");
+  status.className = "skill-finder-status";
+  status.setAttribute("aria-live", "polite");
+
+  let current = null;
+  const buttons = skills.map((sk) => {
+    const hits = cases.filter((c) => stackOf(c).some((li) => sk.match.includes(li.textContent.trim())));
+    if (!hits.length) return null;
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "skill-chip";
+    b.setAttribute("aria-pressed", "false");
+    b.innerHTML = sk.label + ' <span class="skill-count">' + hits.length + "</span>";
+    b.addEventListener("click", () => select(current === sk ? null : sk, hits));
+    bar.appendChild(b);
+    return { b, sk };
+  }).filter(Boolean);
+  bar.appendChild(status);
+
+  function select(sk, hits) {
+    current = sk;
+    buttons.forEach(({ b, sk: s }) => b.setAttribute("aria-pressed", String(s === sk)));
+    work.classList.toggle("is-filtering", !!sk);
+    cases.forEach((c) => {
+      const on = !sk || hits.includes(c);
+      c.classList.toggle("is-dim", !on);
+      stackOf(c).forEach((li) => li.classList.toggle("is-match", !!sk && sk.match.includes(li.textContent.trim())));
+    });
+    status.textContent = sk ? t.cases(hits.length) : "";
+    if (sk) {
+      const r = hits[0].getBoundingClientRect();
+      // only scroll when the first match isn't already in view
+      if (r.top < 0 || r.top > innerHeight * 0.6) hits[0].scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
+    }
+  }
+
+  work.querySelector("h2").after(bar);
+})();
+
+// ===== the time in Nabeul, and when a reply will come =====
+(function () {
+  const lede = document.querySelector(".contact-lede");
+  if (!lede || typeof Intl === "undefined") return;
+  const line = document.createElement("p");
+  line.className = "local-time";
+  line.innerHTML = '<span class="lt-dot" aria-hidden="true"></span><span class="lt-text"></span>';
+  lede.after(line);
+  const text = line.querySelector(".lt-text");
+  const zone = "Africa/Tunis";
+
+  function update() {
+    const now = new Date();
+    const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
+      timeZone: zone, hour: "2-digit", minute: "2-digit", weekday: "short", hour12: false,
+    }).formatToParts(now).map((p) => [p.type, p.value]));
+    const hour = parseInt(parts.hour, 10);
+    const weekend = parts.weekday === "Sat" || parts.weekday === "Sun";
+    const working = !weekend && hour >= 8 && hour < 19;
+    const clock = parts.hour + ":" + parts.minute;
+    line.classList.toggle("is-working", working);
+    text.textContent = FR
+      ? clock + " à Nabeul · " + (working ? "heures de travail, réponse aujourd'hui" : "réponse le prochain matin ouvré")
+      : clock + " in Nabeul · " + (working ? "working hours, expect a reply today" : "expect a reply the next working morning");
+  }
+  update();
+  setInterval(update, 30000);
 })();
 
 // ===== light / dark theme =====
@@ -579,7 +705,12 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
       const x = r.left + r.width / 2;
       const y = r.top + r.height / 2;
       const end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-      document.startViewTransition(() => paint(theme)).ready.then(() => {
+      // the portrait has its own view-transition name (for the page change to
+      // the CV); here it must be part of the circle like everything else
+      root.classList.add("theme-vt");
+      const vt = document.startViewTransition(() => paint(theme));
+      vt.finished.finally(() => root.classList.remove("theme-vt"));
+      vt.ready.then(() => {
         root.animate(
           { clipPath: ["circle(0px at " + x + "px " + y + "px)", "circle(" + end + "px at " + x + "px " + y + "px)"] },
           { duration: 600, easing: "cubic-bezier(.2,.7,.2,1)", pseudoElement: "::view-transition-new(root)" }
@@ -681,30 +812,51 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
   const nums = document.querySelectorAll("[data-count]");
   // the final value is already in the HTML, so no-JS readers and crawlers see it
   if (!nums.length || REDUCED) return;
-  const locale = FR ? "fr-FR" : "en-US";
+  nums.forEach((n) => onceInView(n, (el) => {
+    countUp(el, parseFloat(el.dataset.count), parseInt(el.dataset.decimals || "0", 10), el.textContent);
+  }, { threshold: 0.6 }));
+})();
 
-  function fmt(v, decimals) {
-    return v.toLocaleString(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
-  }
-
-  function run(el) {
-    const to = parseFloat(el.dataset.count);
-    const decimals = parseInt(el.dataset.decimals || "0", 10);
-    // a 99.8% counts up from 90, not from zero, so it reads as precision, not a race
-    const from = to < 100 && decimals ? Math.floor(to * 0.9) : 0;
-    const dur = 1400;
-    let start = null;
-    function frame(ts) {
-      if (start === null) start = ts;
-      const t = Math.min(1, (ts - start) / dur);
-      const eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = fmt(from + (to - from) * eased, decimals);
-      if (t < 1) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  }
-
-  nums.forEach((n) => onceInView(n, run, { threshold: 0.6 }));
+// ===== case outcomes: the figures count up as the case comes in =====
+// Only figures written with a + or % ("390+", "99.8%"): those are the claims.
+// The text is wrapped at runtime, so the HTML and its French pairs stay plain.
+(function () {
+  if (REDUCED) return;
+  const figure = /(\d{1,3}(?:[,\u00a0\u202f ]\d{3})+|\d+(?:[.,]\d+)?)(?=[\u00a0\u202f ]?[+%])/g;
+  document.querySelectorAll(".case-outcome").forEach((p) => {
+    const spans = [];
+    const walker = document.createTreeWalker(p, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((node) => {
+      const text = node.textContent;
+      if (!figure.test(text)) return;
+      figure.lastIndex = 0;
+      const frag = document.createDocumentFragment();
+      let last = 0;
+      text.replace(figure, (m, _g, at) => {
+        frag.appendChild(document.createTextNode(text.slice(last, at)));
+        const span = document.createElement("span");
+        span.className = "fig";
+        span.textContent = m;
+        frag.appendChild(span);
+        spans.push(span);
+        last = at + m.length;
+        return m;
+      });
+      frag.appendChild(document.createTextNode(text.slice(last)));
+      node.replaceWith(frag);
+    });
+    if (!spans.length) return;
+    onceInView(p, () => spans.forEach((span) => {
+      const raw = span.textContent;
+      const decimals = /[.,]\d$/.test(raw) ? 1 : 0;
+      const value = decimals
+        ? parseFloat(raw.replace(",", "."))
+        : parseInt(raw.replace(/\D/g, ""), 10);
+      countUp(span, value, decimals, raw);
+    }), { threshold: 0.8 });
+  });
 })();
 
 // ===== platform schematic: requests fan out from the gateway, services talk over gRPC =====

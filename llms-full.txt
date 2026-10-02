@@ -141,7 +141,7 @@ Stack: C#/.NET, D365 Business Central, REST.
 - Available for: remote roles, relocation within the EU, and freelance projects.
 - Employment shape: through an employer of record, a contractor agreement, or on-site
   employment in the EU.
-- Start date: on request.
+- Start date: within two weeks, or on a date agreed per opportunity.
 - Freelance rate: on request, quoted per project or per day once the scope is clear.
 - Best fit: full-stack ownership, backend-heavy work (.NET, Symfony, FastAPI), Flutter
   mobile delivery, or leading a small team.

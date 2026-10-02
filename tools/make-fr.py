@@ -425,13 +425,17 @@ BODY = [
 ('<dd>Employment through an employer of record, or a contractor agreement, tell me what your company uses</dd>',
  '<dd>Salariat via un employer of record, ou contrat de prestation, dites-moi ce que votre entreprise utilise</dd>'),
 ('<dt>Start</dt>', '<dt>Disponibilité</dt>'),
-('<dd>Start date on request</dd>', '<dd>Date de démarrage sur demande</dd>'),
+('<dd>Within two weeks, or on a date agreed per opportunity</dd>', '<dd>Sous deux semaines, ou à une date convenue selon l\'opportunité</dd>'),
 ('''<dt>Languages</dt>
           <dd>English (B2, TOEIC) and French for daily work, German B1</dd>''',
  '''<dt>Langues</dt>
           <dd>Français et anglais (B2, TOEIC) au quotidien, allemand B1</dd>'''),
 ('<a class="btn btn-solid" href="cv.html">Read the CV</a>\n        <a class="btn btn-ghost btn-dl" href="assets/Ghaith-Mefteh-CV-EN.pdf" download>CV · full-stack (PDF)</a>\n        <a class="btn btn-ghost btn-dl" href="assets/Ghaith-Mefteh-CV-Mobile-EN.pdf" download>CV · mobile (PDF)</a>',
  '<a class="btn btn-solid" href="cv.html">Lire le CV</a>\n        <a class="btn btn-ghost btn-dl" href="../assets/Ghaith-Mefteh-CV-FR.pdf" download>CV · full-stack (PDF)</a>\n        <a class="btn btn-ghost btn-dl" href="../assets/Ghaith-Mefteh-CV-Mobile-FR.pdf" download>CV · mobile (PDF)</a>'),
+('<p class="hero-now"><b>Now, October 2026:</b> building AzertyUI\'s company platform with a team of four, .NET microservices behind an API Gateway and Angular&nbsp;21 in front.</p>',
+ '<p class="hero-now"><b>En ce moment, octobre 2026 :</b> je construis la plateforme de gestion d\'AzertyUI avec une équipe de quatre, microservices .NET derrière une API Gateway et Angular&nbsp;21 devant.</p>'),
+('<p class="colophon">Hand-built with HTML, CSS and plain JavaScript. No framework, no tracker. Last updated <time datetime="2026-10">October 2026</time>.</p>',
+ '<p class="colophon">Fait main en HTML, CSS et JavaScript natif. Aucun framework, aucun traceur. Mis à jour en <time datetime="2026-10">octobre 2026</time>.</p>'),
 ('<p class="lane-kicker">For founders and agencies</p>', '<p class="lane-kicker">Pour les fondateurs et agences</p>'),
 ('<h3>One engineer who carries the whole feature</h3>', '<h3>Un ingénieur qui porte la fonctionnalité entière</h3>'),
 ('<dt>What I take on</dt>', '<dt>Ce que je prends en charge</dt>'),
@@ -567,6 +571,8 @@ BODY = [
 
 # strings that legitimately appear more than once (both carousels share a caption)
 GLOBAL = [
+('>Book a 30-min call</a>', '>Réserver un appel de 30 min</a>'),
+('<p class="lab-status">In progress</p>', '<p class="lab-status">En cours</p>'),
 ('<span class="say-src-kind">LinkedIn recommendation</span>', '<span class="say-src-kind">Recommandation LinkedIn</span>'),
 ('<time datetime="2026-09">September 2026</time>', '<time datetime="2026-09">septembre 2026</time>'),
 ('aria-label="Next screen">›</button>', 'aria-label="Écran suivant">›</button>'),
@@ -690,10 +696,10 @@ CV = [
 
 ('<h2>Availability</h2>', '<h2>Disponibilité</h2>'),
 ("""        Open to remote roles, relocation in the EU and freelance projects. Based at UTC+1,
-        overlapping a full European day. Answers within the day. Start date on request.""",
+        overlapping a full European day. Answers within the day. Can start within two weeks.""",
  """        Ouvert au télétravail, à une mobilité dans l'UE et aux missions freelance. Basé à UTC+1,
-        une journée européenne entière en commun. Réponse dans la journée. Date de démarrage sur
-        demande."""),
+        une journée européenne entière en commun. Réponse dans la journée. Disponible sous deux
+        semaines."""),
 ]
 
 
