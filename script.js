@@ -870,18 +870,48 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
   });
 })();
 
+// ===== case stories: the opening and the result up front, the rest one tap away =====
+// Recruiters skim. Folded at runtime, so the HTML (and its French pairs) stays plain
+// and readers without JS get the whole story.
+(function () {
+  document.querySelectorAll(".case-text").forEach((text) => {
+    const paras = Array.from(text.querySelectorAll(":scope > p:not([class])"));
+    if (paras.length < 2) return;
+    const outcome = text.querySelector(":scope > .case-outcome");
+    const more = document.createElement("details");
+    more.className = "case-more";
+    const summary = document.createElement("summary");
+    summary.textContent = FR ? "Lire toute l'histoire" : "Read the full story";
+    more.appendChild(summary);
+    paras.slice(1).forEach((p) => more.appendChild(p));
+    if (outcome) paras[0].after(outcome);
+    (outcome || paras[0]).after(more);
+  });
+})();
+
 // ===== rendered films play only while on screen =====
-// The case films are preload="none", so they stay off the network until then;
-// the hero film preloads. Reduced motion keeps every poster still.
+// The case and section films are preload="none", so they stay off the network
+// until then; the hero film preloads. Reduced motion keeps every poster still.
 (function () {
   if (REDUCED) return;
+  const films = Array.from(document.querySelectorAll("video.reel, video.hero-film, video.band-film"));
+  const play = (v) => {
+    if (v._inView && v.paused && !document.hidden) v.play().catch(() => { /* autoplay refused: the poster stays */ });
+  };
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
-      if (e.isIntersecting) e.target.play().catch(() => { /* autoplay refused: the poster stays */ });
+      e.target._inView = e.isIntersecting;
+      if (e.isIntersecting) play(e.target);
       else e.target.pause();
     });
   }, { threshold: 0.25 });
-  document.querySelectorAll("video.reel, video.hero-film").forEach((v) => io.observe(v));
+  films.forEach((v) => {
+    io.observe(v);
+    // a play() sent before any data arrived can be dropped; ask again once it can play
+    v.addEventListener("canplay", () => play(v));
+  });
+  // a page opened in a background tab starts its films when it is shown
+  document.addEventListener("visibilitychange", () => films.forEach(play));
 })();
 
 // ===== copy the email address in one click =====

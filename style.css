@@ -1762,16 +1762,20 @@ html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *
 
 /* ====== responsive ====== */
 @media (max-width: 900px) {
-  /* the film moves under the copy, cropped to the action */
-  .hero { flex-direction: column; align-items: stretch; min-height: 0; padding: calc(var(--top-h) + 1.6rem) 1.6rem 0; }
+  /* the film leads, running under the header, and the headline overlaps its foot.
+     Phones get the square cut of the film (hero-m.mp4); the wide poster is
+     framed on the same devices until it plays. */
+  .hero { flex-direction: column; align-items: stretch; min-height: 0; padding: 0 1.6rem 2.8rem; }
   .hero::after { display: none; }
   .hero-film {
-    position: relative; inset: auto; z-index: 0; order: 2;
-    width: calc(100% + 3.2rem); height: auto; margin: 0 -1.6rem;
-    aspect-ratio: 8 / 7; object-position: 96% 50%;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%);
-            mask-image: linear-gradient(180deg, transparent 0%, #000 18%);
+    position: relative; inset: auto; z-index: 0; order: -1;
+    width: calc(100% + 3.2rem); height: auto; max-height: 620px;
+    margin: 0 -1.6rem -2.4rem;
+    aspect-ratio: 1 / 1; object-position: 86% 50%;
+    -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 100%);
+            mask-image: linear-gradient(180deg, #000 62%, transparent 100%);
   }
+  .hero-copy { position: relative; z-index: 1; max-width: none; }
   .case { grid-template-columns: minmax(0, 1fr); }
   .case-text, .case-flip .case-text { grid-column: 1; grid-row: 2; }
   .case:not(:has(.reel-widget)) .case-text { grid-row: 1; }
@@ -1794,7 +1798,7 @@ html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *
 @media (max-width: 620px) {
   .top { padding: 1rem 1.1rem; }
   .hero { padding-left: 1.1rem; padding-right: 1.1rem; }
-  .hero-film { width: calc(100% + 2.2rem); margin: 0 -1.1rem; }
+  .hero-film { width: calc(100% + 2.2rem); margin-left: -1.1rem; margin-right: -1.1rem; }
   .proof p { padding: 1.8rem 1.1rem; font-size: 1.1rem; }
   .work, .lab, .contact { padding-left: 1.1rem; padding-right: 1.1rem; }
   .path { padding-left: 1.1rem; padding-right: 1.1rem; }
@@ -1905,3 +1909,171 @@ html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *
 
 /* the open phone menu owns the screen */
 html.menu-open .lang-hint { display: none; }
+
+/* the rest of a case story, folded by script.js */
+.case-more { margin: .2rem 0 1.4rem; }
+.case-more summary {
+  display: inline-flex; align-items: center; gap: .6rem;
+  min-height: 40px; padding: 0 1.1rem;
+  border: 1.5px solid var(--line); border-radius: 999px;
+  background: var(--bg-raised); color: var(--ink);
+  font-weight: 700; font-size: .92rem;
+  cursor: pointer; list-style: none;
+  transition: border-color .15s;
+}
+.case-more summary::-webkit-details-marker { display: none; }
+.case-more summary::after { content: "+"; font-weight: 500; font-size: 1.1rem; color: var(--cobalt); }
+.case-more[open] summary::after { content: "\2212"; }
+.case-more summary:hover { border-color: var(--cobalt); }
+.case-more[open] summary { margin-bottom: 1.1rem; }
+
+/* ====== film bands ======
+   The sections that carry a background film, and the client strip between two
+   of them, sit on the dark stage in both themes. Their tokens are re-pointed so
+   the components inside turn light on their own. Each film fades to the stage
+   colour at its top and bottom, so neighbouring bands read as one continuous
+   reel rather than stacked boxes. */
+.proof, .clients, .glance, .says, .lab, .path, .contact {
+  --ink: #E9EDF6; --ink-soft: #AEB8D2; --line: rgba(233, 237, 246, .14);
+  --bg-raised: rgba(255, 255, 255, .05); --teal: #3DD6C2; --cobalt-deep: #A9B9FF;
+  --highlight: rgba(255, 181, 71, .26); --surface-2: rgba(255, 255, 255, .1);
+  --sand-ink: #FFC56B; --float-btn: rgba(7, 13, 31, .6);
+  position: relative; isolation: isolate; overflow: hidden;
+  background: var(--stage); color: var(--ink);
+  --wide: max(2rem, calc((100vw - 1180px) / 2 + 2rem));
+}
+.band-film {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover;
+}
+:is(section, footer):has(> .band-film)::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg,
+    var(--stage) 0%, rgba(7, 13, 31, var(--scrim, .5)) 18%,
+    rgba(7, 13, 31, var(--scrim, .5)) 82%, var(--stage) 100%);
+}
+.proof { --scrim: .42; border: 0; }
+.glance { --scrim: .7; }
+.says { --scrim: .45; }
+.lab { --scrim: .55; }
+.path { --scrim: .68; }
+.contact { --scrim: .4; }
+
+.proof p { position: relative; padding: 7.5rem 2rem 6.5rem; }
+.proof em { color: #FFFFFF; }
+.clients { max-width: none; margin: 0; padding: 0 var(--wide) 3.5rem; }
+.clients-row { border-bottom: 0; padding-bottom: 0; }
+.clients-row li.on-dark { border-color: var(--line); }
+.glance { max-width: none; margin: 0; padding: 6rem var(--wide) 6.5rem; }
+.glance h2 { font-size: clamp(2rem, 3.6vw, 3rem); margin-bottom: 2rem; }
+.says { margin-top: 0; padding: 7rem 2rem; }
+.lab { max-width: none; margin: 0; padding: 7rem var(--wide); }
+.lab-item { border-top-color: var(--ink); }
+.path { padding: 7rem 2rem; }
+.contact { max-width: none; margin: 0; padding: 8rem var(--wide) 4rem; }
+.contact-photo { border-color: var(--stage); }
+/* the recommendations are paper cards: in the light theme they keep dark ink
+   inside the dark band (in the dark theme the cards are dark too) */
+:root:not([data-theme="dark"]) .says .say {
+  --ink: #0C1430; --ink-soft: #4A5470; --line: #DCE1EB; --bg-raised: #FFFFFF;
+  --teal: #0B7372; --cobalt-deep: #1D3AA8; --sand-ink: #8A5A0B;
+}
+
+/* labels speak in the page's own voice; monospace is kept for what really is
+   code or machine output (the monitoring feed, stack tags, the live clock) */
+.case-role, .widget-title, .carousel-cap, .carousel-note, .case-proof-label, .tl-when,
+.tl-caption, .glance-grid dt, .lane-facts dt, .say-rel, .say-src, .avail-badge,
+.contact-meta, .loadbar-name, .lab-status, .say-tr summary {
+  font-family: var(--font);
+  letter-spacing: 0;
+}
+.case-role { font-size: .9rem; font-weight: 600; }
+.widget-title { font-size: .86rem; font-weight: 600; }
+.tl-when { font-size: .92rem; font-weight: 700; }
+.glance-grid dt, .lane-facts dt { font-size: .86rem; font-weight: 600; }
+.say-rel { font-size: .8rem; font-weight: 600; }
+.lab-status { text-transform: none; font-weight: 600; }
+
+/* film grain over the whole page: an SVG noise tile shifted a few times a
+   second. Live in the page rather than baked into the videos, where noise
+   would multiply their size. */
+body::after {
+  content: ""; position: fixed; inset: -50%; z-index: 90; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .07;
+  mix-blend-mode: overlay;
+  animation: grain .9s steps(7) infinite;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); } 15% { transform: translate(-3%, 2%); } 30% { transform: translate(2%, -4%); }
+  45% { transform: translate(-4%, -1%); } 60% { transform: translate(4%, 3%); } 75% { transform: translate(-1%, 4%); }
+  90% { transform: translate(3%, -2%); } 100% { transform: translate(0, 0); }
+}
+@media (prefers-reduced-motion: reduce) { body::after { animation: none; } }
+@media print { body::after { display: none; } }
+
+/* ====== phone pass ======
+   Last in the file on purpose: these win over the component rules above. */
+@media (max-width: 620px) {
+  :root { --top-h: 4.75rem; }   /* the phone bar: 1rem padding around 44px buttons */
+  .btn { white-space: nowrap; }
+
+  /* nothing a recruiter needs to read goes below 13.6px */
+  .case-role, .widget-title, .loadbar-name, .carousel-cap, .carousel-note, .case-proof-label,
+  .mon-live, .say-rel, .say-src, .lab-status, .lab-tags, .tl-caption, .avail-badge,
+  .lt-text, .contact-meta, .colophon, .skill-count, .skill-chip { font-size: .8rem !important; }
+  .mon-feed li { font-size: .8rem; grid-template-columns: 2.8rem 3.2rem minmax(0, 1fr) auto; gap: .45rem; }
+
+  /* 44px targets for thumbs */
+  .theme-btn { width: 44px; height: 44px; }
+  .nav-cv, .nav-lang { min-height: 44px; display: inline-flex !important; align-items: center; }
+  .menu-btn { min-height: 44px; }
+  .skill-chip { min-height: 44px; }
+  .copy-mail { width: 44px; height: 44px; }
+  .say-tr summary, .case-more summary { min-height: 44px; }
+
+  /* hero: the two calls side by side; the address lives in the dock and the footer */
+  .hero h1 { font-size: clamp(2.9rem, 13.5vw, 3.6rem); }
+  .hero-hello { font-size: .9rem; }
+  .hero-lede { font-size: 1.02rem; }
+  .hero-actions { flex-wrap: nowrap; }
+  .hero-actions .btn { flex: 1 1 0; padding-left: .6rem; padding-right: .6rem; }
+  .hero-actions .mail-pair { display: none; }
+  .hero-now { font-size: .86rem; }
+
+  /* the numbers line */
+  .proof p { padding: 4.5rem 1.1rem 4rem; font-size: 1.28rem; }
+  .clients, .glance, .lab, .contact { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .glance { padding-top: 4rem; padding-bottom: 4.5rem; }
+  .says, .lab, .path { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+  .contact { padding-top: 5rem; }
+
+  /* at a glance: label over value, tight rows */
+  .glance h2 { margin-bottom: 1rem; }
+  .glance-grid > div { padding: .6rem 0; }
+  .glance-grid dd { font-size: .92rem; }
+
+  /* chapters: films edge to edge, a smaller phone frame, photo strips you swipe */
+  .work h2, .lab h2, .path h2, .says h2, .hire h2, .contact h2 { font-size: clamp(2.3rem, 11vw, 3rem); }
+  .case { padding: 2.8rem 0; }
+  .case-visual > .reel-widget { margin-left: -1.1rem; margin-right: -1.1rem; border-radius: 0; }
+  .phone-frame { max-width: 205px; border-width: 5px; border-radius: 22px; }
+  .case-proof-shots, .tl-photos {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 74%;
+    grid-template-columns: none;
+    gap: .7rem; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin-right: -1.1rem; padding-right: 1.1rem;
+  }
+  .case-proof-shots::-webkit-scrollbar, .tl-photos::-webkit-scrollbar { display: none; }
+  .case-proof-shots img, .tl-photos img { height: 250px; width: 100%; scroll-snap-align: start; }
+
+  /* hire: fact label over value, calls two to a row */
+  .lane-facts > div { grid-template-columns: minmax(0, 1fr); gap: .15rem; padding: .6rem 0; }
+  .lane-actions .btn { flex: 1 1 calc(50% - .35rem); text-align: center; }
+  .howiwork { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* contact: the main calls full width, the files and profiles two to a row */
+  .contact-links-secondary .btn { flex: 1 1 calc(50% - .45rem); font-size: .86rem; padding-left: .5rem; padding-right: .5rem; }
+  .lane-actions .btn { font-size: .86rem; padding-left: .5rem; padding-right: .5rem; }
+}

@@ -101,6 +101,7 @@
 </head>
 <body>
 <div id="stage"><div class="floor"></div><div id="rig"></div><svg id="beams"></svg></div>
+<script src="ambient.js"></script>
 <script>
 const A = (name) => "../../assets/" + name + ".webp";
 const COBALT = "#5B7BFF", TEAL = "#2BC4B0", AMBER = "#FFB547";
@@ -109,10 +110,19 @@ const COBALT = "#5B7BFF", TEAL = "#2BC4B0", AMBER = "#FFB547";
 // scaled to fit); T: loop length in seconds.
 // devices: x, y, z offsets from the centre (px), ry: resting turn (deg), ph: float phase.
 const SCENES = {
+  // Section backgrounds, drawn by ambient.js. Soft by nature, so no supersampling.
+  flow: { w: 1920, h: 1080, T: 10, ambient: "flow", ss: 1, crf: 24 },
+  constellation: { w: 1920, h: 1080, T: 20, ambient: "constellation", ss: 1, crf: 24 },
+  bokeh: { w: 1920, h: 1080, T: 12, ambient: "bokeh", ss: 1, crf: 24 },
+  blueprint: { w: 1920, h: 1080, T: 12, ambient: "blueprint", ss: 1, crf: 24 },
+  trail: { w: 1920, h: 1080, T: 8, ambient: "trail", ss: 1, crf: 24 },
+  aurora: { w: 1920, h: 1080, T: 14, ambient: "aurora", ss: 1, crf: 24 },
   // The hero: a request leaves a client, crosses the API, reaches the data and
   // comes back; the client's screen updates when the answer lands.
   hero: {
-    w: 1600, h: 900, dw: 1600, T: 12, request: true, focusX: .74,
+    w: 1920, h: 1080, dw: 1600, T: 12, request: true, focusX: .74,
+    // the phone cut keeps only the devices, API and database (fractions of the frame)
+    mobile: { crop: [.44, .02, .99, 1], w: 900 },
     devices: [
       { id: "laptop", kind: "laptop", w: 410, x: 310, y: 110, z: 0, ry: 8, ph: 0,
         imgs: ["cm-home", "cm-listings"] },
@@ -132,7 +142,7 @@ const SCENES = {
     chips: [],
   },
   platform: {
-    w: 1280, h: 720, dw: 1280, T: 8, request: true,
+    w: 1600, h: 900, dw: 1280, T: 8, request: true,
     devices: [
       { id: "web", kind: "laptop", w: 400, x: -290, y: 70, z: 40, ry: 14, ph: 0, imgs: [], skeleton: true },
     ],
@@ -155,7 +165,7 @@ const SCENES = {
     ],
   },
   chalet: {
-    w: 1280, h: 720, dw: 960, T: 10,
+    w: 1600, h: 900, dw: 960, T: 10,
     devices: [
       { kind: "laptop", w: 590, x: 0, y: -6, z: 0, ry: 0, ph: 0,
         imgs: ["cm-home", "cm-listings", "cm-rental", "cm-insurance"] },
@@ -167,7 +177,7 @@ const SCENES = {
     ],
   },
   soc: {
-    w: 1280, h: 720, dw: 960, T: 8,
+    w: 1600, h: 900, dw: 960, T: 8,
     devices: [
       { kind: "phone", w: 168, x: -235, y: 22, z: -70, ry: 22, ph: 2.2, imgs: ["soc-standings", "soc-tickets"] },
       { kind: "phone", w: 182, x: 0, y: 0, z: 60, ry: 0, ph: 0, imgs: ["soc-results", "soc-events"] },
@@ -180,7 +190,7 @@ const SCENES = {
     ],
   },
   smartcare: {
-    w: 1280, h: 720, dw: 960, T: 8,
+    w: 1600, h: 900, dw: 960, T: 8,
     devices: [
       { kind: "phone", w: 168, x: -235, y: 22, z: -70, ry: 22, ph: 2.2, imgs: ["sc-appt-1-doctor", "sc-appt-2-date"] },
       { kind: "phone", w: 182, x: 0, y: 0, z: 60, ry: 0, ph: 0, imgs: ["sc-home", "sc-urgent-3-detail"] },
@@ -206,11 +216,11 @@ const sv = (tag, attrs, parent) => { const e = document.createElementNS(SVGNS, t
 
 // the light under the scene leans toward the action
 const fx = S.focusX || .5;
-const blobs = [
+const blobs = (S.ambient ? [] : [
   { c: COBALT, r: .5, cx: fx - .12, cy: .3, ph: 0, o: .42 },
   { c: TEAL, r: .38, cx: fx + .22, cy: .62, ph: 2.1, o: .22 },
   { c: AMBER, r: .3, cx: fx, cy: .98, ph: 4.2, o: .16 },
-].map((b) => {
+]).map((b) => {
   const e = el("div", "blob");
   const size = b.r * S.w;
   Object.assign(e.style, { width: size + "px", height: size + "px", background: b.c, opacity: b.o });
@@ -218,6 +228,7 @@ const blobs = [
   return Object.assign(b, { el: e, size });
 });
 const floor = stage.querySelector(".floor");
+if (S.ambient) floor.style.display = "none";
 
 // a dashboard drawn in boxes, for the platform scene where no screenshot exists
 function skeleton(scr) {
@@ -239,7 +250,7 @@ function skeleton(scr) {
 }
 
 const byId = {};
-const devices = S.devices.map((d) => {
+const devices = (S.devices || []).map((d) => {
   const e = el("div", "dev", rig);
   e.style.setProperty("--w", d.w + "px");
   const body = el("div", d.kind, e);
@@ -358,7 +369,7 @@ function pointOn(d, f) {
   return [p.x, p.y, len];
 }
 
-function render(t) {
+function renderDevices(t) {
   const a = (2 * Math.PI * t) / S.T;
   const cx = 0; // positions are already laid out toward focusX
   rig.style.transform = "translateX(" + cx.toFixed(1) + "px) scale(" + SCALE + ") rotateX(" + (5 + 1.4 * Math.sin(a)).toFixed(3) + "deg) rotateY(" + (6 * Math.sin(a + .6)).toFixed(3) + "deg)";
@@ -487,7 +498,13 @@ function render(t) {
   }
 }
 
-window.SCENE = { w: S.w, h: S.h, T: S.T };
+AMBIENT.setup(S.ambient, stage, S.w, S.h, S.T, window.devicePixelRatio || 1);
+function render(t) {
+  if (!S.ambient) renderDevices(t);
+  AMBIENT.draw(S.ambient, t);
+}
+
+window.SCENE = { w: S.w, h: S.h, T: S.T, mobile: S.mobile || {}, ss: S.ss || 2, crf: S.crf || 20 };
 window.ready = Promise.all([
   document.fonts.ready,
   ...devices.flatMap((d) => d.imgs.map((img) => img.decode())),
