@@ -693,7 +693,8 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
 (function () {
   const top = document.querySelector(".top");
   const nav = top && top.querySelector("nav");
-  const links = nav ? Array.from(nav.querySelectorAll('a[href^="#"]')) : [];
+  // section links: "#work" on the home page, "/#work" on the landing pages
+  const links = nav ? Array.from(nav.querySelectorAll('a[href*="#"]')) : [];
   if (links.length < 2) return;
 
   const btn = document.createElement("button");
@@ -740,6 +741,8 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
     if (!a && e.target !== sheet) return;
     set(false);
     if (!a) return;
+    // a link to another page (from a landing page to the home page) just navigates
+    if (!a.getAttribute("href").startsWith("#")) return;
     // scroll once the page is unlocked; the browser's own jump would start
     // while overflow is still hidden and stop short
     e.preventDefault();

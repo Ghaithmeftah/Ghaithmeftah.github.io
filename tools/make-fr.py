@@ -23,11 +23,11 @@ CHADI_FR = (
 HEAD = [
 ('<html lang="en">', '<html lang="fr">'),
 
-('<title>Ghaith Mefteh — Full-Stack and Mobile Engineer | .NET, Symfony, Flutter</title>',
- '<title>Ghaith Mefteh — Ingénieur full-stack et mobile | .NET, Symfony, Flutter</title>'),
+('<title>Ghaith Mefteh | Freelance Full-Stack &amp; Flutter Developer</title>',
+ '<title>Ghaith Mefteh | Développeur full-stack et Flutter freelance</title>'),
 
-('<meta name="description" content="Ghaith Mefteh — full-stack and mobile software engineer, technical director at AzertyUI. .NET, Symfony, Angular, Flutter. 3+ years in production, leads a team of 4. Open to remote work and relocation in the EU.">',
- '<meta name="description" content="Ghaith Mefteh — ingénieur logiciel full-stack et mobile, directeur technique chez AzertyUI. .NET, Symfony, Angular, Flutter. Plus de 3 ans en production, dirige une équipe de 4. Ouvert au télétravail et à une mobilité dans l\'UE.">'),
+('<meta name="description" content="Freelance full-stack and Flutter developer, technical director at AzertyUI. .NET, Symfony, Angular, Flutter, 3+ years in production. Remote or EU relocation.">',
+ '<meta name="description" content="Développeur full-stack et Flutter freelance, directeur technique chez AzertyUI. .NET, Symfony, Angular, Flutter, 3 ans de production. Télétravail ou UE.">'),
 
 ('<link rel="canonical" href="https://ghaithmeftah.github.io/">',
  '<link rel="canonical" href="https://ghaithmeftah.github.io/fr/">'),
@@ -54,6 +54,22 @@ HEAD = [
 ]
 
 BODY = [
+# ---- services: links to the landing pages (tools/make-pages.py) and their schema ----
+('<script type="application/ld+json">\n{\n "@context": "https://schema.org",\n "@type": "ProfessionalService",\n "@id": "https://ghaithmeftah.github.io/#services",\n "name": "Ghaith Mefteh, full-stack and mobile software engineering",\n "url": "https://ghaithmeftah.github.io/",\n "image": "https://ghaithmeftah.github.io/assets/og-card.png",\n "email": "ghaithmeftah@gmail.com",\n "telephone": "+21653324763",\n "founder": {\n  "@id": "https://ghaithmeftah.github.io/#ghaith"\n },\n "address": {\n  "@type": "PostalAddress",\n  "addressLocality": "Nabeul",\n  "addressCountry": "TN"\n },\n "areaServed": [\n  {\n   "@type": "Place",\n   "name": "Europe"\n  },\n  {\n   "@type": "Country",\n   "name": "France"\n  },\n  {\n   "@type": "Country",\n   "name": "Tunisia"\n  },\n  {\n   "@type": "Place",\n   "name": "Worldwide (remote)"\n  }\n ],\n "availableLanguage": [\n  "en",\n  "fr",\n  "de"\n ],\n "hasOfferCatalog": {\n  "@type": "OfferCatalog",\n  "name": "Software engineering services",\n  "itemListElement": [\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Full-stack web and mobile development",\n     "url": "https://ghaithmeftah.github.io/services/full-stack/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Flutter mobile app development",\n     "url": "https://ghaithmeftah.github.io/services/flutter/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Symfony and PHP web development",\n     "url": "https://ghaithmeftah.github.io/services/symfony/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": ".NET and ASP.NET Core backend development",\n     "url": "https://ghaithmeftah.github.io/services/dotnet/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   }\n  ]\n }\n}\n</script>\n',
+ '<script type="application/ld+json">\n{\n "@context": "https://schema.org",\n "@type": "ProfessionalService",\n "@id": "https://ghaithmeftah.github.io/#services",\n "name": "Ghaith Mefteh, ingénierie logicielle full-stack et mobile",\n "url": "https://ghaithmeftah.github.io/fr/",\n "image": "https://ghaithmeftah.github.io/assets/og-card.png",\n "email": "ghaithmeftah@gmail.com",\n "telephone": "+21653324763",\n "founder": {\n  "@id": "https://ghaithmeftah.github.io/#ghaith"\n },\n "address": {\n  "@type": "PostalAddress",\n  "addressLocality": "Nabeul",\n  "addressCountry": "TN"\n },\n "areaServed": [\n  {\n   "@type": "Place",\n   "name": "Europe"\n  },\n  {\n   "@type": "Country",\n   "name": "France"\n  },\n  {\n   "@type": "Country",\n   "name": "Tunisie"\n  },\n  {\n   "@type": "Place",\n   "name": "Monde entier (à distance)"\n  }\n ],\n "availableLanguage": [\n  "en",\n  "fr",\n  "de"\n ],\n "hasOfferCatalog": {\n  "@type": "OfferCatalog",\n  "name": "Services d\'ingénierie logicielle",\n  "itemListElement": [\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Développement web et mobile full-stack",\n     "url": "https://ghaithmeftah.github.io/fr/services/full-stack/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Développement d\'applications mobiles Flutter",\n     "url": "https://ghaithmeftah.github.io/fr/services/flutter/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Développement web Symfony et PHP",\n     "url": "https://ghaithmeftah.github.io/fr/services/symfony/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Développement backend .NET et ASP.NET Core",\n     "url": "https://ghaithmeftah.github.io/fr/services/dotnet/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   }\n  ]\n }\n}\n</script>\n'),
+('<h3 id="svc-h">Each service in detail</h3>',
+ '<h3 id="svc-h">Chaque service en détail</h3>'),
+('<li><a href="services/full-stack/">Full-stack freelance</a></li>',
+ '<li><a href="services/full-stack/">Full-stack en freelance</a></li>'),
+('<li><a href="services/flutter/">Flutter mobile apps</a></li>',
+ '<li><a href="services/flutter/">Applications mobiles Flutter</a></li>'),
+('<li><a href="services/symfony/">Symfony and PHP web</a></li>',
+ '<li><a href="services/symfony/">Web Symfony et PHP</a></li>'),
+('<li><a href="services/dotnet/">.NET backends and APIs</a></li>',
+ '<li><a href="services/dotnet/">Backends et API .NET</a></li>'),
+('<li><a href="hire/">Hiring a remote engineer</a></li>',
+ '<li><a href="recrutement/">Recruter un ingénieur à distance</a></li>'),
+
 # ---- header / nav ----
 ('<a class="skip" href="#work">Skip to work</a>', '<a class="skip" href="#work">Aller aux projets</a>'),
 ('<nav aria-label="Site">', '<nav aria-label="Site">'),
@@ -579,8 +595,8 @@ CV = [
 ('<html lang="en">', '<html lang="fr">'),
 ('<title>Ghaith Mefteh — CV | Full-Stack and Mobile Engineer</title>',
  '<title>Ghaith Mefteh — CV | Ingénieur full-stack et mobile</title>'),
-('<meta name="description" content="CV of Ghaith Mefteh, full-stack and mobile software engineer and technical director at AzertyUI. .NET, Symfony, Angular, Flutter. Based in Nabeul, Tunisia, open to remote work and relocation in the EU.">',
- '<meta name="description" content="CV de Ghaith Mefteh, ingénieur logiciel full-stack et mobile, directeur technique chez AzertyUI. .NET, Symfony, Angular, Flutter. Basé à Nabeul, Tunisie, ouvert au télétravail et à une mobilité dans l\'UE.">'),
+('<meta name="description" content="CV of Ghaith Mefteh, full-stack and mobile engineer and technical director at AzertyUI: .NET, Symfony, Angular, Flutter. PDFs in English and French.">',
+ '<meta name="description" content="CV de Ghaith Mefteh, ingénieur full-stack et mobile, directeur technique chez AzertyUI : .NET, Symfony, Angular, Flutter. PDF en français et anglais.">'),
 ('<link rel="canonical" href="https://ghaithmeftah.github.io/cv.html">',
  '<link rel="canonical" href="https://ghaithmeftah.github.io/fr/cv.html">'),
 

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="Xpz_lyfS8d82vDye9TCCpKTOMhK405JHhlgoDYCLDuc">
-<title>Ghaith Mefteh — Full-Stack and Mobile Engineer | .NET, Symfony, Flutter</title>
-<meta name="description" content="Ghaith Mefteh — full-stack and mobile software engineer, technical director at AzertyUI. .NET, Symfony, Angular, Flutter. 3+ years in production, leads a team of 4. Open to remote work and relocation in the EU.">
+<title>Ghaith Mefteh | Freelance Full-Stack &amp; Flutter Developer</title>
+<meta name="description" content="Freelance full-stack and Flutter developer, technical director at AzertyUI. .NET, Symfony, Angular, Flutter, 3+ years in production. Remote or EU relocation.">
 <link rel="canonical" href="https://ghaithmeftah.github.io/">
 <link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/">
 <link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/">
@@ -41,6 +41,7 @@
 <meta name="twitter:title" content="Ghaith Mefteh — Full-Stack and Mobile Engineer">
 <meta name="twitter:description" content=".NET · Symfony · Angular · Flutter. Production systems end to end. Open to remote roles, EU relocation and freelance.">
 <meta name="twitter:image" content="https://ghaithmeftah.github.io/assets/og-card.png">
+<link rel="preload" as="image" href="assets/motion/hero.jpg" fetchpriority="high">
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -171,6 +172,99 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ProfessionalService",
+ "@id": "https://ghaithmeftah.github.io/#services",
+ "name": "Ghaith Mefteh, full-stack and mobile software engineering",
+ "url": "https://ghaithmeftah.github.io/",
+ "image": "https://ghaithmeftah.github.io/assets/og-card.png",
+ "email": "ghaithmeftah@gmail.com",
+ "telephone": "+21653324763",
+ "founder": {
+  "@id": "https://ghaithmeftah.github.io/#ghaith"
+ },
+ "address": {
+  "@type": "PostalAddress",
+  "addressLocality": "Nabeul",
+  "addressCountry": "TN"
+ },
+ "areaServed": [
+  {
+   "@type": "Place",
+   "name": "Europe"
+  },
+  {
+   "@type": "Country",
+   "name": "France"
+  },
+  {
+   "@type": "Country",
+   "name": "Tunisia"
+  },
+  {
+   "@type": "Place",
+   "name": "Worldwide (remote)"
+  }
+ ],
+ "availableLanguage": [
+  "en",
+  "fr",
+  "de"
+ ],
+ "hasOfferCatalog": {
+  "@type": "OfferCatalog",
+  "name": "Software engineering services",
+  "itemListElement": [
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Full-stack web and mobile development",
+     "url": "https://ghaithmeftah.github.io/services/full-stack/",
+     "provider": {
+      "@id": "https://ghaithmeftah.github.io/#ghaith"
+     }
+    }
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Flutter mobile app development",
+     "url": "https://ghaithmeftah.github.io/services/flutter/",
+     "provider": {
+      "@id": "https://ghaithmeftah.github.io/#ghaith"
+     }
+    }
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Symfony and PHP web development",
+     "url": "https://ghaithmeftah.github.io/services/symfony/",
+     "provider": {
+      "@id": "https://ghaithmeftah.github.io/#ghaith"
+     }
+    }
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": ".NET and ASP.NET Core backend development",
+     "url": "https://ghaithmeftah.github.io/services/dotnet/",
+     "provider": {
+      "@id": "https://ghaithmeftah.github.io/#ghaith"
+     }
+    }
+   }
+  ]
+ }
+}
+</script>
 </head>
 <body>
 
@@ -192,7 +286,7 @@
 
 <!-- ============ HERO: the request, filmed (assets/motion/hero.mp4, from tools/render-motion.py) ============ -->
 <section class="hero">
-  <video class="hero-film" muted loop playsinline preload="auto" poster="assets/motion/hero.jpg" width="1920" height="1080" aria-hidden="true"><source src="assets/motion/hero-m.mp4" type="video/mp4" media="(max-width: 900px)"><source src="assets/motion/hero.mp4" type="video/mp4"></video>
+  <video class="hero-film" muted loop playsinline preload="metadata" poster="assets/motion/hero.jpg" width="1920" height="1080" aria-hidden="true"><source src="assets/motion/hero-m.mp4" type="video/mp4" media="(max-width: 900px)"><source src="assets/motion/hero.mp4" type="video/mp4"></video>
   <div class="hero-copy">
     <p class="hero-hello">
       <img class="hero-avatar" src="assets/ghaith.webp" alt="Portrait of Ghaith Mefteh" width="44" height="44">
@@ -399,7 +493,7 @@
   </article>
 
   <!-- Case 1 : chalet-montagne -->
-  <article class="case case-flip">
+  <article id="case-chalet" class="case case-flip">
     <div class="case-text">
       <p class="case-role">Team lead · team of 4 · 14 months · AzertyUI, France · 2024 — 2025</p>
       <h3>chalet-montagne.com</h3>
@@ -656,7 +750,7 @@
   </article>
 
   <!-- Case 4 : L-Mobile -->
-  <article class="case">
+  <article id="case-lmobile" class="case">
     <div class="case-text">
       <p class="case-role">Engineering internship · L-Mobile · 2024</p>
       <h3 class="case-title-logo"><img src="assets/lmobile-logo.png" alt="" width="46" height="34" style="width:46px">Forklift-mounted warehouse terminal</h3>
@@ -877,6 +971,17 @@
     <li><b>Code review as a habit</b><span>I set the review standard for two teams of four</span></li>
     <li><b>Design to code</b><span>Figma translated screen by screen, not approximated</span></li>
   </ul>
+
+  <nav class="svc-home" aria-labelledby="svc-h">
+    <h3 id="svc-h">Each service in detail</h3>
+    <ul class="svc-links">
+      <li><a href="services/full-stack/">Full-stack freelance</a></li>
+      <li><a href="services/flutter/">Flutter mobile apps</a></li>
+      <li><a href="services/symfony/">Symfony and PHP web</a></li>
+      <li><a href="services/dotnet/">.NET backends and APIs</a></li>
+      <li><a href="hire/">Hiring a remote engineer</a></li>
+    </ul>
+  </nav>
 </section>
 
 <!-- ============ CONTACT ============ -->

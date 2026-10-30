@@ -4,52 +4,150 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ghaithmeftah.github.io/</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-31</lastmod>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/"/>
     <image:image>
       <image:loc>https://ghaithmeftah.github.io/assets/og-card.png</image:loc>
-      <image:title>Ghaith Mefteh — full-stack and mobile software engineer</image:title>
+      <image:title>Ghaith Mefteh, full-stack and mobile software engineer</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://ghaithmeftah.github.io/assets/cm-listings.jpg</image:loc>
-      <image:title>chalet-montagne.com rentals listing page, rebuilt on Symfony</image:title>
+      <image:loc>https://ghaithmeftah.github.io/assets/motion/hero.jpg</image:loc>
+      <image:title>A request crossing the stack: phone and laptop, API, database</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://ghaithmeftah.github.io/assets/soc-results.jpg</image:loc>
-      <image:title>SOC Rugby Flutter app — live match results screen</image:title>
+      <image:loc>https://ghaithmeftah.github.io/assets/cm-listings.webp</image:loc>
+      <image:title>chalet-montagne.com listing page, rebuilt on Symfony</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://ghaithmeftah.github.io/assets/sc-home.jpg</image:loc>
-      <image:title>SmartCare Flutter app — home screen</image:title>
+      <image:loc>https://ghaithmeftah.github.io/assets/soc-results.webp</image:loc>
+      <image:title>SOC Rugby Flutter app, live match results</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ghaithmeftah.github.io/assets/sc-home.webp</image:loc>
+      <image:title>SmartCare Flutter app, home screen</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://ghaithmeftah.github.io/fr/</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/"/>
   </url>
   <url>
+    <loc>https://ghaithmeftah.github.io/services/full-stack/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/services/full-stack/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/services/full-stack/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/services/full-stack/"/>
+  </url>
+  <url>
+    <loc>https://ghaithmeftah.github.io/fr/services/full-stack/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/services/full-stack/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/services/full-stack/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/services/full-stack/"/>
+  </url>
+  <url>
+    <loc>https://ghaithmeftah.github.io/services/flutter/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/services/flutter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/services/flutter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/services/flutter/"/>
+    <image:image>
+      <image:loc>https://ghaithmeftah.github.io/assets/soc-results.webp</image:loc>
+      <image:title>SOC Rugby Flutter app</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ghaithmeftah.github.io/assets/sc-home.webp</image:loc>
+      <image:title>SmartCare Flutter app</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ghaithmeftah.github.io/fr/services/flutter/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/services/flutter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/services/flutter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/services/flutter/"/>
+  </url>
+  <url>
+    <loc>https://ghaithmeftah.github.io/services/symfony/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/services/symfony/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/services/symfony/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/services/symfony/"/>
+    <image:image>
+      <image:loc>https://ghaithmeftah.github.io/assets/cm-listings.webp</image:loc>
+      <image:title>chalet-montagne.com, rebuilt on Symfony</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ghaithmeftah.github.io/fr/services/symfony/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/services/symfony/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/services/symfony/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/services/symfony/"/>
+  </url>
+  <url>
+    <loc>https://ghaithmeftah.github.io/services/dotnet/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/services/dotnet/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/services/dotnet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/services/dotnet/"/>
+    <image:image>
+      <image:loc>https://ghaithmeftah.github.io/assets/motion/platform.jpg</image:loc>
+      <image:title>AzertyUI platform: Angular, API Gateway, .NET services over gRPC</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ghaithmeftah.github.io/fr/services/dotnet/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/services/dotnet/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/services/dotnet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/services/dotnet/"/>
+  </url>
+  <url>
+    <loc>https://ghaithmeftah.github.io/hire/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/hire/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/recrutement/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/hire/"/>
+  </url>
+  <url>
+    <loc>https://ghaithmeftah.github.io/fr/recrutement/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/hire/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/recrutement/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/hire/"/>
+  </url>
+  <url>
     <loc>https://ghaithmeftah.github.io/cv.html</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/cv.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/cv.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/cv.html"/>
   </url>
   <url>
     <loc>https://ghaithmeftah.github.io/fr/cv.html</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/cv.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/cv.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/cv.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ghaithmeftah.github.io/cv.html"/>
   </url>
 </urlset>

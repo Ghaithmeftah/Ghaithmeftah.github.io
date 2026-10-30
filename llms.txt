@@ -23,6 +23,14 @@ the API behind them and the database under that — rather than a single layer.
 - [GitHub](https://github.com/Ghaithmeftah): Public repositories.
 - [LinkedIn](https://www.linkedin.com/in/ghaith-mefteh-995a18157): Professional profile.
 
+## Services
+
+- [Full-stack freelance](https://ghaithmeftah.github.io/services/full-stack/): A freelance full-stack developer who builds the whole feature — database, API, web front end and Flutter app. ([FR](https://ghaithmeftah.github.io/fr/services/full-stack/))
+- [Flutter mobile apps](https://ghaithmeftah.github.io/services/flutter/): A freelance Flutter developer who ships to the App Store and Google Play; SOC Rugby (2,000+ fans, 99.8% crash-free) and SmartCare (3,000+ patients). ([FR](https://ghaithmeftah.github.io/fr/services/flutter/))
+- [Symfony and PHP web](https://ghaithmeftah.github.io/services/symfony/): Rebuilds of slow PHP products on Symfony; chalet-montagne.com search pages went from 20–50 s to 4–6 s with 390+ tests. ([FR](https://ghaithmeftah.github.io/fr/services/symfony/))
+- [.NET backends and APIs](https://ghaithmeftah.github.io/services/dotnet/): ASP.NET Core microservices behind an API Gateway with gRPC, Angular in front, Dynamics 365 integrations. ([FR](https://ghaithmeftah.github.io/fr/services/dotnet/))
+- [Hiring a remote engineer](https://ghaithmeftah.github.io/hire/): Remote from UTC+1 or relocating within the EU; employer of record or contractor; can start within two weeks. ([FR](https://ghaithmeftah.github.io/fr/recrutement/))
+
 ## Production work
 
 - Company management platform (AzertyUI, current): internal HR and operations platform on .NET microservices with an API Gateway, gRPC and Angular 21, built by a team of four he leads; plus the company's server monitoring dashboard (SSH tracking, WireGuard access, container monitoring, alerts, backups).

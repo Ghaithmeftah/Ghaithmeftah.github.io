@@ -2012,6 +2012,101 @@ body::after {
 @media (prefers-reduced-motion: reduce) { body::after { animation: none; } }
 @media print { body::after { display: none; } }
 
+/* ====== landing pages (tools/make-pages.py) ======
+   One intent per page: the answer in the hero, then what I build, the proof,
+   how it runs and the questions people ask first. */
+.hero-page { min-height: min(80svh, 780px); }
+/* the case film at its own 16:9 on the right, edges dissolving into the stage,
+   so none of its labels get cropped */
+@media (min-width: 901px) {
+  .hero-page .hero-film {
+    inset: auto; left: 38vw; top: calc(50% - 62vw * 9 / 32);
+    width: 62vw; height: auto; aspect-ratio: 16 / 9;
+    -webkit-mask-image: radial-gradient(75% 75% at 55% 50%, #000 55%, transparent 100%);
+            mask-image: radial-gradient(75% 75% at 55% 50%, #000 55%, transparent 100%);
+  }
+}
+.hero-page .hero-copy { max-width: 40rem; }
+.hero-page h1 { font-size: clamp(2.4rem, 4.8vw, 4.6rem); line-height: .95; }
+.crumbs { order: -1; font-size: .9rem; color: var(--ink-soft); margin-bottom: 1.4rem; }
+.crumbs a { color: inherit; text-underline-offset: 3px; }
+.crumbs [aria-current] { color: var(--ink); font-weight: 600; }
+
+.page { max-width: 1180px; margin: 0 auto; padding: 1rem 2rem 4rem; }
+.page-block { padding: 3.6rem 0; border-top: 1px solid var(--line); }
+.page-block:first-child { border-top: 0; }
+.page-block h2 { font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1; letter-spacing: -.03em; margin-bottom: 1.8rem; }
+
+.page-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2.6rem; }
+.page-list li { position: relative; padding-left: 1.4rem; color: var(--ink-soft); }
+.page-list li::before {
+  content: ""; position: absolute; left: 0; top: .6em;
+  width: .5rem; height: .5rem; border-radius: 50%; background: var(--signal);
+}
+
+.pcards { display: grid; gap: 1.4rem; }
+.pcard {
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 2.2rem; align-items: center;
+  background: var(--bg-raised); border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+}
+.pcard img {
+  display: block; width: 100%; height: 100%; max-height: 340px; aspect-ratio: 16 / 10;
+  object-fit: cover; object-position: 50% 0; background: var(--stage);
+}
+.pcard-body { padding: 1.8rem 2rem 1.8rem 0; }
+.pcard h3 { font-size: 1.5rem; margin-bottom: .7rem; }
+.pcard p { color: var(--ink-soft); margin-bottom: .9rem; }
+.pcard .pcard-nums { color: var(--ink); font-weight: 700; }
+.pcard-link { font-weight: 700; color: var(--cobalt-deep); text-underline-offset: 4px; }
+
+/* these steps really are a sequence, so they are numbered */
+.page-steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.2rem; }
+.page-steps li { counter-increment: step; border-top: 3px solid var(--cobalt); padding-top: 1rem; }
+.page-steps li::before {
+  content: counter(step); display: block; margin-bottom: .4rem;
+  font-weight: 800; font-size: 1.8rem; color: var(--cobalt); font-variation-settings: "wdth" 125;
+}
+.page-steps h3 { font-size: 1.15rem; margin-bottom: .4rem; }
+.page-steps p { color: var(--ink-soft); }
+
+.faq details { border-top: 1px solid var(--line); }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary {
+  position: relative; cursor: pointer; list-style: none;
+  padding: 1.15rem 2.6rem 1.15rem 0; font-weight: 700; font-size: 1.06rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: .3rem; top: .95rem; font-size: 1.4rem; color: var(--cobalt); }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { color: var(--ink-soft); padding-bottom: 1.3rem; max-width: 46rem; }
+
+/* the services, as links: on the landing pages and in the home page's hire section */
+.svc-links { list-style: none; display: flex; flex-wrap: wrap; gap: .7rem; }
+.svc-links a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.15rem;
+  border: 1.5px solid var(--line); border-radius: 999px; background: var(--bg-raised);
+  color: var(--ink); font-weight: 700; text-decoration: none; transition: border-color .15s;
+}
+.svc-links a:hover { border-color: var(--cobalt); }
+.svc-home { margin-top: 2.6rem; }
+.svc-home h3 { font-size: 1.15rem; margin-bottom: 1rem; }
+
+@media (max-width: 900px) {
+  .hero-page .hero-film {
+    -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 100%);
+            mask-image: linear-gradient(180deg, #000 62%, transparent 100%);
+  }
+  .pcard { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .pcard-body { padding: 1.4rem 1.4rem 1.6rem; }
+  .page-list, .page-steps { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 620px) {
+  .page { padding: 0 1.1rem 3rem; }
+  .page-block { padding: 2.6rem 0; }
+  /* the landing headlines are longer than the home one, and French words run long */
+  .hero.hero-page h1 { font-size: clamp(2.1rem, 10vw, 2.9rem); hyphens: auto; }
+}
+
 /* ====== phone pass ======
    Last in the file on purpose: these win over the component rules above. */
 @media (max-width: 620px) {
