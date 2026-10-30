@@ -215,6 +215,10 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
     split(contact);
     onceInView(contact, () => contact.classList.add("is-in"), { threshold: 0.6 });
   }
+  document.querySelectorAll(".work > h2, .says-head h2, .lab > h2, .path > h2, .hire > h2").forEach((h) => {
+    split(h);
+    onceInView(h, () => h.classList.add("is-in"), { threshold: 0.6 });
+  });
 })();
 
 // ===== scroll reveal =====
@@ -920,6 +924,70 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
     });
     btn.addEventListener("pointerleave", () => { btn.style.transform = ""; });
   });
+})();
+
+// ===== hero light follows the pointer; case cards tilt toward it =====
+(function () {
+  if (REDUCED || !FINE_POINTER) return;
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    let raf = 0, x = 0, y = 0;
+    hero.addEventListener("pointermove", (e) => {
+      const r = hero.getBoundingClientRect();
+      x = e.clientX - r.left;
+      y = e.clientY - r.top;
+      if (!raf) raf = requestAnimationFrame(() => {
+        raf = 0;
+        hero.style.setProperty("--gx", x + "px");
+        hero.style.setProperty("--gy", y + "px");
+      });
+    });
+  }
+  document.querySelectorAll(".case-visual > div").forEach((card) => {
+    card.addEventListener("pointermove", (e) => {
+      const r = card.getBoundingClientRect();
+      const rx = ((e.clientY - r.top) / r.height - 0.5) * -4;
+      const ry = ((e.clientX - r.left) / r.width - 0.5) * 4;
+      card.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) translateY(-3px)";
+    });
+    card.addEventListener("pointerleave", () => { card.style.transform = ""; });
+  });
+})();
+
+// ===== rendered loops play only while on screen =====
+// preload="none" keeps them off the network until then; reduced motion keeps the poster.
+(function () {
+  if (REDUCED) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) e.target.play().catch(() => { /* autoplay refused: the poster stays */ });
+      else e.target.pause();
+    });
+  }, { threshold: 0.25 });
+  document.querySelectorAll("video.reel").forEach((v) => io.observe(v));
+})();
+
+// ===== case visuals drift a little slower than the text beside them =====
+(function () {
+  if (REDUCED || !window.matchMedia("(min-width: 901px)").matches) return;
+  const vis = document.querySelectorAll(".case-visual");
+  if (!vis.length) return;
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const vh = window.innerHeight;
+    vis.forEach((v) => {
+      // measure the case, not the visual, so the offset doesn't feed back into itself
+      const r = v.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      const p = (r.top + r.height / 2 - vh / 2) / vh;
+      v.style.setProperty("--py", (p * 28).toFixed(1) + "px");
+    });
+  }
+  window.addEventListener("scroll", () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
 })();
 
 // ===== copy the email address in one click =====

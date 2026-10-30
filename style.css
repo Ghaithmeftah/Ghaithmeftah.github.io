@@ -22,6 +22,10 @@
   --muted-fill: #B9C3D6;
   --float-btn: rgba(255, 255, 255, .85);
   --highlight: rgba(43, 80, 224, .16);
+  --glow: rgba(43, 80, 224, .13);  /* hero light behind the diagram */
+  --mesh-1: rgba(43, 80, 224, .16); /* drifting colour field behind the diagram */
+  --mesh-2: rgba(11, 115, 114, .12);
+  --mesh-3: rgba(228, 169, 60, .14);
   --paper: #F7F4EE;
   --paper-line: #E2DBCE;
   --quote-ink: #1E2638;
@@ -62,6 +66,10 @@
   --muted-fill: #4B5874;
   --float-btn: rgba(23, 30, 46, .88);
   --highlight: rgba(111, 140, 255, .22);
+  --glow: rgba(68, 102, 242, .2);
+  --mesh-1: rgba(68, 102, 242, .26);
+  --mesh-2: rgba(20, 160, 158, .16);
+  --mesh-3: rgba(228, 169, 60, .1);
   --paper: #182031;
   --paper-line: #2D3850;
   --quote-ink: #E4E9F2;
@@ -1274,6 +1282,59 @@ a.say-name:hover { color: var(--cobalt-deep); text-decoration-color: var(--cobal
 .hero-actions .btn-solid[href="#work"]:hover::after { transform: translateY(3px); }
 .btn.magnet { transition: transform .3s cubic-bezier(.2,.7,.2,1), background .15s; }
 
+/* hero: a soft cobalt light breathes behind the diagram; script.js moves it with the pointer */
+.hero { position: relative; isolation: isolate; overflow-x: clip; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(28rem circle at var(--gx, 74%) var(--gy, 48%), var(--glow), transparent 70%);
+  animation: breathe 6s ease-in-out infinite alternate;
+}
+@keyframes breathe { from { opacity: .6; } to { opacity: 1; } }
+/* under it, three soft colour fields drift slowly, like light through glass */
+.hero::after {
+  content: ""; position: absolute; inset: 6% 2% 6% 46%; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(40% 50% at 30% 30%, var(--mesh-1), transparent 70%),
+    radial-gradient(35% 45% at 75% 62%, var(--mesh-2), transparent 70%),
+    radial-gradient(30% 40% at 42% 86%, var(--mesh-3), transparent 70%);
+  filter: blur(28px);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  50% { transform: translate(-4%, 3%) rotate(8deg) scale(1.06); }
+  100% { transform: translate(3%, -3%) rotate(-6deg) scale(.96); }
+}
+@media (max-width: 900px) { .hero::after { inset: 48% 0 0 0; } }
+
+/* rendered loops (assets/motion, built by tools/render-motion.py); script.js plays them in view */
+.showreel { max-width: 1180px; margin: 0 auto; padding: 2.6rem 2rem 0; }
+.reel {
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+  border-radius: var(--radius); background: #0E1526;
+}
+.showreel .reel { box-shadow: var(--shadow-lift); }
+.case-visual > .reel-widget { padding: 0; border: 0; overflow: hidden; background: #0E1526; }
+
+/* case visuals: devices float, the current screen catches a glint, desktop pages slowly push in */
+.case-visual { translate: 0 var(--py, 0px); }
+.phone-frame, .shot-frame { position: relative; }
+.phone-frame::after, .shot-frame::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, .22) 50%, transparent 62%);
+  transform: translateX(-110%);
+}
+.carousel-slide.is-current .phone-frame::after,
+.carousel-slide.is-current .shot-frame::after { animation: glint 1.3s .25s cubic-bezier(.3,.6,.3,1); }
+@keyframes glint { to { transform: translateX(110%); } }
+.carousel-slide.is-current .phone-frame { animation: float 5s ease-in-out infinite alternate; }
+/* downward: the carousel viewport clips at the top edge, there's room below */
+@keyframes float { to { transform: translateY(8px); } }
+.carousel-slide.is-current .shot-frame img { animation: pushin 7s ease-out forwards; }
+@keyframes pushin { from { transform: scale(1); } to { transform: scale(1.05); } }
+
+/* section headings also rise word by word, after their running number */
+.reveal.split { --split-delay: .15s; }
+
 /* headlines rise word by word out of their own line */
 .split .w {
   display: inline-block;
@@ -1860,6 +1921,9 @@ html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *
   .mon-widget.reveal .mon-feed li { opacity: 1; transform: none; animation: none !important; }
   .case-visual > div:hover { transform: none; }
   .lang-hint { animation: none; }
+  .hero::before, .hero::after { animation: none; }
+  .carousel-slide.is-current .phone-frame, .carousel-slide.is-current .shot-frame img,
+  .carousel-slide.is-current .phone-frame::after, .carousel-slide.is-current .shot-frame::after { animation: none; }
 }
 
 @media (max-width: 620px) {

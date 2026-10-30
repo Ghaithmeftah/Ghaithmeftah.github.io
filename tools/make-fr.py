@@ -585,6 +585,7 @@ PATHS = [
 ('src="script.js"', 'src="../script.js"'),
 ('href="assets/', 'href="../assets/'),
 ('src="assets/', 'src="../assets/'),
+('poster="assets/', 'poster="../assets/'),
 ]
 
 
