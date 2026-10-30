@@ -22,7 +22,7 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 OUT = os.path.join(ROOT, "assets", "motion")
-SCENES = ["showreel", "chalet", "soc", "smartcare"]
+SCENES = ["hero", "platform", "chalet", "soc", "smartcare"]
 FPS = 30
 
 spec = importlib.util.spec_from_file_location("printcv", os.path.join(HERE, "print-cv.py"))

@@ -1,11 +1,11 @@
 <!doctype html>
 <!--
   Video scenes for tools/render-motion.py: 3D device mockups of the real
-  screenshots in assets/. Nothing animates on its own; render(t) poses the
-  scene for time t (seconds), so every frame is exact and the loop is seamless
-  (all motion is periodic in the scene's duration T).
+  screenshots in assets/, on a blueprint floor. Nothing animates on its own;
+  render(t) poses the scene for time t (seconds), so every frame is exact and
+  the loop is seamless (all motion is periodic in the scene's duration T).
 
-  Preview in a browser: tools/motion/scenes.html?s=showreel&play
+  Preview in a browser: tools/motion/scenes.html?s=hero&play
 -->
 <html lang="en">
 <head>
@@ -13,39 +13,46 @@
 <link rel="stylesheet" href="../../fonts.css">
 <style>
   * { box-sizing: border-box; margin: 0; }
-  html, body { width: 100%; height: 100%; overflow: hidden; background: #0E1526; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #070D1F; }
   #stage {
     position: relative; width: 100vw; height: 100vh; overflow: hidden;
-    perspective: 1700px; font-family: "Archivo", system-ui, sans-serif;
-    background: radial-gradient(120% 90% at 50% 115%, #1C2C5C 0%, #0E1526 62%);
+    perspective: 1800px; font-family: "Archivo", system-ui, sans-serif; color: #E9EDF6;
+    background: radial-gradient(110% 80% at 62% 120%, #18285A 0%, #0B1430 45%, #070D1F 75%);
   }
-  .blob { position: absolute; left: 0; top: 0; border-radius: 50%; filter: blur(70px); }
+  .blob { position: absolute; left: 0; top: 0; border-radius: 50%; filter: blur(80px); }
+  /* the blueprint floor: a lit grid receding under the devices */
   .floor {
-    position: absolute; left: -10%; right: -10%; bottom: -34%; height: 62%;
-    background: radial-gradient(48% 38% at 50% 30%, rgba(68, 102, 242, .28), transparent 70%);
+    position: absolute; left: -60%; right: -60%; top: 52%; height: 140%;
+    transform-origin: 50% 0; transform: rotateX(78deg);
+    background-image:
+      linear-gradient(rgba(91, 123, 255, .34) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91, 123, 255, .34) 1px, transparent 1px);
+    background-size: 60px 60px;
+    -webkit-mask-image: radial-gradient(42% 46% at 50% 8%, #000 0%, transparent 100%);
+            mask-image: radial-gradient(42% 46% at 50% 8%, #000 0%, transparent 100%);
   }
-  #rig { position: absolute; inset: 0; transform-style: preserve-3d; }
-  .dev, .chip { position: absolute; left: 50%; top: 50%; }
+  #rig { position: absolute; inset: 0; transform-style: preserve-3d; transform-origin: 50% 50%; }
+  .dev, .chip, .slab, .db { position: absolute; left: 50%; top: 50%; }
   .dev { transform-style: preserve-3d; }
 
   .phone {
     width: var(--w); aspect-ratio: 460 / 997;
     border-radius: calc(var(--w) * .14); padding: calc(var(--w) * .038);
-    background: #050B14;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, .1) inset, 0 34px 70px rgba(0, 0, 0, .6);
+    background: #03070F;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .14) inset, 0 40px 80px rgba(0, 0, 0, .65);
   }
   .phone .scr { border-radius: calc(var(--w) * .105); }
   .laptop { width: var(--w); }
   .laptop .lid {
     aspect-ratio: 16 / 10; padding: 2.1%;
-    background: #0A0F1A; border-radius: 14px 14px 4px 4px;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, .12) inset;
+    background: #070B14; border-radius: 14px 14px 4px 4px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .14) inset;
   }
   .laptop .base {
     height: calc(var(--w) * .034); margin: 0 -6%;
-    background: linear-gradient(#D3D8E2, #8A93A4);
+    background: linear-gradient(#D7DCE6, #868FA0);
     border-radius: 0 0 16px 16px;
-    box-shadow: 0 34px 70px rgba(0, 0, 0, .6);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, .65);
   }
   .laptop .scr { border-radius: 3px; }
   .scr { position: relative; width: 100%; height: 100%; overflow: hidden; background: #000; }
@@ -59,8 +66,8 @@
   }
   .chip {
     padding: .45em 1em; border-radius: 999px; white-space: nowrap;
-    font-size: var(--fs, 18px); font-weight: 600; letter-spacing: .01em; color: #E8ECF4;
-    background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .2);
+    font-size: var(--fs, 18px); font-weight: 600; color: #E9EDF6;
+    background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .18);
     backdrop-filter: blur(8px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
   }
@@ -68,50 +75,99 @@
     content: ""; display: inline-block; width: .5em; height: .5em; border-radius: 50%;
     margin-right: .55em; vertical-align: .08em; background: var(--dot, #6F8CFF);
   }
+
+  /* a glass slab: the API layer, or the gateway */
+  .slab {
+    width: var(--w); padding: 18px 20px 20px;
+    border-radius: 18px;
+    background: linear-gradient(160deg, rgba(91, 123, 255, .22), rgba(91, 123, 255, .06));
+    border: 1px solid rgba(160, 180, 255, .35);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .55), 0 0 calc(var(--hot, 0) * 60px) rgba(255, 181, 71, calc(var(--hot, 0) * .55));
+  }
+  .slab-k { font-size: 13px; font-weight: 600; letter-spacing: .04em; color: #9FB0E0; margin-bottom: 12px; }
+  .slab-row {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 19px; font-weight: 700; padding: 9px 12px; margin-top: 7px;
+    border-radius: 10px; background: rgba(7, 13, 31, .55);
+  }
+  .slab-row i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
+
+  .db { width: var(--w); }
+  .db svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+  #beams { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
 </style>
 </head>
 <body>
-<div id="stage"><div class="floor"></div><div id="rig"></div></div>
+<div id="stage"><div class="floor"></div><div id="rig"></div><svg id="beams"></svg></div>
 <script>
 const A = (name) => "../../assets/" + name + ".webp";
-const COBALT = "#4466F2", TEAL = "#14A09E", SAND = "#E4A93C";
+const COBALT = "#5B7BFF", TEAL = "#2BC4B0", AMBER = "#FFB547";
 
-// w, h: video size; T: loop length in seconds.
+// w, h: video size; dw: width the positions below are designed for (the rig is
+// scaled to fit); T: loop length in seconds.
 // devices: x, y, z offsets from the centre (px), ry: resting turn (deg), ph: float phase.
 const SCENES = {
-  showreel: {
-    w: 1280, h: 720, T: 9,
+  // The hero: a request leaves a client, crosses the API, reaches the data and
+  // comes back; the client's screen updates when the answer lands.
+  hero: {
+    w: 1600, h: 900, dw: 1600, T: 12, request: true, focusX: .74,
     devices: [
-      { kind: "laptop", w: 600, x: 0, y: -14, z: 0, ry: 0, ph: 0,
-        imgs: ["cm-home", "cm-listings", "cm-rental"] },
-      { kind: "phone", w: 168, x: -420, y: 26, z: 90, ry: 20, ph: 1.6,
-        imgs: ["soc-results", "soc-standings", "soc-calendar"] },
-      { kind: "phone", w: 168, x: 420, y: 26, z: 90, ry: -20, ph: 3.4,
-        imgs: ["sc-home", "sc-appt-1-doctor", "sc-urgent-3-detail"] },
+      { id: "laptop", kind: "laptop", w: 410, x: 310, y: 110, z: 0, ry: 8, ph: 0,
+        imgs: ["cm-home", "cm-listings"] },
+      { id: "phone", kind: "phone", w: 132, x: 90, y: 150, z: 150, ry: 16, ph: 1.7,
+        imgs: ["soc-results", "sc-home"] },
     ],
+    slabs: [
+      { id: "api", x: 545, y: -190, z: -60, w: 210, k: "API",
+        rows: [[".NET", COBALT], ["Symfony", AMBER], ["FastAPI", TEAL]] },
+    ],
+    dbs: [{ id: "db", x: 650, y: 110, z: -20, w: 150, rows: ["MySQL", "MongoDB"] }],
+    // client → api → db → api → client, staggered so each screen changes twice a loop
+    trips: [
+      { from: "phone", at: 0 }, { from: "laptop", at: 3 },
+      { from: "phone", at: 6 }, { from: "laptop", at: 9 },
+    ],
+    chips: [],
+  },
+  platform: {
+    w: 1280, h: 720, dw: 1280, T: 8, request: true,
+    devices: [
+      { id: "web", kind: "laptop", w: 400, x: -290, y: 70, z: 40, ry: 14, ph: 0, imgs: [], skeleton: true },
+    ],
+    slabs: [
+      { id: "gw", x: 50, y: -40, z: 0, w: 240, k: "API Gateway", rows: [["ASP.NET Core", COBALT]] },
+      { id: "s1", x: 390, y: -230, z: -40, w: 170, k: "service", rows: [[".NET", COBALT]] },
+      { id: "s2", x: 470, y: -40, z: -70, w: 170, k: "service", rows: [[".NET", COBALT]] },
+      { id: "s3", x: 390, y: 150, z: -40, w: 170, k: "service", rows: [[".NET", COBALT]] },
+    ],
+    dbs: [],
+    trips: [
+      { from: "web", via: "gw", to: "s1", at: 0 },
+      { from: "web", via: "gw", to: "s2", at: 2.67 },
+      { from: "web", via: "gw", to: "s3", at: 5.33 },
+    ],
+    grpc: [["s1", "s2"], ["s2", "s3"]],
     chips: [
-      { t: "Flutter", x: -455, y: -250, dot: TEAL, ph: .4 },
-      { t: ".NET", x: -170, y: -296, ph: 2.1 },
-      { t: "Symfony", x: 175, y: -296, dot: SAND, ph: 3.3 },
-      { t: "Angular", x: 470, y: -246, ph: 4.6 },
-      { t: "FastAPI", x: 470, y: 278, dot: TEAL, ph: 1.2 },
-      { t: "React", x: -470, y: 282, ph: 5.2 },
+      { t: "Angular 21", x: -290, y: -170, dot: COBALT, ph: .6 },
+      { t: "gRPC", x: 230, y: 200, dot: TEAL, ph: 2.6 },
     ],
   },
   chalet: {
-    w: 960, h: 540, T: 10,
+    w: 1280, h: 720, dw: 960, T: 10,
     devices: [
       { kind: "laptop", w: 590, x: 0, y: -6, z: 0, ry: 0, ph: 0,
         imgs: ["cm-home", "cm-listings", "cm-rental", "cm-insurance"] },
     ],
     chips: [
-      { t: "Symfony", x: -385, y: -186, dot: SAND, ph: .3, fs: 15 },
+      { t: "Symfony", x: -385, y: -186, dot: AMBER, ph: .3, fs: 15 },
       { t: "Doctrine", x: 385, y: -150, ph: 2.4, fs: 15 },
       { t: "MySQL", x: 380, y: 196, dot: TEAL, ph: 4.1, fs: 15 },
     ],
   },
   soc: {
-    w: 960, h: 540, T: 8,
+    w: 1280, h: 720, dw: 960, T: 8,
     devices: [
       { kind: "phone", w: 168, x: -235, y: 22, z: -70, ry: 22, ph: 2.2, imgs: ["soc-standings", "soc-tickets"] },
       { kind: "phone", w: 182, x: 0, y: 0, z: 60, ry: 0, ph: 0, imgs: ["soc-results", "soc-events"] },
@@ -120,11 +176,11 @@ const SCENES = {
     chips: [
       { t: "Flutter", x: -380, y: -200, dot: TEAL, ph: .8, fs: 15 },
       { t: "GetX", x: 385, y: -190, ph: 2.9, fs: 15 },
-      { t: "SQLite", x: 380, y: 206, dot: SAND, ph: 4.4, fs: 15 },
+      { t: "SQLite", x: 380, y: 206, dot: AMBER, ph: 4.4, fs: 15 },
     ],
   },
   smartcare: {
-    w: 960, h: 540, T: 8,
+    w: 1280, h: 720, dw: 960, T: 8,
     devices: [
       { kind: "phone", w: 168, x: -235, y: 22, z: -70, ry: 22, ph: 2.2, imgs: ["sc-appt-1-doctor", "sc-appt-2-date"] },
       { kind: "phone", w: 182, x: 0, y: 0, z: 60, ry: 0, ph: 0, imgs: ["sc-home", "sc-urgent-3-detail"] },
@@ -133,112 +189,302 @@ const SCENES = {
     chips: [
       { t: "Flutter", x: -380, y: -200, dot: TEAL, ph: .8, fs: 15 },
       { t: "FastAPI", x: 385, y: -190, ph: 2.9, fs: 15 },
-      { t: "AWS", x: 380, y: 206, dot: SAND, ph: 4.4, fs: 15 },
+      { t: "AWS", x: 380, y: 206, dot: AMBER, ph: 4.4, fs: 15 },
     ],
   },
 };
 
 const params = new URLSearchParams(location.search);
-const S = SCENES[params.get("s") || "showreel"];
+const S = SCENES[params.get("s") || "hero"];
+const SCALE = S.w / S.dw;
 const stage = document.getElementById("stage");
 const rig = document.getElementById("rig");
+const beams = document.getElementById("beams");
+const SVGNS = "http://www.w3.org/2000/svg";
+const el = (tag, cls, parent) => { const e = document.createElement(tag); if (cls) e.className = cls; if (parent) parent.appendChild(e); return e; };
+const sv = (tag, attrs, parent) => { const e = document.createElementNS(SVGNS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
 
+// the light under the scene leans toward the action
+const fx = S.focusX || .5;
 const blobs = [
-  { c: COBALT, r: .55, cx: .28, cy: .3, ph: 0, o: .5 },
-  { c: TEAL, r: .45, cx: .78, cy: .62, ph: 2.1, o: .32 },
-  { c: SAND, r: .35, cx: .5, cy: .95, ph: 4.2, o: .22 },
+  { c: COBALT, r: .5, cx: fx - .12, cy: .3, ph: 0, o: .42 },
+  { c: TEAL, r: .38, cx: fx + .22, cy: .62, ph: 2.1, o: .22 },
+  { c: AMBER, r: .3, cx: fx, cy: .98, ph: 4.2, o: .16 },
 ].map((b) => {
-  const el = document.createElement("div");
-  el.className = "blob";
+  const e = el("div", "blob");
   const size = b.r * S.w;
-  Object.assign(el.style, { width: size + "px", height: size + "px", background: b.c, opacity: b.o });
-  stage.insertBefore(el, rig);
-  return Object.assign(b, { el, size });
+  Object.assign(e.style, { width: size + "px", height: size + "px", background: b.c, opacity: b.o });
+  stage.insertBefore(e, rig);
+  return Object.assign(b, { el: e, size });
 });
+const floor = stage.querySelector(".floor");
 
+// a dashboard drawn in boxes, for the platform scene where no screenshot exists
+function skeleton(scr) {
+  scr.style.background = "#0D1530";
+  scr.innerHTML =
+    '<div style="position:absolute;inset:0;display:grid;grid-template-columns:18% 1fr;gap:4%;padding:4%">' +
+    '<div style="display:grid;gap:7%;align-content:start">' +
+      '<i style="height:14px;border-radius:4px;background:#5B7BFF"></i>' +
+      Array(5).fill('<i style="height:9px;border-radius:4px;background:#24305A"></i>').join("") +
+    '</div><div style="display:grid;grid-template-rows:auto auto 1fr;gap:5%">' +
+      '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4%">' +
+        ['#5B7BFF', '#2BC4B0', '#FFB547'].map((c) => '<div style="border-radius:8px;background:#16204A;padding:10%"><i style="display:block;height:7px;width:50%;background:#2E3B6E;border-radius:3px"></i><b style="display:block;height:16px;width:70%;margin-top:12%;background:' + c + ';border-radius:4px"></b></div>').join("") +
+      '</div>' +
+      '<div style="height:100%;min-height:60px;display:flex;align-items:flex-end;gap:3%;padding:4%;border-radius:8px;background:#16204A">' +
+        [40, 65, 50, 80, 58, 92, 70, 86].map((h) => '<i style="flex:1;height:' + h + '%;border-radius:3px 3px 0 0;background:#5B7BFF;opacity:.85"></i>').join("") +
+      '</div>' +
+      '<div style="display:grid;gap:9%;align-content:start">' + Array(3).fill('<i style="height:9px;border-radius:4px;background:#24305A"></i>').join("") + '</div>' +
+    '</div></div>';
+}
+
+const byId = {};
 const devices = S.devices.map((d) => {
-  const el = document.createElement("div");
-  el.className = "dev";
-  el.style.setProperty("--w", d.w + "px");
-  const body = document.createElement("div");
-  body.className = d.kind;
-  const scr = document.createElement("div");
-  scr.className = "scr";
-  const imgs = d.imgs.map((n) => {
-    const img = new Image();
-    img.src = A(n);
-    scr.appendChild(img);
-    return img;
-  });
-  const glint = document.createElement("div");
-  glint.className = "glint";
-  scr.appendChild(glint);
+  const e = el("div", "dev", rig);
+  e.style.setProperty("--w", d.w + "px");
+  const body = el("div", d.kind, e);
+  const scr = el("div", "scr");
+  const imgs = d.imgs.map((n) => { const img = new Image(); img.src = A(n); scr.appendChild(img); return img; });
+  if (d.skeleton) skeleton(scr);
+  const glint = el("div", "glint", scr);
   if (d.kind === "laptop") {
-    const lid = document.createElement("div");
-    lid.className = "lid";
+    const lid = el("div", "lid", body);
     lid.appendChild(scr);
-    const base = document.createElement("div");
-    base.className = "base";
-    body.append(lid, base);
+    el("div", "base", body);
   } else {
     body.appendChild(scr);
   }
-  el.appendChild(body);
-  rig.appendChild(el);
-  return Object.assign({}, d, { el, imgs, glint });
+  const o = Object.assign({}, d, { el: e, scr, imgs, glint });
+  if (d.id) byId[d.id] = o;
+  return o;
 });
 
-const chips = S.chips.map((c) => {
-  const el = document.createElement("div");
-  el.className = "chip";
-  el.textContent = c.t;
-  if (c.dot) el.style.setProperty("--dot", c.dot);
-  if (c.fs) el.style.setProperty("--fs", c.fs + "px");
-  rig.appendChild(el);
-  return Object.assign({}, c, { el });
+const slabs = (S.slabs || []).map((s) => {
+  const e = el("div", "slab", rig);
+  e.style.setProperty("--w", s.w + "px");
+  el("div", "slab-k", e).textContent = s.k;
+  s.rows.forEach(([name, c]) => {
+    const r = el("div", "slab-row", e);
+    r.style.setProperty("--c", c);
+    el("i", null, r);
+    r.appendChild(document.createTextNode(name));
+  });
+  const o = Object.assign({}, s, { el: e });
+  byId[s.id] = o;
+  return o;
 });
+
+const dbs = (S.dbs || []).map((d) => {
+  const e = el("div", "db", rig);
+  e.style.setProperty("--w", d.w + "px");
+  e.innerHTML =
+    '<svg viewBox="0 0 170 210">' +
+    '<defs><linearGradient id="dbg" x1="0" x2="1"><stop offset="0" stop-color="#1A2654"/><stop offset=".5" stop-color="#2A3B7A"/><stop offset="1" stop-color="#141E45"/></linearGradient></defs>' +
+    '<path d="M5 30 V170 A80 26 0 0 0 165 170 V30" fill="url(#dbg)" stroke="rgba(160,180,255,.45)"/>' +
+    '<path class="db-band" d="M5 78 A80 26 0 0 0 165 78" fill="none" stroke="rgba(160,180,255,.4)"/>' +
+    '<path class="db-band" d="M5 124 A80 26 0 0 0 165 124" fill="none" stroke="rgba(160,180,255,.4)"/>' +
+    '<ellipse cx="85" cy="30" rx="80" ry="26" fill="#3550B8" stroke="rgba(190,205,255,.7)"/>' +
+    d.rows.map((r, i) => '<text x="85" y="' + (110 + i * 46) + '" text-anchor="middle" font-family="Archivo" font-weight="700" font-size="20" fill="#E9EDF6">' + r + '</text>').join("") +
+    '</svg>';
+  const o = Object.assign({}, d, { el: e, top: e.querySelector("ellipse") });
+  byId[d.id] = o;
+  return o;
+});
+
+const chips = (S.chips || []).map((c) => {
+  const e = el("div", "chip", rig);
+  e.textContent = c.t;
+  if (c.dot) e.style.setProperty("--dot", c.dot);
+  if (c.fs) e.style.setProperty("--fs", c.fs + "px");
+  return Object.assign({}, c, { el: e });
+});
+
+// beams: one glowing path per leg, a packet riding it with a short trail
+const defs = sv("defs", {}, beams);
+defs.innerHTML = '<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+const rail = sv("path", { fill: "none", stroke: "rgba(140,165,255,.22)", "stroke-width": 2, "stroke-dasharray": "4 8" }, beams);
+const rail2 = sv("path", { fill: "none", stroke: "rgba(140,165,255,.22)", "stroke-width": 2, "stroke-dasharray": "4 8" }, beams);
+const trail = sv("path", { fill: "none", "stroke-width": 4, "stroke-linecap": "round", filter: "url(#glow)" }, beams);
+const pkt = sv("circle", { r: 8, filter: "url(#glow)" }, beams);
+const rings = [0, 1, 2].map(() => sv("circle", { fill: "none", "stroke-width": 2 }, beams));
+const grpcPaths = (S.grpc || []).map(() => sv("path", { fill: "none", stroke: TEAL, "stroke-width": 2.5, "stroke-dasharray": "3 9", opacity: .7 }, beams));
+const probe = sv("path", { fill: "none", stroke: "none" }, beams);
 
 const smooth = (x) => { x = Math.min(1, Math.max(0, x)); return x * x * (3 - 2 * x); };
+const ease = (x) => { x = Math.min(1, Math.max(0, x)); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
 
-// Pose everything for time t. Each screen shows its images in turn: a slow
-// push-in, a crossfade into the next during the last 12% of a slot, and a glint
-// across the glass as a slot begins.
+function anchor(o, side) {
+  const r = (o.scr || o.el).getBoundingClientRect();
+  if (o.top && side === "top") { const t = o.top.getBoundingClientRect(); return [t.left + t.width / 2, t.top + t.height / 2]; }
+  if (side === "left") return [r.left, r.top + r.height / 2];
+  if (side === "right") return [r.right, r.top + r.height / 2];
+  if (side === "top") return [r.left + r.width / 2, r.top];
+  if (side === "bottom") return [r.left + r.width / 2, r.bottom];
+  return [r.left + r.width / 2, r.top + r.height / 2];
+}
+const curve = (a, b, bend) => {
+  const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2 - (bend || 0);
+  return "M" + a[0].toFixed(1) + " " + a[1].toFixed(1) + " Q" + mx.toFixed(1) + " " + my.toFixed(1) + " " + b[0].toFixed(1) + " " + b[1].toFixed(1);
+};
+
+// legs of a trip, each [path d, start, end] within a 3 s (hero) or 2.67 s window
+function legs(trip) {
+  if (S.dbs && S.dbs.length) {
+    const c = byId[trip.from], api = byId.api, db = byId.db;
+    const cOut = anchor(c, "top"), apiIn = anchor(api, "left"), apiOut = anchor(api, "bottom"), dbIn = anchor(db, "top");
+    const go1 = curve(cOut, apiIn, 140), go2 = curve(apiOut, dbIn, -20);
+    const back1 = curve(dbIn, apiOut, 20), back2 = curve(apiIn, cOut, -140);
+    return [
+      { d: go1, a: 0, b: .85, c: AMBER, hit: api },
+      { d: go2, a: .95, b: 1.5, c: AMBER, hit: db },
+      { d: back1, a: 1.65, b: 2.05, c: TEAL, hit: api },
+      { d: back2, a: 2.1, b: 2.75, c: TEAL, hit: c, land: true },
+    ];
+  }
+  const c = byId[trip.from], gw = byId[trip.via], to = byId[trip.to];
+  const cOut = anchor(c, "right"), gwIn = anchor(gw, "left"), gwOut = anchor(gw, "right"), sIn = anchor(to, "left");
+  return [
+    { d: curve(cOut, gwIn, 60), a: 0, b: .7, c: AMBER, hit: gw },
+    { d: curve(gwOut, sIn, 30), a: .8, b: 1.3, c: AMBER, hit: to },
+    { d: curve(sIn, gwOut, -30), a: 1.45, b: 1.85, c: TEAL, hit: gw },
+    { d: curve(gwIn, cOut, -60), a: 1.9, b: 2.45, c: TEAL, hit: c, land: true },
+  ];
+}
+
+function pointOn(d, f) {
+  probe.setAttribute("d", d);
+  const len = probe.getTotalLength();
+  const p = probe.getPointAtLength(len * f);
+  return [p.x, p.y, len];
+}
+
 function render(t) {
   const a = (2 * Math.PI * t) / S.T;
-  rig.style.transform = "rotateX(" + (5 + 1.6 * Math.sin(a)).toFixed(3) + "deg) rotateY(" + (7 * Math.sin(a + .6)).toFixed(3) + "deg)";
+  const cx = 0; // positions are already laid out toward focusX
+  rig.style.transform = "translateX(" + cx.toFixed(1) + "px) scale(" + SCALE + ") rotateX(" + (5 + 1.4 * Math.sin(a)).toFixed(3) + "deg) rotateY(" + (6 * Math.sin(a + .6)).toFixed(3) + "deg)";
+  floor.style.backgroundPosition = "0 " + (120 * t / S.T).toFixed(2) + "px";
 
   blobs.forEach((b) => {
-    const x = b.cx * S.w - b.size / 2 + .07 * S.w * Math.cos(a + b.ph);
-    const y = b.cy * S.h - b.size / 2 + .06 * S.h * Math.sin(a + b.ph);
+    const x = b.cx * S.w - b.size / 2 + .06 * S.w * Math.cos(a + b.ph);
+    const y = b.cy * S.h - b.size / 2 + .05 * S.h * Math.sin(a + b.ph);
     b.el.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px)";
   });
 
+  // which trip is running, and how far in
+  let trip = null, tt = 0;
+  if (S.trips) {
+    const span = S.T / S.trips.length;
+    S.trips.forEach((tr) => { if (t >= tr.at && t < tr.at + span) { trip = tr; tt = t - tr.at; } });
+  }
+  // screens that answered: a device swaps image each time one of its trips lands
+  const landed = {};
+  (S.trips || []).forEach((tr) => {
+    const landAt = tr.at + (S.dbs && S.dbs.length ? 2.75 : 2.45);
+    const k = tr.from;
+    landed[k] = landed[k] || [];
+    landed[k].push(landAt);
+  });
+
   devices.forEach((d, di) => {
-    const fy = 10 * Math.sin(2 * a + d.ph);
-    const ry = d.ry + 3 * Math.sin(a + d.ph);
+    const fy = 9 * Math.sin(2 * a + d.ph);
+    const ry = d.ry + 2.5 * Math.sin(a + d.ph);
     d.el.style.transform = "translate(-50%,-50%) translate3d(" + d.x + "px," + (d.y + fy).toFixed(2) + "px," + d.z + "px) rotateY(" + ry.toFixed(3) + "deg)";
 
     const n = d.imgs.length;
-    // devices change screens at staggered moments, never all at once
-    const pos = ((t / S.T) * n + di * .38) % n;
-    const i = Math.floor(pos), f = pos - i, next = (i + 1) % n;
-    const fade = smooth((f - .88) / .12);
+    if (!n) { d.glint.style.transform = "translateX(120%)"; return; }
+    let i, f, fade, next;
+    if (d.id && landed[d.id]) {
+      // request-driven: the answer arrives, the screen changes
+      const lands = landed[d.id];
+      const done = lands.filter((x) => t >= x + .35).length;
+      i = done % n; next = (i + 1) % n;
+      const pending = lands.find((x) => t >= x && t < x + .35);
+      fade = pending !== undefined ? smooth((t - pending) / .35) : 0;
+      const since = Math.min(...lands.map((x) => ((t - x) % S.T + S.T) % S.T));
+      f = Math.min(1, since / 3);
+      d.glint.style.transform = "translateX(" + (since < .9 ? -120 + 240 * (since / .9) : 120).toFixed(1) + "%)";
+    } else {
+      // devices change screens at staggered moments, never all at once
+      const pos = ((t / S.T) * n + di * .38) % n;
+      i = Math.floor(pos); f = pos - i; next = (i + 1) % n;
+      fade = smooth((f - .88) / .12);
+      const g = f < .28 ? -120 + 240 * (f / .28) : 120;
+      d.glint.style.transform = "translateX(" + g.toFixed(1) + "%)";
+    }
     d.imgs.forEach((img, k) => {
       let op = 0, z = 0, sc = 1;
-      if (k === i) { op = 1; z = 1; sc = 1 + .045 * f; }
-      if (k === next && n > 1) { op = fade; z = 2; sc = 1; }
+      if (k === i) { op = 1; z = 1; sc = 1 + .03 * f; }
+      if (k === next && n > 1 && fade > 0) { op = fade; z = 2; sc = 1; }
       img.style.opacity = op;
       img.style.zIndex = z;
       img.style.transform = "scale(" + sc.toFixed(4) + ")";
     });
-    const g = f < .28 ? -120 + 240 * (f / .28) : 120;
-    d.glint.style.transform = "translateX(" + g.toFixed(1) + "%)";
+  });
+
+  slabs.forEach((s, si) => {
+    const fy = 7 * Math.sin(2 * a + si * 1.3);
+    s.el.style.transform = "translate(-50%,-50%) translate3d(" + s.x + "px," + (s.y + fy).toFixed(2) + "px," + s.z + "px) rotateY(-10deg)";
+    s.el.style.setProperty("--hot", 0);
+  });
+  dbs.forEach((d) => {
+    const fy = 6 * Math.sin(2 * a + 2.2);
+    d.el.style.transform = "translate(-50%,-50%) translate3d(" + d.x + "px," + (d.y + fy).toFixed(2) + "px," + d.z + "px) rotateY(-12deg)";
+    d.top.setAttribute("fill", "#3550B8");
   });
 
   chips.forEach((c) => {
     const y = c.y + 12 * Math.sin(a + c.ph);
     c.el.style.transform = "translate(-50%,-50%) translate3d(" + c.x + "px," + y.toFixed(2) + "px,40px)";
   });
+
+  // beams are measured after the 3D pose, in screen space
+  if (S.request) {
+    rings.forEach((r) => r.setAttribute("opacity", 0));
+    trail.setAttribute("opacity", 0);
+    pkt.setAttribute("opacity", 0);
+    grpcPaths.forEach((p, k) => {
+      const [x, y] = S.grpc[k];
+      p.setAttribute("d", curve(anchor(byId[x], "bottom"), anchor(byId[y], "top"), 0));
+      p.setAttribute("stroke-dashoffset", (-(t / S.T) * 96).toFixed(1));
+    });
+
+    // the dashed rails of the current client's route stay visible
+    const route = trip || S.trips[0];
+    const L = legs(route);
+    rail.setAttribute("d", L[0].d);
+    rail2.setAttribute("d", L[1].d);
+
+    if (trip) {
+      L.forEach((leg, li) => {
+        // a node glows for a moment after the packet reaches it
+        const since = tt - leg.b;
+        if (since >= 0 && since < .6) {
+          const hot = 1 - since / .6;
+          if (leg.hit.el.classList.contains("slab")) leg.hit.el.style.setProperty("--hot", hot.toFixed(3));
+          if (leg.hit.top) leg.hit.top.setAttribute("fill", "rgb(" + Math.round(53 + 202 * hot) + "," + Math.round(80 + 101 * hot) + "," + Math.round(184 - 113 * hot) + ")");
+          const [hx, hy] = anchor(leg.hit, leg.land ? "top" : leg.hit.top ? "top" : "center");
+          const r = rings[li % rings.length];
+          r.setAttribute("cx", hx); r.setAttribute("cy", hy);
+          r.setAttribute("r", (12 + 70 * (since / .6)).toFixed(1));
+          r.setAttribute("stroke", leg.c);
+          r.setAttribute("opacity", hot.toFixed(3));
+        }
+        if (tt >= leg.a && tt < leg.b) {
+          const f = ease((tt - leg.a) / (leg.b - leg.a));
+          const [px, py, len] = pointOn(leg.d, f);
+          pkt.setAttribute("cx", px); pkt.setAttribute("cy", py);
+          pkt.setAttribute("fill", leg.c);
+          pkt.setAttribute("opacity", 1);
+          const tl = Math.min(140, len * f);
+          trail.setAttribute("d", leg.d);
+          trail.setAttribute("stroke", leg.c);
+          trail.setAttribute("stroke-dasharray", tl.toFixed(1) + " " + (len + 200).toFixed(1));
+          trail.setAttribute("stroke-dashoffset", (-(len * f - tl)).toFixed(1));
+          trail.setAttribute("opacity", .85);
+        }
+      });
+    }
+  }
 }
 
 window.SCENE = { w: S.w, h: S.h, T: S.T };

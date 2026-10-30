@@ -108,62 +108,6 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
   }, { threshold: 0.1 }).observe(svg);
 }
 
-// ===== hero diagram: request packets client → backend → db → back =====
-(function () {
-  const svg = document.getElementById("sysdiagram");
-  if (!svg || REDUCED) return;
-  const w = (id) => document.getElementById(id);
-  const [phone, web, sym, fa, db] = svg.querySelectorAll(".node");
-
-  runPackets(svg, [
-    { el: svg.querySelector(".pkt-a"), tone: "a", delay: 0,
-      legs: [[w("wire-ph-sym"), false, sym], [w("wire-sym-db"), false, db], [w("wire-sym-db"), true, sym], [w("wire-ph-sym"), true, phone]] },
-    { el: svg.querySelector(".pkt-b"), tone: "b", delay: 1400,
-      legs: [[w("wire-web-fa"), false, fa], [w("wire-fa-db"), false, db], [w("wire-fa-db"), true, fa], [w("wire-web-fa"), true, web]] },
-    { el: svg.querySelector(".pkt-c"), tone: "c", delay: 2800,
-      legs: [[w("wire-web-sym"), false, sym], [w("wire-sym-db"), false, db], [w("wire-sym-db"), true, sym], [w("wire-web-sym"), true, web]] },
-  ], { speed: 0.11, rest: 900, startDelay: 1500 }); // let the nodes land first
-})();
-
-// ===== client skeletons scroll to the matching projects =====
-(function () {
-  document.querySelectorAll("#sysdiagram .node[data-target]").forEach((node) => {
-    const go = () => {
-      const target = document.querySelector(node.dataset.target);
-      if (target) target.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
-    };
-    node.addEventListener("click", go);
-    node.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
-    });
-  });
-})();
-
-// ===== diagram node tips =====
-(function () {
-  const tip = document.getElementById("diagram-tip");
-  if (!tip) return;
-  const idle = tip.textContent;
-  document.querySelectorAll("#sysdiagram .node").forEach((node) => {
-    const show = () => { tip.textContent = node.dataset.tip; tip.classList.add("is-node"); };
-    const hide = () => { tip.textContent = idle; tip.classList.remove("is-node"); };
-    node.addEventListener("mouseenter", show);
-    node.addEventListener("mouseleave", hide);
-    node.addEventListener("focus", show);
-    node.addEventListener("blur", hide);
-    // touch has no hover: a tap on a plain node reveals its tip
-    // (nodes with data-target navigate instead, so leave those alone)
-    if (!node.dataset.target) node.addEventListener("click", show);
-  });
-  // tapping away puts the idle line back
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest("#sysdiagram .node")) {
-      tip.textContent = idle;
-      tip.classList.remove("is-node");
-    }
-  });
-})();
-
 // ===== headlines rise word by word =====
 // The words are wrapped at runtime, so the HTML (and the French generator that
 // matches it string for string) stays plain.
@@ -926,36 +870,9 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
   });
 })();
 
-// ===== hero light follows the pointer; case cards tilt toward it =====
-(function () {
-  if (REDUCED || !FINE_POINTER) return;
-  const hero = document.querySelector(".hero");
-  if (hero) {
-    let raf = 0, x = 0, y = 0;
-    hero.addEventListener("pointermove", (e) => {
-      const r = hero.getBoundingClientRect();
-      x = e.clientX - r.left;
-      y = e.clientY - r.top;
-      if (!raf) raf = requestAnimationFrame(() => {
-        raf = 0;
-        hero.style.setProperty("--gx", x + "px");
-        hero.style.setProperty("--gy", y + "px");
-      });
-    });
-  }
-  document.querySelectorAll(".case-visual > div").forEach((card) => {
-    card.addEventListener("pointermove", (e) => {
-      const r = card.getBoundingClientRect();
-      const rx = ((e.clientY - r.top) / r.height - 0.5) * -4;
-      const ry = ((e.clientX - r.left) / r.width - 0.5) * 4;
-      card.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) translateY(-3px)";
-    });
-    card.addEventListener("pointerleave", () => { card.style.transform = ""; });
-  });
-})();
-
-// ===== rendered loops play only while on screen =====
-// preload="none" keeps them off the network until then; reduced motion keeps the poster.
+// ===== rendered films play only while on screen =====
+// The case films are preload="none", so they stay off the network until then;
+// the hero film preloads. Reduced motion keeps every poster still.
 (function () {
   if (REDUCED) return;
   const io = new IntersectionObserver((entries) => {
@@ -964,30 +881,7 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
       else e.target.pause();
     });
   }, { threshold: 0.25 });
-  document.querySelectorAll("video.reel").forEach((v) => io.observe(v));
-})();
-
-// ===== case visuals drift a little slower than the text beside them =====
-(function () {
-  if (REDUCED || !window.matchMedia("(min-width: 901px)").matches) return;
-  const vis = document.querySelectorAll(".case-visual");
-  if (!vis.length) return;
-  let ticking = false;
-  function update() {
-    ticking = false;
-    const vh = window.innerHeight;
-    vis.forEach((v) => {
-      // measure the case, not the visual, so the offset doesn't feed back into itself
-      const r = v.parentElement.getBoundingClientRect();
-      if (r.bottom < 0 || r.top > vh) return;
-      const p = (r.top + r.height / 2 - vh / 2) / vh;
-      v.style.setProperty("--py", (p * 28).toFixed(1) + "px");
-    });
-  }
-  window.addEventListener("scroll", () => {
-    if (!ticking) { ticking = true; requestAnimationFrame(update); }
-  }, { passive: true });
-  update();
+  document.querySelectorAll("video.reel, video.hero-film").forEach((v) => io.observe(v));
 })();
 
 // ===== copy the email address in one click =====

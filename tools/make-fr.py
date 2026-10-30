@@ -86,21 +86,6 @@ BODY = [
 ('href="mailto:ghaithmeftah@gmail.com?subject=Opportunity%20for%20Ghaith">ghaithmeftah@gmail.com</a>',
  'href="mailto:ghaithmeftah@gmail.com?subject=Opportunit%C3%A9%20pour%20Ghaith">ghaithmeftah@gmail.com</a>'),
 
-# ---- diagram ----
-('aria-label="Animated diagram: a request travels from a React or Angular web app or a Flutter mobile app to a Symfony or FastAPI backend, then to MySQL or MongoDB, and back. The web and mobile skeletons link to the matching projects below."',
- 'aria-label="Schéma animé : une requête part d\'une application web React ou Angular, ou d\'une application mobile Flutter, vers un backend Symfony ou FastAPI, puis vers MySQL ou MongoDB, et revient. Les silhouettes web et mobile mènent aux projets correspondants."'),
-('aria-label="Mobile — see the Flutter projects below"', 'aria-label="Mobile — voir les projets Flutter ci-dessous"'),
-('data-tip="Flutter — tap to jump to the mobile projects"', 'data-tip="Flutter — touchez pour aller aux projets mobiles"'),
-('aria-label="Web — see the Angular and React projects below"', 'aria-label="Web — voir les projets Angular et React ci-dessous"'),
-('data-tip="Angular and React — tap to jump to the web projects"', 'data-tip="Angular et React — touchez pour aller aux projets web"'),
-('data-tip="Symfony + Doctrine — chalet-montagne.com, 10,000+ chalets, 390+ tests"',
- 'data-tip="Symfony + Doctrine — chalet-montagne.com, +10 000 chalets, +390 tests"'),
-('data-tip="FastAPI — SmartCare healthcare backend on AWS"', 'data-tip="FastAPI — backend santé SmartCare sur AWS"'),
-('data-tip="MySQL and MongoDB — query optimization, caching, migrations"',
- 'data-tip="MySQL et MongoDB — optimisation des requêtes, cache, migrations"'),
-('<figcaption class="diagram-tip" id="diagram-tip">Tap the mobile or web screen to see those projects.</figcaption>',
- '<figcaption class="diagram-tip" id="diagram-tip">Touchez l\'écran mobile ou web pour voir ces projets.</figcaption>'),
-
 # ---- proof ----
 ('''    Some numbers I stand behind: a marketplace of
     <em><span data-count="10000">10,000</span>+ chalets</em> whose pages went from

@@ -190,8 +190,9 @@
   </nav>
 </header>
 
-<!-- ============ HERO ============ -->
+<!-- ============ HERO: the request, filmed (assets/motion/hero.mp4, from tools/render-motion.py) ============ -->
 <section class="hero">
+  <video class="hero-film" muted loop playsinline preload="auto" poster="assets/motion/hero.jpg" width="1600" height="900" aria-hidden="true"><source src="assets/motion/hero.mp4" type="video/mp4"></video>
   <div class="hero-copy">
     <p class="hero-hello">
       <img class="hero-avatar" src="assets/ghaith.webp" alt="Portrait of Ghaith Mefteh" width="44" height="44">
@@ -216,77 +217,6 @@
     </div>
   </div>
 
-  <!-- Animated system diagram: request travels client → backend → db and back -->
-  <figure class="hero-diagram" aria-label="Animated diagram: a request travels from a React or Angular web app or a Flutter mobile app to a Symfony or FastAPI backend, then to MySQL or MongoDB, and back. The web and mobile skeletons link to the matching projects below.">
-    <svg id="sysdiagram" viewBox="30 0 560 400" role="img">
-      <!-- wires -->
-      <path id="wire-ph-sym" class="wire" d="M164 96 C 216 96, 250 132, 292 133"/>
-      <path id="wire-ph-fa" class="wire" d="M164 110 C 214 150, 240 296, 292 304"/>
-      <path id="wire-web-sym" class="wire" d="M194 272 C 240 248, 252 126, 292 141"/>
-      <path id="wire-web-fa" class="wire" d="M194 288 C 238 300, 258 306, 292 307"/>
-      <path id="wire-sym-db" class="wire" d="M404 136 C 450 140, 470 160, 480 190"/>
-      <path id="wire-fa-db" class="wire" d="M404 306 C 450 300, 470 250, 480 214"/>
-
-      <!-- phone node (click → Flutter work) -->
-      <g class="node node-phone node-link" tabindex="0" role="link"
-         aria-label="Mobile — see the Flutter projects below"
-         data-tip="Flutter — tap to jump to the mobile projects"
-         data-target="#case-soc">
-        <rect x="90" y="40" width="72" height="118" rx="15"/>
-        <rect class="node-screen" x="98" y="54" width="56" height="82" rx="6"/>
-        <circle class="node-btn" cx="126" cy="147" r="4"/>
-        <text x="126" y="182" class="node-label">Flutter · mobile</text>
-      </g>
-
-      <!-- web node (click → React/Angular work) -->
-      <g class="node node-web node-link" tabindex="0" role="link"
-         aria-label="Web — see the Angular and React projects below"
-         data-tip="Angular and React — tap to jump to the web projects"
-         data-target="#case-platform">
-        <rect x="60" y="228" width="132" height="96" rx="10"/>
-        <line class="node-line node-chrome" x1="60" y1="246" x2="192" y2="246"/>
-        <circle class="node-btn" cx="74" cy="237" r="3"/>
-        <circle class="node-btn" cx="84" cy="237" r="3"/>
-        <circle class="node-btn" cx="94" cy="237" r="3"/>
-        <line class="node-line" x1="76" y1="266" x2="140" y2="266"/>
-        <line class="node-line" x1="76" y1="281" x2="176" y2="281"/>
-        <line class="node-line" x1="76" y1="296" x2="128" y2="296"/>
-        <text x="126" y="348" class="node-label">React · Angular</text>
-      </g>
-
-      <!-- backend node 1 : Symfony -->
-      <g class="node node-api" tabindex="0" data-tip="Symfony + Doctrine — chalet-montagne.com, 10,000+ chalets, 390+ tests">
-        <rect x="292" y="106" width="112" height="60" rx="10"/>
-        <line class="node-line" x1="308" y1="124" x2="360" y2="124"/>
-        <line class="node-line" x1="308" y1="138" x2="384" y2="138"/>
-        <line class="node-line" x1="308" y1="152" x2="348" y2="152"/>
-        <text x="348" y="188" class="node-label">Symfony · PHP</text>
-      </g>
-
-      <!-- backend node 2 : FastAPI -->
-      <g class="node node-api" tabindex="0" data-tip="FastAPI — SmartCare healthcare backend on AWS">
-        <rect x="292" y="282" width="112" height="60" rx="10"/>
-        <line class="node-line" x1="308" y1="300" x2="368" y2="300"/>
-        <line class="node-line" x1="308" y1="314" x2="344" y2="314"/>
-        <line class="node-line" x1="308" y1="328" x2="378" y2="328"/>
-        <text x="348" y="364" class="node-label">FastAPI · Python</text>
-      </g>
-
-      <!-- db node -->
-      <g class="node node-db" tabindex="0" data-tip="MySQL and MongoDB — query optimization, caching, migrations">
-        <ellipse cx="504" cy="182" rx="34" ry="12"/>
-        <path class="db-body" d="M470 182 v58 a34 12 0 0 0 68 0 v-58"/>
-        <ellipse class="db-mid" cx="504" cy="211" rx="34" ry="12"/>
-        <text x="504" y="278" class="node-label">MySQL · MongoDB</text>
-      </g>
-
-      <!-- traveling request dots (positioned by JS along the wires) -->
-      <circle class="pkt pkt-a" r="5"/>
-      <circle class="pkt pkt-b" r="5"/>
-      <circle class="pkt pkt-c" r="4"/>
-    </svg>
-    <figcaption class="diagram-tip" id="diagram-tip">Tap the mobile or web screen to see those projects.</figcaption>
-  </figure>
 </section>
 
 <!-- ============ PROOF LINE ============ -->
@@ -299,11 +229,6 @@
     <em><span data-count="99.8" data-decimals="1">99.8</span>% crash-free</em> sessions, and apps used by
     <em><span data-count="5000">5,000</span>+ people</em> on iOS and Android.
   </p>
-</section>
-
-<!-- ============ SHOWREEL: rendered from the real screenshots by tools/render-motion.py ============ -->
-<section class="showreel" aria-hidden="true">
-  <video class="reel" muted loop playsinline preload="none" poster="assets/motion/showreel.jpg" width="1280" height="720"><source src="assets/motion/showreel.mp4" type="video/mp4"></video>
 </section>
 
 <!-- ============ TRUST STRIP ============ -->
@@ -405,6 +330,7 @@
       <ul class="case-stack"><li>.NET</li><li>ASP.NET Core</li><li>Microservices</li><li>gRPC</li><li>API Gateway</li><li>Angular 21</li><li>WireGuard</li><li>Docker</li></ul>
     </div>
     <div class="case-visual">
+      <div class="reel-widget" aria-hidden="true"><video class="reel" muted loop playsinline preload="none" poster="assets/motion/platform.jpg" width="1280" height="720"><source src="assets/motion/platform.mp4" type="video/mp4"></video></div>
       <!-- schematic: Angular → gateway → services over gRPC; packets animated in script.js -->
       <div class="arch-widget">
         <p class="widget-title">How a request travels</p>
@@ -500,7 +426,7 @@
       <ul class="case-stack"><li>Symfony</li><li>Doctrine</li><li>MySQL</li><li>PHPUnit</li><li>SonarQube</li><li>GitLab CI/CD</li><li>Docker</li></ul>
     </div>
     <div class="case-visual">
-      <div class="reel-widget" aria-hidden="true"><video class="reel" muted loop playsinline preload="none" poster="assets/motion/chalet.jpg" width="960" height="540"><source src="assets/motion/chalet.mp4" type="video/mp4"></video></div>
+      <div class="reel-widget" aria-hidden="true"><video class="reel" muted loop playsinline preload="none" poster="assets/motion/chalet.jpg" width="1280" height="720"><source src="assets/motion/chalet.mp4" type="video/mp4"></video></div>
       <!-- before/after load-time evidence, animates on scroll -->
       <div class="loadbar-widget" role="img" aria-label="Search page load time: before 20 to 50 seconds, after 4 to 6 seconds.">
         <div class="chalet-brand">
@@ -576,7 +502,7 @@
       <ul class="case-stack"><li>Flutter</li><li>Dart</li><li>GetX</li><li>SQLite</li><li>SwiftUI</li><li>Codemagic</li><li>Sentry</li><li>Xcode</li><li>App Store</li><li>Google Play</li></ul>
     </div>
     <div class="case-visual">
-      <div class="reel-widget" aria-hidden="true"><video class="reel" muted loop playsinline preload="none" poster="assets/motion/soc.jpg" width="960" height="540"><source src="assets/motion/soc.mp4" type="video/mp4"></video></div>
+      <div class="reel-widget" aria-hidden="true"><video class="reel" muted loop playsinline preload="none" poster="assets/motion/soc.jpg" width="1280" height="720"><source src="assets/motion/soc.mp4" type="video/mp4"></video></div>
       <div class="score-widget widget-dark">
         <div class="score-head">
           <img class="soc-crest" src="assets/soc-crest.webp" alt="SOC Chambéry club crest" width="72" height="72">
@@ -654,7 +580,7 @@
       <ul class="case-stack"><li>Flutter</li><li>Dart</li><li>Provider</li><li>GetX</li><li>Hive</li><li>FastAPI</li><li>MongoDB</li><li>ReactJS</li><li>AWS</li></ul>
     </div>
     <div class="case-visual">
-      <div class="reel-widget" aria-hidden="true"><video class="reel" muted loop playsinline preload="none" poster="assets/motion/smartcare.jpg" width="960" height="540"><source src="assets/motion/smartcare.mp4" type="video/mp4"></video></div>
+      <div class="reel-widget" aria-hidden="true"><video class="reel" muted loop playsinline preload="none" poster="assets/motion/smartcare.jpg" width="1280" height="720"><source src="assets/motion/smartcare.mp4" type="video/mp4"></video></div>
       <div class="shots-widget">
         <p class="widget-title">The Flutter app, screen by screen</p>
         <div class="carousel" data-carousel data-carousel-autoplay="5000">
