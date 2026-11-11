@@ -439,6 +439,7 @@ MISSION_FR = """<article id="case-alpilink" class="mission" aria-labelledby="mis
       <li><b>Testée en charge</b><span>avec un simulateur de trafic avant la mise en ligne</span></li>
       <li><b>En production</b><span>utilisée par de vrais utilisateurs aujourd'hui</span></li>
     </ul>
+    <div id="wheel" class="wheel"></div>
     <div class="mission-added">
       <p class="mission-sub">Ce que j'ai apporté au-delà de la tâche</p>
       <ul>

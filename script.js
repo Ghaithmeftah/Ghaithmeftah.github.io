@@ -1006,3 +1006,112 @@ function runPackets(svg, trips, { speed, rest, startDelay = 0 }) {
   stay.addEventListener("click", () => { remember(lang); box.remove(); });
   document.body.appendChild(box);
 })();
+
+// ===== mission wheel: a playable re-creation, plus a 10,000-spin check of its odds =====
+(function () {
+  const root = document.getElementById("wheel");
+  if (!root) return;
+
+  const T = FR ? {
+    intro: "Une petite reconstitution qui tourne dans votre navigateur, pas le code d'Alpilink. Faites-la tourner, ou lancez 10 000 tirages et comparez ce qui sort aux probabilités configurées. C'est le genre de preuve que je veux avant une mise en production.",
+    spin: "Lancer la roue", sim: "Lancer 10 000 tirages", landed: "Tombé sur ", go: "Y aller",
+    slice: "Part", set: "Configuré", got: "Observé",
+    sum: (n, ms, gap) => n + " tirages en " + ms + " ms. Plus grand écart entre configuré et observé : " + gap + " point.",
+    loc: "fr-FR",
+  } : {
+    intro: "A small re-creation that runs in your browser, not Alpilink's code. Spin it, or run 10,000 spins and compare what came out against the configured odds. That is the kind of proof I want before a release.",
+    spin: "Spin the wheel", sim: "Run 10,000 spins", landed: "Landed on ", go: "Go there",
+    slice: "Slice", set: "Configured", got: "Observed",
+    sum: (n, ms, gap) => n + " spins in " + ms + " ms. Largest gap between configured and observed odds: " + gap + " points.",
+    loc: "en-GB",
+  };
+
+  // w = odds in percent (they add up to 100); each slice sends the visitor somewhere real
+  const SLICES = [
+    { w: 24, c: "#2B50E0", href: "#case-chalet", label: "Chalet",
+      text: FR ? "une recherche passée de 20–50 s à 4–6 s" : "a marketplace search cut from 20–50 s to 4–6 s" },
+    { w: 22, c: "#1D3AA8", href: "#case-soc", label: "Rugby",
+      text: FR ? "une application Flutter à 99,8 % de sessions sans crash" : "a Flutter app at 99.8% crash-free sessions" },
+    { w: 20, c: "#0B7372", href: "#case-smartcare", label: FR ? "Santé" : "Health",
+      text: FR ? "une application de santé utilisée par plus de 3 000 patients" : "a health app used by 3,000+ patients" },
+    { w: 16, c: "#2B50E0", href: "#said", label: FR ? "Avis" : "Praise",
+      text: FR ? "ce qu'ont écrit ceux avec qui j'ai travaillé" : "what the people I worked with wrote" },
+    { w: 12, c: "#1D3AA8", href: "cv.html", label: "CV",
+      text: FR ? "le CV d'une page" : "the one-page CV" },
+    { w: 6, c: "#F5A524", ink: "#1A1305", href: "https://calendly.com/ghaithmeftah/30min", label: FR ? "Appel" : "Call",
+      text: FR ? "la part rare : un appel de 30 minutes avec moi" : "the rare one: a 30-minute call with me" },
+  ];
+  let acc = 0;
+  SLICES.forEach((s) => { s.from = acc * 3.6; acc += s.w; s.to = acc * 3.6; });
+
+  // The result is drawn first; the animation only plays it out.
+  function pick() {
+    const r = crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296 * 100;
+    let sum = 0;
+    for (let i = 0; i < SLICES.length; i++) { sum += SLICES[i].w; if (r < sum) return i; }
+    return SLICES.length - 1;
+  }
+
+  // angles run clockwise from the pointer at the top
+  const pt = (deg, r) => {
+    const a = deg * Math.PI / 180;
+    return (r * Math.sin(a)).toFixed(2) + " " + (-r * Math.cos(a)).toFixed(2);
+  };
+  const disc = SLICES.map((s) => {
+    const mid = (s.from + s.to) / 2;
+    return '<path d="M0 0L' + pt(s.from, 96) + "A96 96 0 0 1 " + pt(s.to, 96) + 'Z" fill="' + s.c + '"/>' +
+      '<text transform="rotate(' + mid + ')" y="-66" fill="' + (s.ink || "#fff") + '">' + s.label + "</text>";
+  }).join("");
+
+  root.innerHTML =
+    '<div class="wheel-stage"><svg viewBox="-100 -104 200 204" aria-hidden="true">' +
+    '<g class="wheel-disc">' + disc + '</g><circle r="9" class="wheel-hub"/>' +
+    '<path d="M-7 -104h14L0 -90Z" class="wheel-pin"/></svg></div>' +
+    '<div class="wheel-side"><p class="wheel-intro"></p><div class="wheel-actions">' +
+    '<button type="button" class="btn btn-solid"></button><button type="button" class="btn btn-ghost"></button></div>' +
+    '<p class="wheel-out" aria-live="polite"></p><div class="wheel-sim" aria-live="polite"></div></div>';
+  const discEl = root.querySelector(".wheel-disc");
+  const [spinBtn, simBtn] = root.querySelectorAll("button");
+  const out = root.querySelector(".wheel-out");
+  const sim = root.querySelector(".wheel-sim");
+  root.querySelector(".wheel-intro").textContent = T.intro;
+  spinBtn.textContent = T.spin;
+  simBtn.textContent = T.sim;
+
+  let turn = 0;
+  spinBtn.addEventListener("click", () => {
+    const i = pick(), s = SLICES[i];
+    const at = s.from + (0.15 + 0.7 * Math.random()) * (s.to - s.from); // stop inside the slice, off its edges
+    turn += 1440 + (((360 - at - turn) % 360) + 360) % 360;
+    discEl.style.transform = "rotate(" + turn + "deg)";
+    spinBtn.disabled = true;
+    out.textContent = "";
+    setTimeout(() => {
+      spinBtn.disabled = false;
+      out.textContent = T.landed + s.label + (FR ? " : " : ": ") + s.text + ". ";
+      const a = document.createElement("a");
+      a.href = s.href;
+      a.textContent = T.go;
+      if (s.href.startsWith("http")) { a.target = "_blank"; a.rel = "noopener"; }
+      out.appendChild(a);
+    }, REDUCED ? 0 : 4200);
+  });
+
+  simBtn.addEventListener("click", () => {
+    const N = 10000, hits = SLICES.map(() => 0);
+    const t0 = performance.now();
+    for (let n = 0; n < N; n++) hits[pick()]++;
+    const ms = performance.now() - t0;
+    const fmt = (v, d) => v.toLocaleString(T.loc, { minimumFractionDigits: d, maximumFractionDigits: d });
+    let gap = 0;
+    const rows = SLICES.map((s, i) => {
+      const got = hits[i] / N * 100;
+      gap = Math.max(gap, Math.abs(got - s.w));
+      return '<tr><th scope="row"><i style="background:' + s.c + '"></i>' + s.label + "</th><td>" + s.w + " %</td><td>" +
+        fmt(got, 2) + ' %</td><td class="wheel-bar"><span style="width:' + (got / 24 * 100).toFixed(1) + "%;background:" + s.c + '"></span></td></tr>';
+    }).join("");
+    sim.innerHTML = '<table><thead><tr><th scope="col">' + T.slice + '</th><th scope="col">' + T.set +
+      '</th><th scope="col">' + T.got + "</th><td></td></tr></thead><tbody>" + rows + "</tbody></table><p></p>";
+    sim.querySelector("p").textContent = T.sum(fmt(N, 0), fmt(ms, 1), fmt(gap, 2));
+  });
+})();
