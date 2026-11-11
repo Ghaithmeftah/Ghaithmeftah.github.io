@@ -1,14 +1,15 @@
 # Ghaith Mefteh — Full-Stack and Mobile Software Engineer
 
 > Ghaith Mefteh is a full-stack and mobile software engineer based in Nabeul, Tunisia,
-> with 3+ years shipping production systems end to end. He is technical director at
-> AzertyUI, leading a team of four engineers, and is open to remote roles, relocation
-> within the EU, and freelance projects.
+> with 2+ years full-time, plus a year of part-time production work during his degree.
+> He joined AzertyUI as its first engineering hire and has been its technical director
+> since January 2026, leading a team of four engineers. He is open to remote roles and
+> relocation within the EU; freelance projects are on the services pages.
 > Contact: ghaithmeftah@gmail.com · +216 53 32 47 63
 
 Stack: .NET and ASP.NET Core microservices with gRPC and an API Gateway; Symfony and
 PHP with Doctrine and MySQL; FastAPI and Python with MongoDB; Angular 21 and React on
-the front end; Flutter and Dart (GetX, Provider, SwiftUI) shipped to the App Store and
+the front end; Flutter and Dart (GetX, Provider, iOS widgets in SwiftUI) shipped to the App Store and
 Google Play; Docker, GitLab CI/CD, Codemagic, AWS, SonarQube and Sentry around it.
 
 He owns the whole request path — the screen in the browser, the app on the phone,
@@ -29,20 +30,22 @@ the API behind them and the database under that — rather than a single layer.
 - [Flutter mobile apps](https://ghaithmeftah.github.io/services/flutter/): A freelance Flutter developer who ships to the App Store and Google Play; SOC Rugby (2,000+ fans, 99.8% crash-free) and SmartCare (3,000+ patients). ([FR](https://ghaithmeftah.github.io/fr/services/flutter/))
 - [Symfony and PHP web](https://ghaithmeftah.github.io/services/symfony/): Rebuilds of slow PHP products on Symfony; chalet-montagne.com search pages went from 20–50 s to 4–6 s with 390+ tests. ([FR](https://ghaithmeftah.github.io/fr/services/symfony/))
 - [.NET backends and APIs](https://ghaithmeftah.github.io/services/dotnet/): ASP.NET Core microservices behind an API Gateway with gRPC, Angular in front, Dynamics 365 integrations. ([FR](https://ghaithmeftah.github.io/fr/services/dotnet/))
-- [Hiring a remote engineer](https://ghaithmeftah.github.io/hire/): Remote from UTC+1 or relocating within the EU; employer of record or contractor; can start within two weeks. ([FR](https://ghaithmeftah.github.io/fr/recrutement/))
+- [Hiring a remote engineer](https://ghaithmeftah.github.io/hire/): Remote from UTC+1 or relocating within the EU; employer of record or contractor; Tunisian citizen, EU Blue Card eligible for on-site roles. ([FR](https://ghaithmeftah.github.io/fr/recrutement/))
 
 ## Production work
 
-- Company management platform (AzertyUI, current): internal HR and operations platform on .NET microservices with an API Gateway, gRPC and Angular 21, built by a team of four he leads; plus the company's server monitoring dashboard (SSH tracking, WireGuard access, container monitoring, alerts, backups).
-- [chalet-montagne.com](https://www.chalet-montagne.com/): French ski-chalet marketplace listing 10,000+ chalets, built from scratch on Symfony by a team of four he led for 14 months. Search page load time cut from 20–50 s to 4–6 s, test suite built from zero to 390+ tests.
-- SOC Rugby: Official Flutter app of the Chambéry rugby club, on the App Store and Google Play, used by 2,000+ fans at 99.8% crash-free sessions.
-- [SmartCare](https://play.google.com/store/apps/details?id=com.hopehorizonworld.smartcare): Patient–doctor Flutter app for Tunisia used by 40+ doctors and 3,000+ patients, with a FastAPI and MongoDB backend on AWS.
+- Company management platform (AzertyUI, since August 2026): internal HR and operations platform on .NET microservices with an API Gateway, gRPC and Angular 21, built by the team of four he leads; plus the company's server monitoring dashboard (SSH tracking, WireGuard access, container monitoring, alerts, backups).
+- [chalet-montagne.com](https://www.chalet-montagne.com/): French ski-chalet marketplace listing 10,000+ chalets, rebuilt on Symfony while it kept selling: he built the core solo from April 2025, then led a team of four to delivery in July 2026. Search pages from 20–50 s to 4–6 s, test suite grown to 390+ tests.
+- SOC Rugby: Official Flutter app of the Chambéry rugby club (with an iOS home-screen widget in SwiftUI), built solo August 2024 – March 2025, on the App Store and Google Play, used by 2,000+ fans at 99.8% crash-free sessions.
+- [SmartCare](https://play.google.com/store/apps/details?id=com.hopehorizonworld.smartcare) (part-time, remote, alongside his studies, July 2023 – August 2024): Patient–doctor Flutter app for Tunisia used by 40+ doctors and 3,000+ patients, with a FastAPI and MongoDB backend on AWS.
 - L-Mobile warehouse terminal: Five warehouse-management modules on forklift-mounted tablets, integrating Microsoft Dynamics 365 Business Central over C#/.NET and REST.
+- Alpilink Groupe (one-week mission): built a wheel game feature for 10,000+ users, load-tested it with a traffic simulator, shipped it to production, and separately found and fixed a security flaw outside the task scope on its own branch, sent to the team lead for review and merge.
 
 ## Availability
 
-- Open to remote roles, relocation within the EU, and freelance projects.
-- Hiring: employment through an employer of record, a contractor agreement, or on-site in the EU; can start within two weeks.
+- Open to remote roles and relocation within the EU; freelance projects through the services pages.
+- Hiring: employment through an employer of record, a contractor agreement, or on-site in the EU; start date agreed per role.
+- Work authorization: Tunisian citizen; no permit needed for remote work; needs an EU work permit for on-site roles (EU Blue Card eligible).
 - Freelance: quoted per project or per day once the scope is written down.
 - Full-stack, backend-leaning, mobile, or tech lead for a small team.
 - Based in Nabeul, Tunisia (CET / UTC+1) — overlaps a full European working day.

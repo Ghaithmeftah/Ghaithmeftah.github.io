@@ -2172,3 +2172,42 @@ body::after {
   .contact-links-secondary .btn { flex: 1 1 calc(50% - .45rem); font-size: .86rem; padding-left: .5rem; padding-right: .5rem; }
   .lane-actions .btn { font-size: .86rem; padding-left: .5rem; padding-right: .5rem; }
 }
+
+/* ===== one-week mission (Alpilink) ===== */
+.mission {
+  scroll-margin-top: 5.5rem;
+  margin-top: 1rem; padding: 2.4rem 2.6rem;
+  border: 1.5px solid var(--line); border-radius: var(--radius);
+  background: var(--bg-raised); box-shadow: var(--shadow-card);
+}
+.mission-head { display: flex; align-items: center; gap: 2rem; margin-bottom: 1.4rem; }
+.mission-logo {
+  flex: none; display: grid; place-items: center;
+  padding: .9rem 1.3rem; border: 1.5px solid var(--line); border-radius: 12px;
+  background: #fff; /* brand logo is blue on transparent: keep a light plate in dark mode */
+}
+.mission-logo img { display: block; width: 150px; height: auto; }
+.mission h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.05; }
+.mission-lede { color: var(--ink-soft); max-width: 46rem; margin-bottom: 1.6rem; }
+.mission-facts {
+  list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem; margin-bottom: 1.8rem;
+}
+.mission-facts li { border-top: 2px solid var(--cobalt); padding-top: .7rem; }
+.mission-facts b { display: block; font-size: 1.45rem; line-height: 1.1; color: var(--ink); }
+.mission-facts span { font-size: .9rem; color: var(--ink-soft); }
+.mission-sub { font-family: var(--mono); font-size: .78rem; color: var(--teal); margin-bottom: .6rem; }
+.mission-added ul { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+.mission-added li { color: var(--ink-soft); font-size: .96rem; }
+.mission-added li b { color: var(--ink); }
+.mission-sec {
+  margin-top: 1.8rem; padding: 1.1rem 1.4rem;
+  border-left: 4px solid var(--teal); background: var(--bg); border-radius: 0 10px 10px 0;
+}
+.mission-sec p:last-child { color: var(--ink-soft); font-size: .96rem; max-width: 52rem; }
+.clients-row li a { display: grid; place-items: center; }
+@media (max-width: 760px) {
+  .mission { padding: 1.5rem 1.2rem; }
+  .mission-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .mission-facts, .mission-added ul { grid-template-columns: 1fr; }
+}

@@ -20,11 +20,13 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "tools", "resume")
 
+# source page, the PDF the site links to, and the older URL it replaces: CVs
+# already sent with the old link keep downloading the current version
 JOBS = [
-    ("fullstack-en.html", "Ghaith-Mefteh-CV-EN.pdf"),
-    ("mobile-en.html", "Ghaith-Mefteh-CV-Mobile-EN.pdf"),
-    ("fullstack-fr.html", "Ghaith-Mefteh-CV-FR.pdf"),
-    ("mobile-fr.html", "Ghaith-Mefteh-CV-Mobile-FR.pdf"),
+    ("fullstack-en.html", "Ghaith_Mefteh_Resume_FullStack.pdf", "Ghaith-Mefteh-CV-EN.pdf"),
+    ("mobile-en.html", "Ghaith_Mefteh_Resume_Mobile.pdf", "Ghaith-Mefteh-CV-Mobile-EN.pdf"),
+    ("fullstack-fr.html", "Ghaith_Mefteh_CV_FullStack_FR.pdf", "Ghaith-Mefteh-CV-FR.pdf"),
+    ("mobile-fr.html", "Ghaith_Mefteh_CV_Mobile_FR.pdf", "Ghaith-Mefteh-CV-Mobile-FR.pdf"),
 ]
 
 CHROME_CANDIDATES = [
@@ -55,7 +57,7 @@ def page_count(pdf):
 def main():
     chrome = find_chrome()
     failed = False
-    for src, out in JOBS:
+    for src, out, legacy in JOBS:
         src_path = os.path.join(SRC, src)
         out_path = os.path.join(ROOT, "assets", out)
         url = "file:///" + src_path.replace("\\", "/").replace(" ", "%20")
@@ -67,6 +69,7 @@ def main():
         pages = page_count(out_path)
         flag = "" if pages == 1 else "  <-- not one page"
         failed |= pages != 1
+        shutil.copyfile(out_path, os.path.join(ROOT, "assets", legacy))
         print(f"{out}: {pages} page(s){flag}")
     if failed:
         sys.exit("build-resumes: a resume spilled past one page")

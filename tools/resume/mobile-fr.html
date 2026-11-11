@@ -8,10 +8,12 @@ body { margin:0; font-family: Calibri, "Segoe UI", Arial, sans-serif; font-size:
   font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0; }
 a { color:#1f4e79; text-decoration: underline; text-decoration-thickness: .5px; text-underline-offset: 1.5px; }
 header { text-align:center; border-bottom: 1.5px solid #1f4e79; padding-bottom:6px; margin-bottom:6px; }
-h1 { font-size: 21pt; letter-spacing: 1.5px; margin:0; font-weight:700; }
+/* letter-spacing stays normal: some ATS parsers split spaced capitals into letters */
+h1 { font-size: 21pt; letter-spacing: normal; margin:0; font-weight:700; }
 .role { font-size: 11pt; color:#1f4e79; font-weight:700; margin-top:1px; }
 .contact { font-size: 9.4pt; color:#3d4750; margin-top:3px; }
-h2 { font-size: 10pt; letter-spacing:1.4px; text-transform:uppercase; color:#1f4e79; margin:7px 0 3px; padding-bottom:1px; border-bottom:.7px solid #b9c4ce; font-weight:700; }
+.contact.auth { font-size: 8.8pt; }
+h2 { font-size: 10.5pt; letter-spacing: normal; text-transform:uppercase; color:#1f4e79; margin:7px 0 3px; padding-bottom:1px; border-bottom:.7px solid #b9c4ce; font-weight:700; }
 p { margin:0; }
 .summary { text-align:justify; }
 .job { margin-top:5px; }
@@ -19,6 +21,8 @@ p { margin:0; }
 .jt .t { font-weight:700; font-size:10.4pt; }
 .jt .d { font-weight:700; font-size:9.6pt; white-space:nowrap; padding-left:10px; }
 .co { font-style:italic; color:#3d4750; margin-bottom:1px; }
+.ctx { color:#3d4750; margin-bottom:2px; }
+.sub { margin-top:4px; }
 .proj { font-weight:700; margin:3px 0 1px; color:#12181d; }
 ul { margin:0; padding-left:15px; }
 li { margin-bottom:1px; }
@@ -29,51 +33,48 @@ b { color:#12181d; }
 
 <header>
   <h1>GHAITH MEFTEH</h1>
-  <div class="role">Ingénieur Logiciel Mobile | Flutter · Dart · iOS &amp; Android</div>
+  <div class="role">Ingénieur Logiciel Mobile &amp; Directeur Technique | Flutter · Dart · iOS &amp; Android</div>
   <div class="contact">
-    Nabeul, Tunisie &nbsp;|&nbsp; <b>Mobilité : UE / télétravail</b> &nbsp;|&nbsp; +216 53 32 47 63 &nbsp;|&nbsp; <a href="mailto:ghaithmeftah@gmail.com">ghaithmeftah@gmail.com</a> &nbsp;|&nbsp;
+    Nabeul, Tunisie &nbsp;|&nbsp; Télétravail, ou mobilité dans l'UE &nbsp;|&nbsp; +216 53 32 47 63 &nbsp;|&nbsp; <a href="mailto:ghaithmeftah@gmail.com">ghaithmeftah@gmail.com</a> &nbsp;|&nbsp;
     <a href="https://www.linkedin.com/in/ghaith-mefteh-995a18157">LinkedIn</a> &nbsp;|&nbsp;
     <a href="https://github.com/Ghaithmeftah">GitHub</a> &nbsp;|&nbsp;
-    <a href="https://ghaithmeftah.github.io">Portfolio</a>
+    <a href="https://ghaithmeftah.github.io/fr/">Portfolio</a>
   </div>
+  <div class="contact auth">Nationalité tunisienne&nbsp;: aucun permis requis en télétravail&nbsp;; permis de travail UE nécessaire pour un poste sur site (éligible Carte bleue européenne).</div>
 </header>
 
 <h2>Profil</h2>
-<p class="summary">Ingénieur mobile avec <b>plus de 3 ans d'expérience professionnelle</b> : applications Flutter publiées sur l'<b>App Store et Google Play</b>, utilisées par <b>+5&nbsp;000 personnes</b> dans la santé et le sport. Je maîtrise tout le cycle : UI fidèle aux maquettes Figma, gestion d'état, intégration d'API, CI/CD et publication sur les stores. Je développe aussi les backends (Symfony, FastAPI, .NET) et dirige une <b>équipe de 4 ingénieurs</b>.</p>
+<p class="summary">Ingénieur mobile&nbsp;: <b>plus de 2 ans à temps plein</b>, plus un an de production à temps partiel pendant mes études, à publier des applications Flutter sur l'<b>App Store et Google Play</b>&nbsp;: SOC Rugby (+2&nbsp;000 supporters, 99,8&nbsp;% sans crash) et SmartCare (+40 médecins, +3&nbsp;000 patients). Je couvre tout le cycle&nbsp;: écrans depuis Figma, gestion d'état, intégration d'API, tests de widgets et d'intégration, CI/CD et publications. Directeur Technique chez AzertyUI, à la tête d'une équipe de 4 ingénieurs.</p>
 
 <h2>Expérience professionnelle</h2>
 
 <div class="job">
-  <div class="jt"><span class="t">Directeur Technique</span><span class="d">août 2024 – aujourd'hui</span></div>
-  <div class="co">AzertyUI — Malissard, France (télétravail)</div>
+  <div class="jt"><span class="t">AzertyUI</span><span class="d">août 2024 – aujourd'hui</span></div>
+  <div class="co">Malissard, France (télétravail)</div>
+  <div class="ctx">Start-up en phase de lancement qui conçoit et exploite des produits web et mobiles pour des clients français&nbsp;; passée d'un ingénieur seul à une équipe de 4.</div>
 
-  <div class="proj"><a href="https://ghaithmeftah.github.io/#case-soc">SOC Rugby</a> — application officielle du club de rugby de Chambéry (Flutter, SwiftUI, GetX, SQLite)</div>
+  <div class="jt sub"><span class="t">Directeur Technique</span><span class="d">janv. 2026 – aujourd'hui</span></div>
   <ul>
-    <li>Développement et publication de l'application sur l'<b>App Store et Google Play</b>, utilisée par <b>+2&nbsp;000 supporters</b> : calendrier et rappels de matchs, scores en direct, messagerie et écrans fidèles aux maquettes Figma.</li>
-    <li>Gestion complète des publications iOS et Android avec <b>Codemagic CI/CD</b> : certificats et profils de provisioning, builds Xcode, validation des stores ; <b style="white-space:nowrap">99,8&nbsp;% de sessions sans crash</b>, suivi via <b>Sentry</b>.</li>
+    <li>Direction d'une équipe de 4 ingénieurs&nbsp;: planification, revue de code de chaque pull request, décisions techniques et mises en production&nbsp;; rattaché directement au CEO.</li>
+    <li><b>Alpilink Groupe</b> (mission d'une semaine, 2–10 nov. 2026)&nbsp;: roue de jeu pour <b>+10&nbsp;000 utilisateurs</b>, testée en charge avec un simulateur et mise en production&nbsp;; faille de sécurité repérée hors périmètre, corrigée sur une branche dédiée et soumise au responsable technique pour relecture et fusion.</li>
+    <li>Je mène aussi le backend et le web&nbsp;: microservices .NET (plateforme interne) et Symfony (refonte de chalet-montagne.com, recherche de 20–50&nbsp;s à 4–6&nbsp;s).</li>
   </ul>
 
-  <div class="proj"><a href="https://www.chalet-montagne.com">chalet-montagne.com</a> — marketplace de location de chalets, Alpes françaises, <b>+10&nbsp;000 chalets</b> (Symfony)</div>
+  <div class="jt sub"><span class="t">Ingénieur Logiciel (premier ingénieur recruté)</span><span class="d">août 2024 – déc. 2025</span></div>
+  <div class="proj"><a href="https://ghaithmeftah.github.io/fr/#case-soc">SOC Rugby</a> — application officielle du club de rugby de Chambéry (Flutter, GetX, SQLite, SwiftUI) · août 2024 – mars 2025</div>
   <ul>
-    <li>Direction d'une <b>équipe de 4 ingénieurs pendant 14 mois</b> pour créer la plateforme de zéro : architecture, planification, revues de code et mises en production.</li>
-    <li>Temps de chargement réduit de <b>20–50&nbsp;s à 4–6&nbsp;s</b> grâce à la refonte de la recherche (filtres géo/dates/prix, clustering cartographique), au cache et à l'optimisation des requêtes.</li>
-    <li>Mise en place de <b>GitLab CI/CD</b> avec <b>+390 tests automatisés</b>, contrôles qualité <b>SonarQube</b> et déploiements Docker, pour des mises en production fréquentes et sûres.</li>
-  </ul>
-
-  <div class="proj">Plateforme de gestion d'entreprise &amp; supervision des serveurs (en cours)</div>
-  <ul>
-    <li>Direction d'une <b>équipe de 4</b> (planification, développement, revue de code, déploiement) sur une plateforme RH interne (absences, notes de frais, fiches de paie, contrats) en <b>microservices .NET</b> avec API Gateway, <b>gRPC</b> et <b>Angular 21</b>.</li>
-    <li>Conception du tableau de bord de supervision : suivi des connexions SSH, accès <b>VPN WireGuard</b> pour les développeurs, supervision des conteneurs, alertes de panne et sauvegardes automatisées.</li>
+    <li>Développement en solo et publication sur l'<b>App Store et Google Play</b>, utilisée par +2&nbsp;000 supporters&nbsp;: calendrier et rappels de matchs, scores en direct, messagerie, et un <b>widget d'écran d'accueil iOS</b> en SwiftUI.</li>
+    <li>Publications iOS et Android de bout en bout avec la CI/CD Codemagic&nbsp;: certificats et profils de provisioning, builds Xcode, validation des stores&nbsp;; <b style="white-space:nowrap">99,8&nbsp;% de sessions sans crash</b>, surveillées avec Sentry.</li>
   </ul>
 </div>
 
 <div class="job">
-  <div class="jt"><span class="t">Ingénieur Logiciel Mobile (temps partiel)</span><span class="d">juil. 2023 – août 2024</span></div>
+  <div class="jt"><span class="t">Ingénieur Logiciel Mobile (temps partiel, télétravail, en parallèle des études)</span><span class="d">juil. 2023 – août 2024</span></div>
   <div class="co">Hope Horizon Health &amp; Care — Ariana, Tunisie (télétravail)</div>
   <ul>
-    <li>Seul ingénieur mobile : développement et publication de <a href="https://play.google.com/store/apps/details?id=com.hopehorizonworld.smartcare&amp;hl=en_US"><b>SmartCare</b></a>, application Flutter (Provider, GetX, Hive) reliant patients et médecins, disponible sur Google Play et utilisée par <b>+40 médecins et +3&nbsp;000 patients</b>.</li>
+    <li>Seul ingénieur mobile&nbsp;: développement et publication de <a href="https://play.google.com/store/apps/details?id=com.hopehorizonworld.smartcare&amp;hl=fr"><b>SmartCare</b></a>, application Flutter (Provider, GetX, Hive) qui relie patients et médecins, en ligne sur Google Play avec <b>+40 médecins et +3&nbsp;000 patients</b>.</li>
     <li>Messagerie temps réel, notifications push, prise de rendez-vous et rappels, avec des écrans fidèles aux maquettes Figma.</li>
-    <li>Intégration de Google Maps, Google Sign-In, scan de QR codes et modèles d'IA médicale ; développement des API <b>FastAPI (Python) + MongoDB</b>, déployées sur <b>AWS</b>.</li>
+    <li>Intégration de Google Maps, Google Sign-In, scan de QR codes et modèles d'IA médicale&nbsp;; développement des API FastAPI (Python) + MongoDB derrière l'application, déployées sur AWS.</li>
   </ul>
 </div>
 
@@ -81,24 +82,23 @@ b { color:#12181d; }
   <div class="jt"><span class="t">Stage de fin d'études — Ingénieur Logiciel</span><span class="d">févr. 2024 – juin 2024</span></div>
   <div class="co">L-Mobile — Nabeul, Tunisie</div>
   <ul>
-    <li>Développement d'une <b>application tablette pour caristes</b> et de 5 modules de gestion d'entrepôt intégrés à Microsoft Dynamics 365 Business Central (C#/.NET, API REST), pour un accès aux stocks en temps réel.</li>
+    <li>Développement d'une <b>application tablette pour caristes</b> et de 5 modules de gestion d'entrepôt intégrés à Microsoft Dynamics 365 Business Central (C#/.NET, API REST).</li>
   </ul>
 </div>
 
 <h2>Compétences techniques</h2>
-<div class="sk"><b>Mobile :</b> Flutter, Dart, SwiftUI, React Native, Firebase, notifications push, Google Maps API, Google Sign-In, WebSockets</div>
+<div class="sk"><b>Mobile :</b> Flutter, Dart, SwiftUI (widgets iOS), React Native, Firebase, notifications push, Google Maps API, Google Sign-In, WebSockets</div>
 <div class="sk"><b>État &amp; stockage :</b> Provider, GetX, Hive, SQLite</div>
-<div class="sk"><b>Publication &amp; outils :</b> Xcode, certificats &amp; provisioning iOS, Codemagic CI/CD, App Store Connect, TestFlight, Google Play Console, Sentry, Figma, développement assisté par IA (Claude Code)</div>
-<div class="sk"><b>Tests &amp; Qualité :</b> PHPUnit, PyTest, SonarQube</div>
-<div class="sk"><b>Backend &amp; données :</b> Symfony, FastAPI, .NET, gRPC, API REST, MySQL, PostgreSQL, MongoDB</div>
-<div class="sk"><b>Langages &amp; DevOps :</b> Dart, Swift, PHP, Python, C#, TypeScript, SQL · Docker, GitLab CI/CD, GitHub Actions, AWS, Linux</div>
+<div class="sk"><b>Tests &amp; publication :</b> tests de widgets et d'intégration Flutter, CI/CD Codemagic, Xcode, certificats &amp; provisioning, App Store Connect, TestFlight, Google Play Console, Sentry, Figma</div>
+<div class="sk"><b>Backend &amp; données :</b> FastAPI, Symfony, .NET, API REST, MySQL, PostgreSQL, MongoDB</div>
+<div class="sk"><b>Langages &amp; DevOps :</b> Dart, Swift, Python, PHP, C#, TypeScript, SQL · Docker, GitLab CI/CD, GitHub Actions, AWS</div>
 
 <h2>Formation &amp; Langues</h2>
 <div class="jt"><span><b>Diplôme d'ingénieur en informatique appliquée</b> (EUR-ACE) — École Nationale d'Ingénieurs de Sousse, Tunisie</span><span class="d">juil. 2024</span></div>
 <ul style="margin-top:1px">
-  <li><b>Programme d'échange, Murang'a University of Technology, Kenya</b> (juil. – août 2024) : conception d'une application <b>React Native</b> d'inscription à distance pour réduire la paperasse, et résolution de problèmes réseau sur le campus (LAN, Ethernet).</li>
+  <li>Programme d'échange, Murang'a University of Technology, Kenya (juil. – août 2024)&nbsp;: conception d'une application React Native d'inscription à distance des étudiants.</li>
 </ul>
 <p style="margin-top:2px"><b>Langues :</b> Français (B2) · Anglais (B2, TOEIC) · Allemand (B1)</p>
-<p style="margin-top:1px"><b>Activités :</b> Trésorier, IEEE IAS Student Branch, ENISo (2022–2023) &nbsp;·&nbsp; <b>Centres d'intérêt :</b> musculation, cyclisme, camping</p>
+<p style="margin-top:1px"><b>Activités :</b> Trésorier, IEEE IAS Student Branch, ENISo (2022–2023)</p>
 
 </body></html>

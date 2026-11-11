@@ -23,11 +23,11 @@ CHADI_FR = (
 HEAD = [
 ('<html lang="en">', '<html lang="fr">'),
 
-('<title>Ghaith Mefteh | Freelance Full-Stack &amp; Flutter Developer</title>',
- '<title>Ghaith Mefteh | Développeur full-stack et Flutter freelance</title>'),
+('<title>Ghaith Mefteh, Technical Director | Full-Stack &amp; Flutter</title>',
+ '<title>Ghaith Mefteh, Directeur Technique | Full-Stack et Flutter</title>'),
 
-('<meta name="description" content="Freelance full-stack and Flutter developer, technical director at AzertyUI. .NET, Symfony, Angular, Flutter, 3+ years in production. Remote or EU relocation.">',
- '<meta name="description" content="Développeur full-stack et Flutter freelance, directeur technique chez AzertyUI. .NET, Symfony, Angular, Flutter, 3 ans de production. Télétravail ou UE.">'),
+('<meta name="description" content="Full-stack and Flutter engineer, Technical Director at AzertyUI leading a team of 4. .NET, Symfony, Angular, Flutter. Remote or EU relocation.">',
+ '<meta name="description" content="Ingénieur full-stack et Flutter, Directeur Technique chez AzertyUI, à la tête d\'une équipe de 4. .NET, Symfony, Angular, Flutter. Télétravail ou UE.">'),
 
 ('<link rel="canonical" href="https://ghaithmeftah.github.io/">',
  '<link rel="canonical" href="https://ghaithmeftah.github.io/fr/">'),
@@ -37,8 +37,8 @@ HEAD = [
 ('<meta property="og:title" content="Ghaith Mefteh — Full-Stack and Mobile Engineer">',
  '<meta property="og:title" content="Ghaith Mefteh — Ingénieur full-stack et mobile">'),
 
-('<meta property="og:description" content=".NET · Symfony · Angular · Flutter. I ship production systems end to end — 3+ years in production, technical director at AzertyUI. Open to remote roles, EU relocation and freelance.">',
- '<meta property="og:description" content=".NET · Symfony · Angular · Flutter. Je livre des systèmes de bout en bout — plus de 3 ans en production, directeur technique chez AzertyUI. Ouvert au télétravail, à une mobilité dans l\'UE et au freelance.">'),
+('<meta property="og:description" content=".NET · Symfony · Angular · Flutter. Full-stack and mobile engineer, Technical Director at AzertyUI leading a team of 4. Open to remote roles and EU relocation.">',
+ '<meta property="og:description" content=".NET · Symfony · Angular · Flutter. Ingénieur full-stack et mobile, Directeur Technique chez AzertyUI à la tête d\'une équipe de 4. Ouvert au télétravail et à une mobilité dans l\'UE.">'),
 
 ('<meta property="og:url" content="https://ghaithmeftah.github.io/">',
  '<meta property="og:url" content="https://ghaithmeftah.github.io/fr/">'),
@@ -46,19 +46,50 @@ HEAD = [
 ('<meta name="twitter:title" content="Ghaith Mefteh — Full-Stack and Mobile Engineer">',
  '<meta name="twitter:title" content="Ghaith Mefteh — Ingénieur full-stack et mobile">'),
 
-('<meta name="twitter:description" content=".NET · Symfony · Angular · Flutter. Production systems end to end. Open to remote roles, EU relocation and freelance.">',
- '<meta name="twitter:description" content=".NET · Symfony · Angular · Flutter. Des systèmes en production, de bout en bout. Ouvert au télétravail, à une mobilité dans l\'UE et au freelance.">'),
+('<meta name="twitter:description" content=".NET · Symfony · Angular · Flutter. Full-stack and mobile engineer, Technical Director. Open to remote roles and EU relocation.">',
+ '<meta name="twitter:description" content=".NET · Symfony · Angular · Flutter. Ingénieur full-stack et mobile, Directeur Technique. Ouvert au télétravail et à une mobilité dans l\'UE.">'),
 
 ('<meta property="og:image:alt" content="Ghaith Mefteh — full-stack and mobile engineer. Symfony, FastAPI, Flutter.">',
  '<meta property="og:image:alt" content="Ghaith Mefteh — ingénieur full-stack et mobile. Symfony, FastAPI, Flutter.">'),
 ]
 
 BODY = [
+# ---- the CV download buttons (hire lane, contact) ----
+('<a class="btn btn-solid" href="cv.html">Read the CV</a>\n        <a class="btn btn-ghost btn-dl" href="assets/Ghaith_Mefteh_Resume_FullStack.pdf" download>CV · full-stack (PDF)</a>\n        <a class="btn btn-ghost btn-dl" href="assets/Ghaith_Mefteh_Resume_Mobile.pdf" download>CV · mobile (PDF)</a>',
+ '<a class="btn btn-solid" href="cv.html">Lire le CV</a>\n        <a class="btn btn-ghost btn-dl" href="../assets/Ghaith_Mefteh_CV_FullStack_FR.pdf" download>CV · full-stack (PDF)</a>\n        <a class="btn btn-ghost btn-dl" href="../assets/Ghaith_Mefteh_CV_Mobile_FR.pdf" download>CV · mobile (PDF)</a>'),
+('<a class="btn btn-ghost btn-dl" href="assets/Ghaith_Mefteh_Resume_FullStack.pdf" download>CV · full-stack (PDF)</a>\n    <a class="btn btn-ghost btn-dl" href="assets/Ghaith_Mefteh_Resume_Mobile.pdf" download>CV · mobile (PDF)</a>',
+ '<a class="btn btn-ghost btn-dl" href="../assets/Ghaith_Mefteh_CV_FullStack_FR.pdf" download>CV · full-stack (PDF)</a>\n    <a class="btn btn-ghost btn-dl" href="../assets/Ghaith_Mefteh_CV_Mobile_FR.pdf" download>CV · mobile (PDF)</a>'),
+
+# ---- recruiter-brief fixes: the promotion, work authorization, more work ----
+('<p class="work-more">Also at AzertyUI: the company\'s management platform on .NET microservices, and before that an L-Mobile warehouse terminal on Dynamics 365. Both are on <a href="services/dotnet/">the .NET page</a>.</p>',
+ '<p class="work-more">Aussi chez AzertyUI : la plateforme de gestion de l\'entreprise en microservices .NET, et avant cela un terminal d\'entrepôt L-Mobile sur Dynamics 365. Les deux sont sur <a href="services/dotnet/">la page .NET</a>.</p>'),
+('''    <li>
+      <p class="tl-when">Jan 2026 — now</p>''',
+ '''    <li>
+      <p class="tl-when">2 — 10 nov. 2026</p>
+      <div>
+        <h3>Mission d'une semaine pour Alpilink Groupe, via AzertyUI</h3>
+        <p>Développement d'une roue de jeu pour 10&nbsp;000+ utilisateurs, testée en charge avec un simulateur et mise en production. J'ai aussi trouvé et corrigé une faille de sécurité hors du périmètre de la tâche, sur sa propre branche, envoyée au responsable technique pour relecture et fusion. <a href="#case-alpilink">Détails</a></p>
+      </div>
+    </li>
+    <li>
+      <p class="tl-when">janv. 2026 — aujourd'hui</p>'''),
+("<p>Promoted from first engineering hire. I lead a team of four engineers, review every pull request and report to the CEO. Led the chalet-montagne.com rebuild to delivery in July 2026; since August 2026, the company's management platform on .NET microservices, plus its server monitoring.</p>",
+ "<p>Promu après avoir été le premier ingénieur recruté. Je dirige une équipe de quatre ingénieurs, je relis chaque pull request et je suis rattaché au CEO. J'ai mené la refonte de chalet-montagne.com jusqu'à sa livraison en juillet 2026 ; depuis août 2026, la plateforme de gestion de l'entreprise en microservices .NET, et la supervision de ses serveurs.</p>"),
+('<p class="tl-when">Aug 2024 — Dec 2025</p>',
+ '<p class="tl-when">août 2024 — déc. 2025</p>'),
+('<h3>Software engineer, first engineering hire, AzertyUI</h3>',
+ '<h3>Ingénieur logiciel, premier ingénieur recruté, AzertyUI</h3>'),
+('<p>Joined as the first engineer. Built SOC Rugby solo and shipped it to both stores, then built the core of the chalet-montagne.com rebuild on Symfony.</p>',
+ "<p>Arrivé comme premier ingénieur. J'ai développé seul SOC Rugby et l'ai publiée sur les deux stores, puis développé le cœur de la refonte de chalet-montagne.com sur Symfony.</p>"),
+('<dt>Work authorization</dt>\n          <dd>Tunisian citizen: no permit needed for remote work; needs an EU work permit for on-site roles (EU Blue Card eligible)</dd>',
+ '<dt>Autorisation de travail</dt>\n          <dd>Nationalité tunisienne : aucun permis requis en télétravail ; permis de travail UE nécessaire pour un poste sur site (éligible Carte bleue européenne)</dd>'),
+
 # ---- services: links to the landing pages (tools/make-pages.py) and their schema ----
 ('<script type="application/ld+json">\n{\n "@context": "https://schema.org",\n "@type": "ProfessionalService",\n "@id": "https://ghaithmeftah.github.io/#services",\n "name": "Ghaith Mefteh, full-stack and mobile software engineering",\n "url": "https://ghaithmeftah.github.io/",\n "image": "https://ghaithmeftah.github.io/assets/og-card.png",\n "email": "ghaithmeftah@gmail.com",\n "telephone": "+21653324763",\n "founder": {\n  "@id": "https://ghaithmeftah.github.io/#ghaith"\n },\n "address": {\n  "@type": "PostalAddress",\n  "addressLocality": "Nabeul",\n  "addressCountry": "TN"\n },\n "areaServed": [\n  {\n   "@type": "Place",\n   "name": "Europe"\n  },\n  {\n   "@type": "Country",\n   "name": "France"\n  },\n  {\n   "@type": "Country",\n   "name": "Tunisia"\n  },\n  {\n   "@type": "Place",\n   "name": "Worldwide (remote)"\n  }\n ],\n "availableLanguage": [\n  "en",\n  "fr",\n  "de"\n ],\n "hasOfferCatalog": {\n  "@type": "OfferCatalog",\n  "name": "Software engineering services",\n  "itemListElement": [\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Full-stack web and mobile development",\n     "url": "https://ghaithmeftah.github.io/services/full-stack/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Flutter mobile app development",\n     "url": "https://ghaithmeftah.github.io/services/flutter/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Symfony and PHP web development",\n     "url": "https://ghaithmeftah.github.io/services/symfony/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": ".NET and ASP.NET Core backend development",\n     "url": "https://ghaithmeftah.github.io/services/dotnet/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   }\n  ]\n }\n}\n</script>\n',
  '<script type="application/ld+json">\n{\n "@context": "https://schema.org",\n "@type": "ProfessionalService",\n "@id": "https://ghaithmeftah.github.io/#services",\n "name": "Ghaith Mefteh, ingénierie logicielle full-stack et mobile",\n "url": "https://ghaithmeftah.github.io/fr/",\n "image": "https://ghaithmeftah.github.io/assets/og-card.png",\n "email": "ghaithmeftah@gmail.com",\n "telephone": "+21653324763",\n "founder": {\n  "@id": "https://ghaithmeftah.github.io/#ghaith"\n },\n "address": {\n  "@type": "PostalAddress",\n  "addressLocality": "Nabeul",\n  "addressCountry": "TN"\n },\n "areaServed": [\n  {\n   "@type": "Place",\n   "name": "Europe"\n  },\n  {\n   "@type": "Country",\n   "name": "France"\n  },\n  {\n   "@type": "Country",\n   "name": "Tunisie"\n  },\n  {\n   "@type": "Place",\n   "name": "Monde entier (à distance)"\n  }\n ],\n "availableLanguage": [\n  "en",\n  "fr",\n  "de"\n ],\n "hasOfferCatalog": {\n  "@type": "OfferCatalog",\n  "name": "Services d\'ingénierie logicielle",\n  "itemListElement": [\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Développement web et mobile full-stack",\n     "url": "https://ghaithmeftah.github.io/fr/services/full-stack/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Développement d\'applications mobiles Flutter",\n     "url": "https://ghaithmeftah.github.io/fr/services/flutter/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Développement web Symfony et PHP",\n     "url": "https://ghaithmeftah.github.io/fr/services/symfony/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   },\n   {\n    "@type": "Offer",\n    "itemOffered": {\n     "@type": "Service",\n     "name": "Développement backend .NET et ASP.NET Core",\n     "url": "https://ghaithmeftah.github.io/fr/services/dotnet/",\n     "provider": {\n      "@id": "https://ghaithmeftah.github.io/#ghaith"\n     }\n    }\n   }\n  ]\n }\n}\n</script>\n'),
-('<h3 id="svc-h">Each service in detail</h3>',
- '<h3 id="svc-h">Chaque service en détail</h3>'),
+('<h3 id="svc-h">Freelance projects</h3>',
+ '<h3 id="svc-h">Projets en freelance</h3>'),
 ('<li><a href="services/full-stack/">Full-stack freelance</a></li>',
  '<li><a href="services/full-stack/">Full-stack en freelance</a></li>'),
 ('<li><a href="services/flutter/">Flutter mobile apps</a></li>',
@@ -74,7 +105,6 @@ BODY = [
 ('<a class="skip" href="#work">Skip to work</a>', '<a class="skip" href="#work">Aller aux projets</a>'),
 ('<nav aria-label="Site">', '<nav aria-label="Site">'),
 ('<a href="#work">Work</a>', '<a href="#work">Projets</a>'),
-('<a href="#lab">Lab</a>', '<a href="#lab">Labo</a>'),
 ('<a href="#path">Path</a>', '<a href="#path">Parcours</a>'),
 ('<a href="#hire">Hire me</a>', '<a href="#hire">Me recruter</a>'),
 ('<a class="nav-cv" href="cv.html">CV</a>', '<a class="nav-cv" href="cv.html">CV</a>'),
@@ -86,35 +116,18 @@ BODY = [
  '<span>Ghaith Mefteh — directeur technique chez AzertyUI · Nabeul, Tunisie · télétravail ou mobilité dans l\'UE</span>'),
 ('<h1>I build the whole<br>request<span class="accent">.</span></h1>',
  '<h1>Je construis toute<br>la requête<span class="accent">.</span></h1>'),
-('''      Full-stack and mobile engineer, 3+ years in production, leading a team of four.
-      I take a feature the whole way: the screen in the browser, the app on the phone,
-      the API behind them, the database under that. .NET&nbsp;microservices and Symfony
-      behind, Angular and React in front, Flutter on both stores.''',
- '''      Ingénieur full-stack et mobile, plus de 3 ans en production, à la tête d'une équipe de
-      quatre. Je porte une fonctionnalité de bout en bout : l'écran dans le navigateur,
-      l'application sur le téléphone, l'API derrière, la base de données en dessous.
-      Microservices&nbsp;.NET et Symfony derrière, Angular et React devant, Flutter sur les
-      deux stores.'''),
-('      Open to remote roles, EU relocation and freelance · answers within the day',
- '      Ouvert au télétravail, à une mobilité dans l\'UE et au freelance · réponse dans la journée'),
+('      Full-stack and mobile engineer, 2+ years full-time plus a year part-time during my degree,\n      now Technical Director leading a team of four. I own features from the screen to the\n      database and ship them with tests and numbers: .NET&nbsp;and Symfony behind, Angular and\n      React in front, Flutter on both stores.',
+ "      Ingénieur full-stack et mobile, plus de 2 ans à temps plein et un an à temps partiel pendant mes\n      études, aujourd'hui Directeur Technique à la tête d'une équipe de quatre. Je porte une fonctionnalité\n      de l'écran à la base de données, et je la livre avec des tests et des chiffres : .NET&nbsp;et Symfony\n      derrière, Angular et React devant, Flutter sur les deux stores."),
+('      Open to remote roles and EU relocation · answers within the day',
+ "      Ouvert au télétravail et à une mobilité dans l'UE · réponse dans la journée"),
 ('<a class="btn btn-solid" href="#work">See the work</a>', '<a class="btn btn-solid" href="#work">Voir les projets</a>'),
 ('<a class="btn btn-ghost" href="cv.html">Read the CV</a>', '<a class="btn btn-ghost" href="cv.html">Lire le CV</a>'),
 ('href="mailto:ghaithmeftah@gmail.com?subject=Opportunity%20for%20Ghaith">ghaithmeftah@gmail.com</a>',
  'href="mailto:ghaithmeftah@gmail.com?subject=Opportunit%C3%A9%20pour%20Ghaith">ghaithmeftah@gmail.com</a>'),
 
 # ---- proof ----
-('''    Some numbers I stand behind: a marketplace of
-    <em><span data-count="10000">10,000</span>+ chalets</em> whose pages went from
-    <em>20–50&nbsp;s to 4–6&nbsp;s</em>, a test suite built from zero to
-    <em><span data-count="390">390</span>+ tests</em>, a Flutter app at
-    <em><span data-count="99.8" data-decimals="1">99.8</span>% crash-free</em> sessions, and apps used by
-    <em><span data-count="5000">5,000</span>+ people</em> on iOS and Android.''',
- '''    Quelques chiffres que j'assume : une marketplace de
-    <em>+<span data-count="10000">10&nbsp;000</span> chalets</em> dont les pages sont passées de
-    <em>20–50&nbsp;s à 4–6&nbsp;s</em>, une suite de tests partie de zéro à
-    <em>+<span data-count="390">390</span> tests</em>, une application Flutter à
-    <em><span data-count="99.8" data-decimals="1">99,8</span>&nbsp;% de sessions sans crash</em>, et des
-    applications utilisées par <em>+<span data-count="5000">5&nbsp;000</span> personnes</em> sur iOS et Android.'''),
+('    Results: on a marketplace of <em><span data-count="10000">10,000</span>+ chalets</em>,\n    search pages went from <em>20–50&nbsp;s to 4–6&nbsp;s</em> behind a test suite grown to\n    <em><span data-count="390">390</span>+ tests</em>; a Flutter app at\n    <em><span data-count="99.8" data-decimals="1">99.8</span>% crash-free</em> sessions for\n    <em><span data-count="2000">2,000</span>+ fans</em>; a health app used by\n    <em><span data-count="3000">3,000</span>+ patients</em>; and a wheel game built for\n    <em><span data-count="10000">10,000</span>+ users</em>, load-tested and live within a week.',
+ '    Résultats : sur une place de marché de <em>+<span data-count="10000">10&nbsp;000</span> chalets</em>,\n    des pages de recherche passées de <em>20–50&nbsp;s à 4–6&nbsp;s</em> derrière une suite portée à\n    <em>+<span data-count="390">390</span> tests</em> ; une application Flutter à\n    <em><span data-count="99.8" data-decimals="1">99,8</span>&nbsp;% de sessions sans crash</em> pour\n    <em>+<span data-count="2000">2&nbsp;000</span> supporters</em> ; une application de santé utilisée par\n    <em>+<span data-count="3000">3&nbsp;000</span> patients</em> ; et une roue de jeu conçue pour\n    <em>+<span data-count="10000">10&nbsp;000</span> utilisateurs</em>, testée en charge et en ligne en une semaine.'),
 
 # ---- trust strip ----
 ('<section class="clients" aria-label="Organizations whose software I have shipped">',
@@ -127,12 +140,12 @@ BODY = [
 ('<dd>Full-stack and mobile software engineer, technical director at AzertyUI</dd>',
  '<dd>Ingénieur logiciel full-stack et mobile, directeur technique chez AzertyUI</dd>'),
 ('<dt>Experience</dt>', '<dt>Expérience</dt>'),
-('<dd>3+ years in production · leading teams of 4 since 2024</dd>',
- '<dd>Plus de 3 ans en production · à la tête d\'équipes de 4 depuis 2024</dd>'),
+('<dd>2+ years full-time, plus a year part-time during my degree · leading a team of 4 since January 2026</dd>',
+ "<dd>Plus de 2 ans à temps plein, plus un an à temps partiel pendant mes études · à la tête d'une équipe de 4 depuis janvier 2026</dd>"),
 ('<dt>Data</dt>', '<dt>Données</dt>'),
 ('<dt>Beyond code</dt>', '<dt>Hors du code</dt>'),
-('<dd>Treasurer, IEEE IAS student branch at ENISo (2022–2023) · gym, cycling, camping</dd>',
- '<dd>Trésorier, branche étudiante IEEE IAS de l\'ENISo (2022–2023) · musculation, cyclisme, camping</dd>'),
+('<dd>Treasurer, IEEE IAS student branch at ENISo (2022–2023)</dd>',
+ "<dd>Trésorier, branche étudiante IEEE IAS de l'ENISo (2022–2023)</dd>"),
 ('<dt>Frontend</dt>', '<dt>Frontend</dt>'),
 ('<dd>Flutter · Dart · SwiftUI · GetX · Provider, shipped to the App Store and Google Play</dd>',
  '<dd>Flutter · Dart · SwiftUI · GetX · Provider, publié sur l\'App Store et Google Play</dd>'),
@@ -147,87 +160,15 @@ BODY = [
 ('<dd>Nabeul, Tunisia (CET / UTC+1) · open to relocation in the EU</dd>',
  '<dd>Nabeul, Tunisie (CET / UTC+1) · ouvert à une mobilité dans l\'UE</dd>'),
 ('<dt>Available for</dt>', '<dt>Disponible pour</dt>'),
-('<dd>Remote or on-site roles in the EU, and freelance projects</dd>',
- '<dd>Postes en télétravail ou sur site dans l\'UE, et missions freelance</dd>'),
+('<dd>Remote roles, or on-site in the EU</dd>',
+ "<dd>Postes en télétravail, ou sur site dans l'UE</dd>"),
 
 # ---- work ----
 ('<h2>Selected work</h2>', '<h2>Projets sélectionnés</h2>'),
-('<p class="case-role">Technical director · leading a team of 4 · AzertyUI · now</p>',
- '<p class="case-role">Directeur technique · à la tête d\'une équipe de 4 · AzertyUI · en cours</p>'),
-('Company management platform</h3>', 'Plateforme de gestion d\'entreprise</h3>'),
-('''        AzertyUI's own product: one place where developers, executives and accountants file
-        absences, vacations, expenses, tickets and requests, and find their contracts, payslips
-        and company paperwork. I lead the four engineers building it, from task planning to code
-        review and deployment, and I write code alongside them.''',
- '''        Le produit d'AzertyUI : un seul endroit où développeurs, dirigeants et comptables déclarent
-        absences, congés, notes de frais, tickets et demandes, et retrouvent contrats, fiches de paie
-        et documents de l'entreprise. Je dirige les quatre ingénieurs qui le construisent, de la
-        planification des tâches à la revue de code et au déploiement, et je code avec eux.'''),
-('''        The backend is .NET (ASP.NET Core) split into microservices behind an API Gateway, with
-        the services talking to each other over gRPC. The front is Angular&nbsp;21, and automated
-        tests grow with every feature.''',
- '''        Le backend est en .NET (ASP.NET Core), découpé en microservices derrière une API Gateway,
-        les services communiquant entre eux en gRPC. Le front est en Angular&nbsp;21, et les tests
-        automatisés grandissent avec chaque fonctionnalité.'''),
-('''        Next to it I built the company's server monitoring dashboard: every SSH login tracked and
-        the suspicious ones flagged, per-developer access through generated WireGuard VPN configs,
-        running containers at a glance, an alert to the admin when the master server goes down,
-        and backups so a lost server never means lost data.''',
- '''        À côté, j'ai construit le tableau de bord de supervision des serveurs : chaque connexion SSH
-        suivie et les suspectes signalées, des accès par développeur via des configurations VPN
-        WireGuard générées, les conteneurs en cours d'un coup d'œil, une alerte à l'administrateur
-        quand le serveur maître tombe, et des sauvegardes pour qu'un serveur perdu ne signifie
-        jamais des données perdues.'''),
-('''      <p class="case-outcome"><b>Where it stands:</b> the platform is in active development ahead
-        of its internal release, and the monitoring dashboard already watches the company's
-        servers.</p>''',
- '''      <p class="case-outcome"><b>Où on en est :</b> la plateforme est en plein développement avant
-        sa mise en service interne, et le tableau de bord surveille déjà les serveurs de
-        l'entreprise.</p>'''),
-('<p class="widget-title">How a request travels</p>', '<p class="widget-title">Le trajet d\'une requête</p>'),
-('aria-label="Diagram: the Angular 21 app calls an API Gateway, which routes to four .NET microservices for absences, expenses, documents and tickets; the services call each other over gRPC."',
- 'aria-label="Schéma : l\'application Angular 21 appelle une API Gateway, qui route vers quatre microservices .NET pour les absences, les notes de frais, les documents et les tickets ; les services communiquent entre eux en gRPC."'),
-('<text x="54" y="144" class="arch-sub">web app</text>', '<text x="54" y="144" class="arch-sub">app web</text>'),
-('<text x="352" y="102" class="arch-name">Expenses</text>', '<text x="352" y="102" class="arch-name">Frais</text>'),
-('<text x="352" y="258" class="arch-sub">gRPC between services</text>', '<text x="352" y="258" class="arch-sub">gRPC entre services</text>'),
-('aria-label="Illustration of the server monitoring feed: SSH logins, a flagged login from a new country, a WireGuard config issued, containers running, nightly backup done."',
- 'aria-label="Illustration du flux de supervision : connexions SSH, une connexion depuis un nouveau pays signalée, une configuration WireGuard émise, conteneurs actifs, sauvegarde nocturne faite."'),
-('<p class="widget-title">Server monitoring</p>', '<p class="widget-title">Supervision des serveurs</p>'),
-('<span class="mon-live"><span class="mon-dot"></span>watching</span>', '<span class="mon-live"><span class="mon-dot"></span>en veille</span>'),
-('<span>login from a new country</span><span class="mon-warn">flagged</span>',
- '<span>connexion, nouveau pays</span><span class="mon-warn">signalée</span>'),
-('<span>WireGuard config → dev-03</span><span class="mon-ok">issued</span>',
- '<span>config WireGuard → dev-03</span><span class="mon-ok">émise</span>'),
-('<span>containers on master</span><span class="mon-ok">12 / 12 up</span>',
- '<span>conteneurs sur master</span><span class="mon-ok">12 / 12 actifs</span>'),
-('<span>nightly snapshot</span><span class="mon-ok">done</span>',
- '<span>sauvegarde nocturne</span><span class="mon-ok">faite</span>'),
-('<p class="widget-foot widget-foot-dark">illustration of what the dashboard tracks, not live data</p>',
- '<p class="widget-foot widget-foot-dark">illustration de ce que suit le tableau de bord, pas des données réelles</p>'),
-('<p class="case-role">Team lead · team of 4 · 14 months · AzertyUI, France · 2024 — 2025</p>',
- '<p class="case-role">Team lead · équipe de 4 · 14 mois · AzertyUI, France · 2024 — 2025</p>'),
-('''        A French ski-chalet rental marketplace listing 10,000+ chalets, on a legacy stack where a
-        search page could take 50 seconds to render. I led four engineers through the rebuild on
-        Symfony, from the backend architecture to the last screen.
-      </p>
-      <p>
-        The site kept selling the whole time, so the legacy data and the business logic moved
-        first, with functional parity as the bar. Then we rewrote the search and listing engine
-        behind caching, query optimization and parallelized data processing, and images became
-        on-demand WebP served in several sizes. The code follows SOLID with SonarQube as the
-        gate, and ships through GitLab CI/CD, Docker Compose and Apache2.''',
- '''        Une marketplace française de location de chalets au ski, plus de 10&nbsp;000 chalets en
-        ligne, sur une stack héritée où une page de recherche pouvait mettre 50 secondes à
-        s'afficher. J'ai dirigé quatre ingénieurs pour la refonte sur Symfony, de l'architecture
-        backend jusqu'au dernier écran.
-      </p>
-      <p>
-        Le site a continué de vendre pendant toute la refonte : les données et les règles métier
-        sont passées en premier, à parité fonctionnelle. Puis nous avons réécrit le moteur de
-        recherche et de listing derrière du cache, de l'optimisation de requêtes et du traitement
-        parallélisé, et les images sont devenues du WebP à la demande, servi en plusieurs tailles.
-        Le code suit SOLID avec SonarQube comme garde-fou, et part en production via GitLab CI/CD,
-        Docker Compose et Apache2.'''),
+('<p class="case-role">Software engineer, then technical director · core built solo, then a team of 4 led · AzertyUI · Apr 2025 – Jul 2026</p>',
+ '<p class="case-role">Ingénieur logiciel, puis directeur technique · cœur développé seul, puis équipe de 4 dirigée · AzertyUI · avr. 2025 – juil. 2026</p>'),
+('        A French ski-chalet rental marketplace listing 10,000+ chalets, on a legacy stack where a\n        search page could take 50 seconds to render. I built the core of the Symfony rebuild solo\n        from April 2025, then led a team of four through the rest of it until delivery in July 2026.\n      </p>\n      <p>\n        The site kept selling the whole time, so the legacy data and the business logic moved\n        first, with functional parity as the bar. Then we rewrote the search and listing engine\n        behind caching, query optimization and parallelized data processing, and images became\n        on-demand WebP served in several sizes. The code follows SOLID with SonarQube as the\n        gate, and ships through GitLab CI/CD, Docker Compose and Apache2.',
+ "        Une marketplace française de location de chalets au ski, plus de 10&nbsp;000 chalets en\n        ligne, sur une stack héritée où une page de recherche pouvait mettre 50 secondes à\n        s'afficher. J'ai développé seul le cœur de la refonte Symfony à partir d'avril 2025, puis\n        dirigé une équipe de quatre jusqu'à la livraison en juillet 2026.\n      </p>\n      <p>\n        Le site a continué de vendre pendant toute la refonte : les données et les règles métier\n        sont passées en premier, à parité fonctionnelle. Puis nous avons réécrit le moteur de\n        recherche et de listing derrière du cache, de l'optimisation de requêtes et du traitement\n        parallélisé, et les images sont devenues du WebP à la demande, servi en plusieurs tailles.\n        Le code suit SOLID avec SonarQube comme garde-fou, et part en production via GitLab CI/CD,\n        Docker Compose et Apache2."),
 ('''        Around the public site we delivered an owner back office, where chalet owners set up
         their listings and availability with automated emails and reminders, and an admin
         dashboard for revenue tracking, blocking users and a secure "log in as this user" for
@@ -267,15 +208,10 @@ BODY = [
 ('aria-label="Previous page">‹</button>', 'aria-label="Page précédente">‹</button>'),
 ('aria-label="Next page">›</button>', 'aria-label="Page suivante">›</button>'),
 
-('<p class="case-role">Mobile engineer · AzertyUI · shipped to both stores · 2024</p>',
- '<p class="case-role">Ingénieur mobile · AzertyUI · publié sur les deux stores · 2024</p>'),
-('''        The official app of the Chambéry rugby club: match calendar and reminders, live scores,
-        rankings, in-app messaging and push notifications. Built in Flutter with GetX and SQLite,
-        plus SwiftUI, and used by 2,000+ fans. They refresh it at full time and it holds.''',
- '''        L'application officielle du club de rugby de Chambéry : calendrier et rappels des matchs,
-        scores en direct, classements, messagerie et notifications push. Développée en Flutter avec
-        GetX et SQLite, plus SwiftUI, et utilisée par plus de 2&nbsp;000 supporters. Ils la
-        rafraîchissent au coup de sifflet final et elle tient.'''),
+('<p class="case-role">Software engineer · AzertyUI · built solo, shipped to both stores · Aug 2024 – Mar 2025</p>',
+ '<p class="case-role">Ingénieur logiciel · AzertyUI · développée seul, publiée sur les deux stores · août 2024 – mars 2025</p>'),
+('        The official app of the Chambéry rugby club: match calendar and reminders, live scores,\n        rankings, in-app messaging and push notifications. Built solo in Flutter with GetX and SQLite,\n        plus an iOS home-screen widget in SwiftUI, and used by 2,000+ fans. They refresh it at full time and it holds.',
+ "        L'application officielle du club de rugby de Chambéry : calendrier et rappels des matchs,\n        scores en direct, classements, messagerie et notifications push. Développée seul en Flutter avec\n        GetX et SQLite, plus un widget d'écran d'accueil iOS en SwiftUI, et utilisée par plus de 2&nbsp;000 supporters. Ils la\n        rafraîchissent au coup de sifflet final et elle tient."),
 ('''        Like every Flutter project I build, it started from a Figma design that I translated
         screen by screen into clean Dart&nbsp;/&nbsp;Flutter widgets. I owned the releases end to
         end: Codemagic CI/CD, signing certificates, provisioning profiles, Xcode builds and store
@@ -307,8 +243,8 @@ BODY = [
 ('''        Unveiled by AzertyUI at the SOC Rugby sponsors' evening, Château de Tresserve, Bonport (Chambéry).''',
  '''        Dévoilée par AzertyUI lors de la soirée des partenaires du SOC Rugby, Château de Tresserve, Bonport (Chambéry).'''),
 
-('<p class="case-role">Mobile engineer, part-time, remote · Hope Horizon Health &amp; Care · 2023 – 2024</p>',
- '<p class="case-role">Ingénieur mobile, temps partiel, télétravail · Hope Horizon Health &amp; Care · 2023 – 2024</p>'),
+('<p class="case-role">Mobile engineer, part-time, remote, alongside studies · Hope Horizon Health &amp; Care · Jul 2023 – Aug 2024</p>',
+ '<p class="case-role">Ingénieur mobile, temps partiel, télétravail, en parallèle des études · Hope Horizon Health &amp; Care · juil. 2023 – août 2024</p>'),
 ('''        A patient–doctor app for Tunisia, live on Google Play and used by 40+ doctors and 3,000+
         patients: appointment booking and reminders, real-time messaging, push notifications,
         ambulance calls on Google Maps, Google Sign-In, QR code scanning and medical AI features.
@@ -339,80 +275,33 @@ BODY = [
  '<p class="carousel-cap">Accueil — chaque fonction à un geste</p>'),
 ('<p class="carousel-cap">Doctor profile — book from the next free slot</p>',
  '<p class="carousel-cap">Profil médecin — réserver au prochain créneau libre</p>'),
-('<p class="carousel-cap">Date picker — busy and closed days flagged</p>',
- '<p class="carousel-cap">Choix de la date — jours chargés et fermés signalés</p>'),
-('<p class="carousel-cap">Time slots, with hour-range preferences</p>',
- '<p class="carousel-cap">Créneaux horaires, avec préférences de plage</p>'),
-('<p class="carousel-cap">Visit reason — searchable symptom picker</p>',
- '<p class="carousel-cap">Motif de consultation — recherche de symptômes</p>'),
-('<p class="carousel-cap">Review before sending the request</p>',
- '<p class="carousel-cap">Récapitulatif avant envoi de la demande</p>'),
 ('<p class="carousel-cap">Request sent — confirmation</p>',
  '<p class="carousel-cap">Demande envoyée — confirmation</p>'),
-('<p class="carousel-cap">Push notification back to the patient</p>',
- '<p class="carousel-cap">Notification push renvoyée au patient</p>'),
-('<p class="carousel-cap">Doctor side — accept or reject the request</p>',
- '<p class="carousel-cap">Côté médecin — accepter ou refuser la demande</p>'),
-('<p class="carousel-cap">Urgent calls — nearby requests, by distance</p>',
- '<p class="carousel-cap">Appels urgents — demandes proches, par distance</p>'),
-('<p class="carousel-cap">Push alert when a contact calls for help nearby</p>',
- '<p class="carousel-cap">Alerte push quand un proche appelle à l\'aide</p>'),
 ('<p class="carousel-cap">Call detail — live map and patient info</p>',
  '<p class="carousel-cap">Détail de l\'appel — carte en direct et infos patient</p>'),
-("<p class=\"carousel-cap\">Drug interactions — pick the patient's medicines</p>",
- '<p class="carousel-cap">Interactions médicamenteuses — sélection des traitements</p>'),
 ('<p class="carousel-cap">Flagged interaction pairs, with dosage and form</p>',
  '<p class="carousel-cap">Paires signalées, avec dosage et forme</p>'),
 ('<p class="widget-foot">real screens from the Flutter app, in production for patients and doctors</p>',
  '<p class="widget-foot">écrans réels de l\'application Flutter, en production pour patients et médecins</p>'),
 
-('<p class="case-role">Engineering internship · L-Mobile · 2024</p>',
- '<p class="case-role">Stage d\'ingénieur · L-Mobile · 2024</p>'),
-('Forklift-mounted warehouse terminal</h3>', 'Terminal d\'entrepôt monté sur chariot élévateur</h3>'),
-('''        Tablets bolted onto forklifts, so warehouse operators read live inventory while moving.
-        Five warehouse-management modules against Microsoft Dynamics 365 Business Central over
-        C#/.NET and REST, in an enterprise stack I had never written a line of before I started.''',
- '''        Des tablettes fixées sur des chariots élévateurs, pour que les opérateurs lisent leur
-        stock en direct, en mouvement. Cinq modules de gestion d'entrepôt sur Microsoft Dynamics
-        365 Business Central en C#/.NET et REST, dans une stack d'entreprise dont je n'avais jamais
-        écrit une ligne avant d'arriver.'''),
-('''      <p class="case-outcome"><b>By the end:</b> five modules shipped inside the internship.</p>''',
- '''      <p class="case-outcome"><b>À la fin :</b> cinq modules livrés dans le temps du stage.</p>'''),
-('<p class="widget-title">Where the terminals live</p>', '<p class="widget-title">Là où vivent les terminaux</p>'),
-('<p class="widget-foot">tablets ride the forklifts, live inventory and picking data while the operator moves</p>',
- '<p class="widget-foot">les tablettes roulent avec les chariots, stock et préparation en direct pendant le déplacement</p>'),
 
 # ---- lab ----
-('<h2>The lab</h2>', '<h2>Le labo</h2>'),
-('<p>Remote control for farm water pumps, a Flutter-style Expo app talking MQTT to an ESP32 in the field. Arabic, French and English, built for farmers who are none of them online all day.</p>',
- '<p>Commande à distance des pompes d\'irrigation, une application Expo qui parle MQTT à un ESP32 au champ. Arabe, français et anglais, pensée pour des agriculteurs qui ne sont pas connectés toute la journée.</p>'),
-('<p>An AI writing companion for LinkedIn, drafts posts in your own voice, mobile-first. Design system and MVP built to feel like a product, not a demo.</p>',
- '<p>Un assistant d\'écriture IA pour LinkedIn, rédige des posts dans votre propre voix, pensé mobile d\'abord. Design system et MVP construits pour ressembler à un produit, pas à une démo.</p>'),
-('<p>Audits documents against legal obligations, rule-based checks like forbidden vocabulary, backed by a structured catalog of legal requirements.</p>',
- '<p>Audite des documents au regard d\'obligations légales, contrôles par règles, comme le vocabulaire interdit, adossés à un catalogue structuré d\'exigences juridiques.</p>'),
-('<p class="lab-tags">Expo · AI · product design</p>', '<p class="lab-tags">Expo · IA · design produit</p>'),
-('<p class="lab-tags">Compliance · rules engine</p>', '<p class="lab-tags">Conformité · moteur de règles</p>'),
 
 # ---- path ----
 ('<h2>The path so far</h2>', '<h2>Le parcours jusqu\'ici</h2>'),
-('<p class="tl-when">2024 — now</p>', '<p class="tl-when">2024 — aujourd\'hui</p>'),
 ('<h3>Technical director, AzertyUI</h3>', '<h3>Directeur technique, AzertyUI</h3>'),
-("<p>Shipped SOC Rugby to both stores, led four engineers for 14 months on chalet-montagne.com, and now lead the team building AzertyUI's own management platform on .NET microservices, plus the company's server monitoring.</p>",
- "<p>SOC Rugby publiée sur les deux stores, quatre ingénieurs dirigés pendant 14 mois sur chalet-montagne.com, et aujourd'hui l'équipe qui construit la plateforme de gestion d'AzertyUI en microservices .NET, plus la supervision des serveurs de l'entreprise.</p>"),
 ('<h3>Engineering degree, ENISo</h3>', '<h3>Diplôme d\'ingénieur, ENISo</h3>'),
-("<p>Applied Computer Science (EUR-ACE accredited), National School of Engineers of Sousse. Then a summer exchange at Murang'a University of Technology, Kenya, in July and August 2024: I fixed network problems across the campus departments and designed a React Native app so students could register remotely instead of on paper.</p>",
- "<p>Informatique appliquée (accréditation EUR-ACE), École Nationale d'Ingénieurs de Sousse. Puis un échange d'été à Murang'a University of Technology, au Kenya, en juillet et août 2024 : j'ai résolu des problèmes réseau dans les départements du campus et conçu une application React Native pour que les étudiants s'inscrivent à distance plutôt que sur papier.</p>"),
+("<p>Applied Computer Science (EUR-ACE accredited), National School of Engineers of Sousse. Then a summer exchange at Murang'a University of Technology, Kenya, in July and August 2024, where I designed a React Native app so students could register remotely instead of on paper.</p>",
+ "<p>Informatique appliquée (accréditation EUR-ACE), École Nationale d'Ingénieurs de Sousse. Puis un échange d'été à Murang'a University of Technology, au Kenya, en juillet et août 2024, où j'ai conçu une application React Native pour que les étudiants s'inscrivent à distance plutôt que sur papier.</p>"),
 ("<p class=\"tl-caption\">Murang'a University of Technology, Kenya — summer exchange, 2024</p>",
  "<p class=\"tl-caption\">Murang'a University of Technology, Kenya — échange d'été, 2024</p>"),
 ('<h3>Mobile engineer, Hope Horizon</h3>', '<h3>Ingénieur mobile, Hope Horizon</h3>'),
 ('<p>SmartCare, part-time and remote alongside the degree: the only mobile engineer, plus the FastAPI backend and the ReactJS web. 40+ doctors and 3,000+ patients use it.</p>',
  '<p>SmartCare, à temps partiel et à distance, en parallèle du diplôme : seul ingénieur mobile, plus le backend FastAPI et le web ReactJS. Plus de 40 médecins et 3&nbsp;000 patients l\'utilisent.</p>'),
-('<h3>First production code</h3>', '<h3>Premier code en production</h3>'),
-("<p>Started shipping for real users, and haven't stopped. Treasurer of the IEEE IAS student branch at ENISo the same year. French and English at B2 (TOEIC), German at B1, comfortable in international teams across time zones.</p>",
- "<p>J'ai commencé à livrer pour de vrais utilisateurs, et je n'ai plus arrêté. Trésorier de la branche étudiante IEEE IAS de l'ENISo la même année. Français et anglais B2 (TOEIC), allemand B1, à l'aise dans des équipes internationales, d'un fuseau à l'autre.</p>"),
 
 # ---- hire ----
-('<h2 id="hire-h">Two ways to work with me</h2>', '<h2 id="hire-h">Deux façons de travailler avec moi</h2>'),
+('<h2 id="hire-h">Hiring me</h2>',
+ '<h2 id="hire-h">Me recruter</h2>'),
 ('<p class="lane-kicker">For recruiters and hiring managers</p>',
  '<p class="lane-kicker">Pour les recruteurs et managers</p>'),
 ('<h3>A remote engineer you can slot in</h3>', '<h3>Un ingénieur à distance, prêt à intégrer</h3>'),
@@ -426,55 +315,35 @@ BODY = [
 ('<dd>Employment through an employer of record, or a contractor agreement, tell me what your company uses</dd>',
  '<dd>Salariat via un employer of record, ou contrat de prestation, dites-moi ce que votre entreprise utilise</dd>'),
 ('<dt>Start</dt>', '<dt>Disponibilité</dt>'),
-('<dd>Within two weeks, or on a date agreed per opportunity</dd>', '<dd>Sous deux semaines, ou à une date convenue selon l\'opportunité</dd>'),
+('<dd>On a date agreed for the role</dd>',
+ '<dd>À une date convenue pour le poste</dd>'),
 ('''<dt>Languages</dt>
           <dd>English (B2, TOEIC) and French for daily work, German B1</dd>''',
  '''<dt>Langues</dt>
           <dd>Français et anglais (B2, TOEIC) au quotidien, allemand B1</dd>'''),
-('<a class="btn btn-solid" href="cv.html">Read the CV</a>\n        <a class="btn btn-ghost btn-dl" href="assets/Ghaith-Mefteh-CV-EN.pdf" download>CV · full-stack (PDF)</a>\n        <a class="btn btn-ghost btn-dl" href="assets/Ghaith-Mefteh-CV-Mobile-EN.pdf" download>CV · mobile (PDF)</a>',
- '<a class="btn btn-solid" href="cv.html">Lire le CV</a>\n        <a class="btn btn-ghost btn-dl" href="../assets/Ghaith-Mefteh-CV-FR.pdf" download>CV · full-stack (PDF)</a>\n        <a class="btn btn-ghost btn-dl" href="../assets/Ghaith-Mefteh-CV-Mobile-FR.pdf" download>CV · mobile (PDF)</a>'),
-('<p class="hero-now"><b>Now, October 2026:</b> building AzertyUI\'s company platform with a team of four, .NET microservices behind an API Gateway and Angular&nbsp;21 in front.</p>',
- '<p class="hero-now"><b>En ce moment, octobre 2026 :</b> je construis la plateforme de gestion d\'AzertyUI avec une équipe de quatre, microservices .NET derrière une API Gateway et Angular&nbsp;21 devant.</p>'),
-('<p class="colophon">Hand-built with HTML, CSS and plain JavaScript. No framework, no tracker. Last updated <time datetime="2026-10">October 2026</time>.</p>',
- '<p class="colophon">Fait main en HTML, CSS et JavaScript natif. Aucun framework, aucun traceur. Mis à jour en <time datetime="2026-10">octobre 2026</time>.</p>'),
-('<p class="lane-kicker">For founders and agencies</p>', '<p class="lane-kicker">Pour les fondateurs et agences</p>'),
-('<h3>One engineer who carries the whole feature</h3>', '<h3>Un ingénieur qui porte la fonctionnalité entière</h3>'),
-('<dt>What I take on</dt>', '<dt>Ce que je prends en charge</dt>'),
-('<dd>A product that got slow and needs rebuilding · a feature from database to screen · an app shipped to both stores · an API and the infrastructure under it</dd>',
- '<dd>Un produit devenu lent qu\'il faut reconstruire · une fonctionnalité de la base de données à l\'écran · une application publiée sur les deux stores · une API et l\'infrastructure dessous</dd>'),
-('<dt>How it starts</dt>', '<dt>Comment ça démarre</dt>'),
-('<dd>A short call, then a written scope and a first milestone we can both check against</dd>',
- '<dd>Un appel court, puis un périmètre écrit et un premier jalon vérifiable des deux côtés</dd>'),
-('<dt>How you see progress</dt>', '<dt>Comment vous suivez l\'avancement</dt>'),
-('<dd>Work in the open on your repo: reviewable commits, tests, and a deployed build you can click</dd>',
- '<dd>Du travail visible sur votre dépôt: des commits relisibles, des tests, et une version déployée que vous pouvez cliquer</dd>'),
-('<dt>Rate</dt>', '<dt>Tarif</dt>'),
-('<dd>On request, quoted per project or per day once the scope is clear</dd>',
- '<dd>Sur demande, au projet ou à la journée une fois le périmètre clair</dd>'),
-('href="mailto:ghaithmeftah@gmail.com?subject=Project%20for%20Ghaith&amp;body=Hi%20Ghaith%2C%0A%0AWe%20need%20help%20with...">Describe the project</a>',
- 'href="mailto:ghaithmeftah@gmail.com?subject=Projet%20pour%20Ghaith&amp;body=Bonjour%20Ghaith%2C%0A%0ANous%20avons%20besoin%20d%27aide%20sur...">Décrire le projet</a>'),
-('<a class="btn btn-ghost" href="tel:+21653324763">Call me</a>', '<a class="btn btn-ghost" href="tel:+21653324763">M\'appeler</a>'),
-('<li><b>Answers within the day</b><span>usually a few hours, in CET working time</span></li>',
- '<li><b>Réponse dans la journée</b><span>souvent en quelques heures, aux horaires CET</span></li>'),
+('<p class="hero-now"><b>Latest, 2–10 Nov 2026:</b> shipped a wheel game for 10,000+ users to production in a week, <a href="#case-alpilink">load-tested first</a>. Day to day: AzertyUI\'s company platform with a team of four, .NET microservices and Angular&nbsp;21.</p>',
+ '<p class="hero-now"><b>Dernièrement, 2–10 nov. 2026 :</b> une roue de jeu pour 10&nbsp;000+ utilisateurs mise en production en une semaine, <a href="#case-alpilink">testée en charge avant</a>. Au quotidien : la plateforme de gestion d\'AzertyUI avec une équipe de quatre, microservices .NET et Angular&nbsp;21.</p>'),
+('<p class="colophon">Hand-built with HTML, CSS and plain JavaScript. No framework, no tracker. Last updated <time datetime="2026-11">November 2026</time>.</p>',
+ '<p class="colophon">Fait main en HTML, CSS et JavaScript natif. Aucun framework, aucun traceur. Mis à jour en <time datetime="2026-11">novembre 2026</time>.</p>'),
+('<li><b>Promoted from first hire</b><span>software engineer to technical director in 17 months</span></li>',
+ "<li><b>Du premier recrutement à la direction technique</b><span>d'ingénieur logiciel à directeur technique en 17 mois</span></li>"),
 ('<li><b>Tests and CI, not promises</b><span>390+ tests and a pipeline on the last marketplace</span></li>',
  '<li><b>Des tests et de la CI, pas des promesses</b><span>390+ tests et un pipeline sur la dernière marketplace</span></li>'),
-('<li><b>Code review as a habit</b><span>I set the review standard for two teams of four</span></li>',
- '<li><b>La revue de code comme habitude</b><span>j\'ai posé le standard de revue de deux équipes de quatre</span></li>'),
+('<li><b>Code review as a habit</b><span>I review every pull request on a team of four</span></li>',
+ "<li><b>La revue de code comme habitude</b><span>je relis chaque pull request d'une équipe de quatre</span></li>"),
 ('<li><b>Design to code</b><span>Figma translated screen by screen, not approximated</span></li>',
  '<li><b>De la maquette au code</b><span>Figma traduit écran par écran, pas approximé</span></li>'),
+('<li><b>Security beyond the ticket</b><span>found a flaw outside my task, fixed it on its own branch for review</span></li>',
+ "<li><b>La sécurité au-delà du ticket</b><span>une faille trouvée hors de ma tâche, corrigée sur sa propre branche pour relecture</span></li>"),
 
 # ---- contact ----
-('<p class="avail-badge"><span class="avail-dot"></span>Available for new roles and freelance projects</p>',
- '<p class="avail-badge"><span class="avail-dot"></span>Disponible pour de nouveaux postes et missions freelance</p>'),
+('<p class="avail-badge"><span class="avail-dot"></span>Open to new roles</p>',
+ '<p class="avail-badge"><span class="avail-dot"></span>Ouvert à de nouveaux postes</p>'),
 ("<h2>Let's build the next one</h2>", '<h2>Construisons le prochain</h2>'),
-('''    Open to remote roles, relocation in the EU and freelance work: full-stack, backend-leaning,
-    or mobile. Email or call, I usually answer within the day.''',
- '''    Ouvert au télétravail, à une mobilité dans l'UE et aux missions freelance : full-stack,
-    orienté backend, ou mobile. Un mail ou un appel, je réponds en général dans la journée.'''),
+('    Open to remote roles and relocation in the EU: full-stack, backend-leaning, or mobile.\n    Email or call.',
+ "    Ouvert au télétravail et à une mobilité dans l'UE : full-stack, orienté backend, ou mobile.\n    Un mail ou un appel."),
 ('body=Hi%20Ghaith%2C%0A%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20talk%20about...">Email me</a>',
  'body=Bonjour%20Ghaith%2C%0A%0AJ%27ai%20vu%20votre%20portfolio%20et%20j%27aimerais%20parler%20de...">M\'écrire</a>'),
-('<a class="btn btn-ghost btn-dl" href="assets/Ghaith-Mefteh-CV-EN.pdf" download>CV · full-stack (PDF)</a>\n    <a class="btn btn-ghost btn-dl" href="assets/Ghaith-Mefteh-CV-Mobile-EN.pdf" download>CV · mobile (PDF)</a>',
- '<a class="btn btn-ghost btn-dl" href="../assets/Ghaith-Mefteh-CV-FR.pdf" download>CV · full-stack (PDF)</a>\n    <a class="btn btn-ghost btn-dl" href="../assets/Ghaith-Mefteh-CV-Mobile-FR.pdf" download>CV · mobile (PDF)</a>'),
 ('<p class="contact-meta">Nabeul, Tunisia (CET) · open to EU relocation · ', '<p class="contact-meta">Nabeul, Tunisie (CET) · mobilité UE possible · '),
 
 # ---- dock ----
@@ -493,8 +362,8 @@ BODY = [
  '<span class="say-role">Chef de projet et ing\u00e9nieur logiciel, Hope Horizon</span>'),
 ('<span class="say-role">Software engineer, AzertyUI</span>',
  '<span class="say-role">Ing\u00e9nieur logiciel, AzertyUI</span>'),
-('<span class="say-rel">The client \u00b7 14 months together</span>',
- '<span class="say-rel">Le client \u00b7 14 mois ensemble</span>'),
+('<span class="say-rel">The client · chalet-montagne.com</span>',
+ '<span class="say-rel">Le client · chalet-montagne.com</span>'),
 ('<span class="say-rel">Worked with me on SmartCare</span>',
  '<span class="say-rel">A travaill\u00e9 avec moi sur SmartCare</span>'),
 ('<span class="say-rel">Same team at AzertyUI</span>',
@@ -536,32 +405,12 @@ BODY = [
  "alt=\"Application SmartCare, écran Accueil avec une grille de fonctions : recherche globale, dossier médical, assistance IA, appel d'ambulance, mes médecins, partage du profil\""),
 ('alt="SmartCare app, doctor profile screen with the next free appointment slot"',
  "alt=\"Application SmartCare, fiche d'un médecin avec le prochain créneau libre\""),
-('alt="SmartCare app, calendar date picker with busy days and days off flagged"',
- "alt=\"Application SmartCare, choix de la date avec les jours chargés et les jours fermés signalés\""),
-('alt="SmartCare app, time-slot picker with morning and afternoon hour-range sliders"',
- "alt=\"Application SmartCare, choix du créneau avec des plages horaires matin et après-midi\""),
-('alt="SmartCare app, visit reason screen with a searchable symptom picker"',
- "alt=\"Application SmartCare, motif de consultation avec un sélecteur de symptômes recherchable\""),
-('alt="SmartCare app, appointment review screen before sending the request"',
- "alt=\"Application SmartCare, récapitulatif du rendez-vous avant l'envoi de la demande\""),
 ('alt="SmartCare app, success dialog confirming the appointment request was sent"',
  "alt=\"Application SmartCare, confirmation que la demande de rendez-vous a bien été envoyée\""),
-('alt="SmartCare app, Android push notification confirming the appointment request"',
- "alt=\"Application SmartCare, notification push Android confirmant la demande de rendez-vous\""),
-('alt="SmartCare app, doctor\'s screen to accept or reject the pending appointment request"',
- "alt=\"Application SmartCare, écran du médecin pour accepter ou refuser la demande en attente\""),
-('alt="SmartCare app, urgent calls screen listing nearby ambulance requests sorted by distance, with take-charge and itinerary actions"',
- "alt=\"Application SmartCare, liste des appels urgents à proximité triés par distance, avec prise en charge et itinéraire\""),
-('alt="SmartCare app, push notifications alerting that a nearby contact launched an ambulance call"',
- "alt=\"Application SmartCare, notifications push signalant qu'un contact proche a lancé un appel d'ambulance\""),
 ('alt="SmartCare app, urgent call detail with a Google Map of the patient location, status, and patient information"',
  "alt=\"Application SmartCare, détail d'un appel urgent avec la carte Google du lieu, le statut et les informations du patient\""),
-('alt="SmartCare app, drug interaction feature, selecting several medicines then Detect interactions"',
- "alt=\"Application SmartCare, détection d'interactions : sélection de plusieurs médicaments puis lancement de l'analyse\""),
 ('alt="SmartCare app, drug interaction results listing flagged medicine pairs with dosage and form"',
  "alt=\"Application SmartCare, résultats des interactions listant les paires de médicaments signalées avec dosage et forme\""),
-('alt="Warehouse aisle stacked with blue crates, forklifts driving between them, location pins marking tracked positions on the floor"',
- "alt=\"Allée d'entrepôt remplie de bacs bleus, des chariots élévateurs circulant entre eux, des repères marquant les positions suivies au sol\""),
 ('alt="Ghaith with fellow exchange student and faculty member at the Murang\'a University of Technology monument"',
  "alt=\"Ghaith avec un autre étudiant en échange et un enseignant devant le monument de Murang'a University of Technology\""),
 ('alt="Murang\'a University of Technology, engineering building"',
@@ -571,9 +420,46 @@ BODY = [
 ]
 
 # strings that legitimately appear more than once (both carousels share a caption)
+MISSION_FR = """<article id="case-alpilink" class="mission" aria-labelledby="mission-h">
+    <div class="mission-head">
+      <span class="mission-logo"><img src="assets/alpilink-logo.webp" alt="Alpilink Groupe" width="360" height="154" loading="lazy"></span>
+      <div>
+        <p class="case-role">Dernière mission chez AzertyUI · 2–10 nov. 2026 · une semaine pour Alpilink Groupe · fonctionnalité de roue de jeu, du développement à la production</p>
+        <h3 id="mission-h">Une roue de jeu pour 10&nbsp;000+ utilisateurs, en production après une semaine</h3>
+      </div>
+    </div>
+    <p class="mission-lede">
+      Alpilink Groupe est une entreprise française forte de plus de 30 ans d'expérience dans la gestion des flux.
+      Dans le cadre de mon travail chez AzertyUI, j'ai passé une semaine, du 2 au 10 novembre 2026, à développer pour eux une fonctionnalité de roue de jeu, que j'ai portée du premier
+      commit à la production. Sur une mission aussi courte, pas question de rendre le travail à moitié fini :
+      la roue tient sous trafic réel et l'équipe n'hérite d'aucun nettoyage.
+    </p>
+    <ul class="mission-facts">
+      <li><b>10&nbsp;000+</b><span>utilisateurs que la roue est conçue pour servir</span></li>
+      <li><b>Testée en charge</b><span>avec un simulateur de trafic avant la mise en ligne</span></li>
+      <li><b>En production</b><span>utilisée par de vrais utilisateurs aujourd'hui</span></li>
+    </ul>
+    <div class="mission-added">
+      <p class="mission-sub">Ce que j'ai apporté au-delà de la tâche</p>
+      <ul>
+        <li><b>Pensée pour la foule, pas pour une démo.</b> Une fonctionnalité de jeu reçoit beaucoup d'utilisateurs au même instant. J'ai développé la roue pour servir plus de 10&nbsp;000 utilisateurs.</li>
+        <li><b>La preuve avant la mise en ligne.</b> Je l'ai testée avec un simulateur qui reproduit ce volume d'utilisateurs avant le lancement. « Ça devrait tenir » n'est pas un résultat de test.</li>
+      </ul>
+    </div>
+    <aside class="mission-sec">
+      <p class="mission-sub">Hors du ticket : une faille de sécurité</p>
+      <p>
+        En travaillant dans le code, j'ai repéré une faille de sécurité que personne ne m'avait demandé de chercher.
+        Je ne l'ai pas noyée dans la fonctionnalité : je l'ai corrigée sur sa propre branche et l'ai envoyée au
+        responsable technique pour relecture et fusion, afin que le correctif soit jugé seul et que la livraison de
+        la fonctionnalité reste propre. Les détails restent privés ; je serai ravi d'expliquer en entretien comment
+        je l'ai trouvée et pourquoi j'ai procédé ainsi.
+      </p>
+    </aside>
+  </article>"""
+
 GLOBAL = [
 ('>Book a 30-min call</a>', '>Réserver un appel de 30 min</a>'),
-('<p class="lab-status">In progress</p>', '<p class="lab-status">En cours</p>'),
 ('<span class="say-src-kind">LinkedIn recommendation</span>', '<span class="say-src-kind">Recommandation LinkedIn</span>'),
 ('<time datetime="2026-09">September 2026</time>', '<time datetime="2026-09">septembre 2026</time>'),
 ('aria-label="Next screen">›</button>', 'aria-label="Écran suivant">›</button>'),
@@ -592,6 +478,9 @@ PATHS = [
 
 # ---------------------------------------------------------------- the CV sheet
 CV = [
+# the whole CV body, rewritten to the confirmed timeline (recruiter brief)
+('<div class="cv-bar">\n  <a class="btn btn-ghost" href="index.html">← Portfolio</a>\n  <a class="btn btn-solid" href="assets/Ghaith_Mefteh_Resume_FullStack.pdf" download>CV · full-stack (PDF)</a>\n  <a class="btn btn-ghost" href="assets/Ghaith_Mefteh_Resume_Mobile.pdf" download>CV · mobile (PDF)</a>\n  <a class="btn btn-ghost" href="fr/cv.html" hreflang="fr" data-lang-switch>Version française</a>\n  <span>The PDFs are one-page, ATS-friendly versions.</span>\n</div>\n\n<main class="sheet">\n\n  <header class="cv-head">\n    <img class="cv-portrait" src="assets/ghaith.webp" alt="Portrait of Ghaith Mefteh" width="83" height="83">\n    <div>\n      <h1 class="cv-name">Ghaith Mefteh<span class="accent">.</span></h1>\n      <p class="cv-role">Full-stack and mobile software engineer · technical director</p>\n      <p class="cv-contact">\n        <span><a href="mailto:ghaithmeftah@gmail.com">ghaithmeftah@gmail.com</a></span>\n        <span><a href="tel:+21653324763">+216 53 32 47 63</a></span>\n        <span>Nabeul, Tunisia · remote, or relocating within the EU</span>\n        <span><a href="https://ghaithmeftah.github.io/">Portfolio</a></span>\n        <span><a href="https://www.linkedin.com/in/ghaith-mefteh-995a18157">LinkedIn</a></span>\n        <span><a href="https://github.com/Ghaithmeftah">GitHub</a></span>\n      </p>\n    </div>\n  </header>\n\n  <div class="cv-main">\n\n    <section class="cv-sec">\n      <h2>Profile</h2>\n      <p class="cv-summary">\n        Full-stack and mobile engineer with 2+ years full-time, plus a year of part-time\n        production work during my degree. First engineering hire at AzertyUI, now technical\n        director leading a team of four. Led a Symfony marketplace rebuild and ships Flutter apps\n        to both stores.\n      </p>\n      <ul class="cv-metrics">\n        <li><b>20–50 s → 4–6 s</b><span>search pages after the chalet-montagne.com rebuild</span></li>\n        <li><b>390+</b><span>tests behind its CI pipeline</span></li>\n        <li><b>99.8%</b><span>crash-free sessions, SOC Rugby app</span></li>\n      </ul>\n    </section>\n\n    <section class="cv-sec">\n      <h2>Experience</h2>\n\n      <article class="cv-job">\n        <div class="cv-job-head">\n          <h3>Technical director — AzertyUI</h3>\n          <p class="cv-job-when">Jan 2026 — present</p>\n        </div>\n        <p class="cv-job-org">AzertyUI · Malissard, France · remote · early-stage startup building web and mobile products for French clients</p>\n        <ul>\n          <li>Lead a <b>team of 4 engineers</b>: planning, code review on every pull request, technical decisions and releases; report directly to the CEO.</li>\n          <li><b>Alpilink Groupe</b> (1-week mission, Nov 2026): shipped a wheel game for <b>10,000+ users</b>, load-tested with a simulator; fixed a security flaw found outside the task, on its own branch.</li>\n          <li>Led the <b>chalet-montagne.com</b> rebuild to delivery (Jan – Jul 2026): search pages from <b>20–50 s to 4–6 s</b>, image bandwidth down ~60%, 390+ PHPUnit tests behind GitLab CI/CD.</li>\n          <li>Since Aug 2026, leading the company management platform: <b>.NET microservices</b> behind an API Gateway, gRPC between services, Angular 21; plus the server monitoring dashboard.</li>\n        </ul>\n        <p class="cv-tools">.NET · ASP.NET Core · gRPC · Angular 21 · Symfony · PHPUnit · GitLab CI/CD · Docker</p>\n      </article>\n\n      <article class="cv-job">\n        <div class="cv-job-head">\n          <h3>Software engineer, first engineering hire — AzertyUI</h3>\n          <p class="cv-job-when">Aug 2024 — Dec 2025</p>\n        </div>\n        <p class="cv-job-org">AzertyUI · grew from solo engineer to a team of 4</p>\n        <ul>\n          <li><b>SOC Rugby</b> (Aug 2024 – Mar 2025): built solo and published the Chambéry rugby club\'s Flutter app to the App Store and Google Play, with an iOS home-screen widget in SwiftUI; <b>2,000+ fans</b>, <b>99.8% crash-free</b> sessions.</li>\n          <li><b>chalet-montagne.com</b> (from Apr 2025): built the core of the rebuild solo for a marketplace of 10,000+ ski chalets, moving the legacy data and business logic to Symfony while the site kept selling.</li>\n        </ul>\n        <p class="cv-tools">Flutter · Dart · GetX · SQLite · SwiftUI · Codemagic · Symfony · Doctrine · MySQL</p>\n      </article>\n\n      <article class="cv-job">\n        <div class="cv-job-head">\n          <h3>Mobile engineer (part-time, remote, alongside studies) — SmartCare</h3>\n          <p class="cv-job-when">Jul 2023 — Aug 2024</p>\n        </div>\n        <p class="cv-job-org">Hope Horizon Health &amp; Care · Tunisia · remote</p>\n        <ul>\n          <li>Only mobile engineer on a patient–doctor app live on Google Play, used by <b>40+ doctors and 3,000+ patients</b>: messaging, push notifications, appointments and reminders, Google Maps, QR scanning, medical AI.</li>\n          <li>Built the FastAPI and MongoDB backend on AWS with GitHub Actions, and the ReactJS web.</li>\n        </ul>\n        <p class="cv-tools">Flutter · Provider · GetX · Hive · FastAPI · MongoDB · ReactJS · AWS</p>\n      </article>\n\n      <article class="cv-job">\n        <div class="cv-job-head">\n          <h3>Engineering intern — warehouse terminal</h3>\n          <p class="cv-job-when">Feb — Jun 2024</p>\n        </div>\n        <p class="cv-job-org">L-Mobile · Nabeul, Tunisia</p>\n        <ul>\n          <li>Shipped <b>five warehouse-management modules</b> and a forklift tablet app on Microsoft Dynamics 365 Business Central, over C#/.NET and REST.</li>\n        </ul>\n        <p class="cv-tools">C# · .NET · D365 Business Central · REST</p>\n      </article>\n    </section>\n  </div>\n\n  <aside class="cv-side">\n\n    <section class="cv-sec">\n      <h2>Stack</h2>\n      <dl class="cv-skills">\n        <dt>Backend</dt>\n        <dd>.NET, ASP.NET Core, microservices, gRPC, API Gateway, Symfony, PHP, Doctrine, FastAPI, Python, REST, WebSockets</dd>\n        <dt>Frontend</dt>\n        <dd>Angular 21, React, TypeScript, JavaScript, HTML, CSS</dd>\n        <dt>Mobile</dt>\n        <dd>Flutter, Dart, SwiftUI (iOS widgets), GetX, Provider, Firebase, Xcode, App Store and Google Play releases</dd>\n        <dt>Databases</dt>\n        <dd>MySQL, PostgreSQL, MongoDB, SQLite, Hive</dd>\n        <dt>DevOps</dt>\n        <dd>Docker, GitLab CI/CD, GitHub Actions, Codemagic, AWS, Linux, WireGuard</dd>\n        <dt>Quality</dt>\n        <dd>PHPUnit, PyTest, Flutter widget and integration tests, SonarQube, Sentry, code review, SOLID</dd>\n      </dl>\n    </section>\n\n    <section class="cv-sec">\n      <h2>Education</h2>\n      <ul>\n        <li>\n          <b>Engineering degree, Applied Computer Science</b>\n          National School of Engineers of Sousse (ENISo), Tunisia — EUR-ACE accredited\n          <em>Jul 2024</em>\n        </li>\n        <li>\n          <b>Summer exchange</b>\n          Murang\'a University of Technology, Kenya — a React Native registration app\n          <em>Jul – Aug 2024</em>\n        </li>\n      </ul>\n    </section>\n\n    <section class="cv-sec">\n      <h2>Languages</h2>\n      <ul>\n        <li><b>French</b><em>B2 — daily working language with French clients</em></li>\n        <li><b>English</b><em>B2 — TOEIC</em></li>\n        <li><b>German</b><em>B1</em></li>\n      </ul>\n    </section>\n\n    <section class="cv-sec">\n      <h2>Activities</h2>\n      <ul>\n        <li><b>Treasurer, IEEE IAS student branch</b>ENISo · <em>2022 – 2023</em></li>\n      </ul>\n    </section>\n\n    <section class="cv-sec cv-avail">\n      <h2>Availability</h2>\n      <p>\n        Open to remote roles and relocation within the EU. Based at UTC+1, overlapping a full\n        European day. Tunisian citizen: no permit needed for remote work; needs an EU work permit\n        for on-site roles (EU Blue Card eligible).\n      </p>\n    </section>\n  </aside>',
+ '<div class="cv-bar">\n  <a class="btn btn-ghost" href="index.html">← Portfolio</a>\n  <a class="btn btn-solid" href="assets/Ghaith_Mefteh_CV_FullStack_FR.pdf" download>CV · full-stack (PDF)</a>\n  <a class="btn btn-ghost" href="assets/Ghaith_Mefteh_CV_Mobile_FR.pdf" download>CV · mobile (PDF)</a>\n  <a class="btn btn-ghost" href="../cv.html" hreflang="en" data-lang-switch>English version</a>\n  <span>Les PDF sont des versions d\'une page, lisibles par les ATS.</span>\n</div>\n\n<main class="sheet">\n\n  <header class="cv-head">\n    <img class="cv-portrait" src="assets/ghaith.webp" alt="Portrait de Ghaith Mefteh" width="83" height="83">\n    <div>\n      <h1 class="cv-name">Ghaith Mefteh<span class="accent">.</span></h1>\n      <p class="cv-role">Ingénieur logiciel full-stack et mobile · directeur technique</p>\n      <p class="cv-contact">\n        <span><a href="mailto:ghaithmeftah@gmail.com">ghaithmeftah@gmail.com</a></span>\n        <span><a href="tel:+21653324763">+216 53 32 47 63</a></span>\n        <span>Nabeul, Tunisie · télétravail, ou mobilité dans l\'UE</span>\n        <span><a href="https://ghaithmeftah.github.io/fr/">Portfolio</a></span>\n        <span><a href="https://www.linkedin.com/in/ghaith-mefteh-995a18157">LinkedIn</a></span>\n        <span><a href="https://github.com/Ghaithmeftah">GitHub</a></span>\n      </p>\n    </div>\n  </header>\n\n  <div class="cv-main">\n\n    <section class="cv-sec">\n      <h2>Profil</h2>\n      <p class="cv-summary">\n        Ingénieur full-stack et mobile : plus de 2 ans à temps plein, plus un an de production à\n        temps partiel pendant mes études. Premier ingénieur recruté chez AzertyUI, aujourd\'hui\n        directeur technique à la tête d\'une équipe de quatre. J\'ai mené une refonte Symfony et je\n        publie des applications Flutter sur les deux stores.\n      </p>\n      <ul class="cv-metrics">\n        <li><b>20–50&nbsp;s → 4–6&nbsp;s</b><span>pages de recherche après la refonte de chalet-montagne.com</span></li>\n        <li><b>+390</b><span>tests derrière sa CI</span></li>\n        <li><b>99,8&nbsp;%</b><span>de sessions sans crash, application SOC Rugby</span></li>\n      </ul>\n    </section>\n\n    <section class="cv-sec">\n      <h2>Expérience</h2>\n\n      <article class="cv-job">\n        <div class="cv-job-head">\n          <h3>Directeur technique — AzertyUI</h3>\n          <p class="cv-job-when">janv. 2026 — aujourd\'hui</p>\n        </div>\n        <p class="cv-job-org">AzertyUI · Malissard, France · télétravail · start-up qui conçoit des produits web et mobiles pour des clients français</p>\n        <ul>\n          <li>Direction d\'une <b>équipe de 4 ingénieurs</b> : planification, revue de chaque pull request, décisions techniques et mises en production ; rattaché directement au CEO.</li>\n          <li><b>Alpilink Groupe</b> (mission d\'une semaine, nov. 2026) : roue de jeu pour <b>+10 000 utilisateurs</b>, testée en charge par simulateur ; faille de sécurité hors périmètre corrigée sur une branche dédiée.</li>\n          <li>Refonte de <b>chalet-montagne.com</b> menée jusqu\'à la livraison (janv. – juil. 2026) : recherche de <b>20–50&nbsp;s à 4–6&nbsp;s</b>, ~60&nbsp;% de bande passante image en moins, +390 tests PHPUnit sous GitLab CI/CD.</li>\n          <li>Depuis août 2026, direction de la plateforme de gestion de l\'entreprise : <b>microservices .NET</b> derrière une API Gateway, gRPC entre services, Angular 21 ; plus le tableau de bord de supervision des serveurs (connexions SSH, accès WireGuard, conteneurs, sauvegardes).</li>\n        </ul>\n        <p class="cv-tools">.NET · ASP.NET Core · gRPC · Angular 21 · Symfony · PHPUnit · GitLab CI/CD · Docker</p>\n      </article>\n\n      <article class="cv-job">\n        <div class="cv-job-head">\n          <h3>Ingénieur logiciel, premier ingénieur recruté — AzertyUI</h3>\n          <p class="cv-job-when">août 2024 — déc. 2025</p>\n        </div>\n        <p class="cv-job-org">AzertyUI · passée d\'un ingénieur seul à une équipe de 4</p>\n        <ul>\n          <li><b>SOC Rugby</b> (août 2024 – mars 2025) : développement en solo et publication de l\'application Flutter du club de rugby de Chambéry sur l\'App Store et Google Play, avec un widget d\'écran d\'accueil iOS en SwiftUI ; <b>+2&nbsp;000 supporters</b>, <b>99,8&nbsp;% de sessions sans crash</b>.</li>\n          <li><b>chalet-montagne.com</b> (à partir d\'avril 2025) : développement en solo du cœur de la refonte d\'une place de marché de +10&nbsp;000 chalets, données et logique métier legacy migrées vers Symfony pendant que le site continuait de vendre.</li>\n        </ul>\n        <p class="cv-tools">Flutter · Dart · GetX · SQLite · SwiftUI · Codemagic · Symfony · Doctrine · MySQL</p>\n      </article>\n\n      <article class="cv-job">\n        <div class="cv-job-head">\n          <h3>Ingénieur mobile (temps partiel, télétravail, en parallèle des études) — SmartCare</h3>\n          <p class="cv-job-when">juil. 2023 — août 2024</p>\n        </div>\n        <p class="cv-job-org">Hope Horizon Health &amp; Care · Tunisie · télétravail</p>\n        <ul>\n          <li>Seul ingénieur mobile d\'une application patients–médecins en ligne sur Google Play, utilisée par <b>+40 médecins et +3&nbsp;000 patients</b> : messagerie, notifications push, rendez-vous et rappels, Google Maps, QR codes, IA médicale.</li>\n          <li>Backend FastAPI et MongoDB sur AWS avec GitHub Actions, et le web en ReactJS.</li>\n        </ul>\n        <p class="cv-tools">Flutter · Provider · GetX · Hive · FastAPI · MongoDB · ReactJS · AWS</p>\n      </article>\n\n      <article class="cv-job">\n        <div class="cv-job-head">\n          <h3>Stage d\'ingénieur — terminal d\'entrepôt</h3>\n          <p class="cv-job-when">févr. — juin 2024</p>\n        </div>\n        <p class="cv-job-org">L-Mobile · Nabeul, Tunisie</p>\n        <ul>\n          <li><b>Cinq modules de gestion d\'entrepôt</b> et une application tablette pour caristes livrés sur Microsoft Dynamics 365 Business Central, en C#/.NET et REST.</li>\n        </ul>\n        <p class="cv-tools">C# · .NET · D365 Business Central · REST</p>\n      </article>\n    </section>\n  </div>\n\n  <aside class="cv-side">\n\n    <section class="cv-sec">\n      <h2>Compétences</h2>\n      <dl class="cv-skills">\n        <dt>Backend</dt>\n        <dd>.NET, ASP.NET Core, microservices, gRPC, API Gateway, Symfony, PHP, Doctrine, FastAPI, Python, REST, WebSockets</dd>\n        <dt>Frontend</dt>\n        <dd>Angular 21, React, TypeScript, JavaScript, HTML, CSS</dd>\n        <dt>Mobile</dt>\n        <dd>Flutter, Dart, SwiftUI (widgets iOS), GetX, Provider, Firebase, Xcode, publications App Store et Google Play</dd>\n        <dt>Bases de données</dt>\n        <dd>MySQL, PostgreSQL, MongoDB, SQLite, Hive</dd>\n        <dt>DevOps</dt>\n        <dd>Docker, GitLab CI/CD, GitHub Actions, Codemagic, AWS, Linux, WireGuard</dd>\n        <dt>Qualité</dt>\n        <dd>PHPUnit, PyTest, tests de widgets et d\'intégration Flutter, SonarQube, Sentry, revue de code, SOLID</dd>\n      </dl>\n    </section>\n\n    <section class="cv-sec">\n      <h2>Formation</h2>\n      <ul>\n        <li>\n          <b>Diplôme d\'ingénieur en informatique appliquée</b>\n          École Nationale d\'Ingénieurs de Sousse (ENISo), Tunisie — accréditation EUR-ACE\n          <em>juil. 2024</em>\n        </li>\n        <li>\n          <b>Échange d\'été</b>\n          Murang\'a University of Technology, Kenya — une application React Native d\'inscription\n          <em>juil. – août 2024</em>\n        </li>\n      </ul>\n    </section>\n\n    <section class="cv-sec">\n      <h2>Langues</h2>\n      <ul>\n        <li><b>Français</b><em>B2 — langue de travail quotidienne avec des clients français</em></li>\n        <li><b>Anglais</b><em>B2 — TOEIC</em></li>\n        <li><b>Allemand</b><em>B1</em></li>\n      </ul>\n    </section>\n\n    <section class="cv-sec">\n      <h2>Activités</h2>\n      <ul>\n        <li><b>Trésorier, branche étudiante IEEE IAS</b>ENISo · <em>2022 – 2023</em></li>\n      </ul>\n    </section>\n\n    <section class="cv-sec cv-avail">\n      <h2>Disponibilité</h2>\n      <p>\n        Ouvert au télétravail et à une mobilité dans l\'UE. Basé en UTC+1, une journée européenne\n        entière en commun. Nationalité tunisienne : aucun permis requis en télétravail ; permis de\n        travail UE nécessaire pour un poste sur site (éligible Carte bleue européenne).\n      </p>\n    </section>\n  </aside>'),
 ('<html lang="en">', '<html lang="fr">'),
 ('<title>Ghaith Mefteh — CV | Full-Stack and Mobile Engineer</title>',
  '<title>Ghaith Mefteh — CV | Ingénieur full-stack et mobile</title>'),
@@ -600,108 +489,18 @@ CV = [
 ('<link rel="canonical" href="https://ghaithmeftah.github.io/cv.html">',
  '<link rel="canonical" href="https://ghaithmeftah.github.io/fr/cv.html">'),
 
-('<a class="btn btn-ghost" href="index.html">← Portfolio</a>', '<a class="btn btn-ghost" href="index.html">← Portfolio</a>'),
-('<a class="btn btn-solid" href="assets/Ghaith-Mefteh-CV-EN.pdf" download>CV · full-stack (PDF)</a>',
- '<a class="btn btn-solid" href="../assets/Ghaith-Mefteh-CV-FR.pdf" download>CV · full-stack (PDF)</a>'),
-('<a class="btn btn-ghost" href="assets/Ghaith-Mefteh-CV-Mobile-EN.pdf" download>CV · mobile (PDF)</a>',
- '<a class="btn btn-ghost" href="../assets/Ghaith-Mefteh-CV-Mobile-FR.pdf" download>CV · mobile (PDF)</a>'),
-('<a class="btn btn-ghost" href="fr/cv.html" hreflang="fr" data-lang-switch>Version française</a>',
- '<a class="btn btn-ghost" href="../cv.html" hreflang="en" data-lang-switch>English version</a>'),
-('<span>The PDFs are one-page, ATS-friendly versions.</span>',
- '<span>Les PDF sont des versions d\'une page, lisibles par les ATS.</span>'),
 
-('alt="Portrait of Ghaith Mefteh"', 'alt="Portrait de Ghaith Mefteh"'),
-('<p class="cv-role">Full-stack and mobile software engineer · technical director</p>',
- '<p class="cv-role">Ingénieur logiciel full-stack et mobile · directeur technique</p>'),
-('<span>Nabeul, Tunisia · open to relocation (EU) / remote</span>',
- '<span>Nabeul, Tunisie · mobilité UE / télétravail</span>'),
 
-('<h2>Profile</h2>', '<h2>Profil</h2>'),
-("""        Engineer with 3+ years in production who leads teams of four end to end, from planning to
-        deployment. Built a 10,000+ chalet rental marketplace from scratch and now a .NET
-        microservices platform, and ships Flutter apps to both stores for 5,000+ people.""",
- """        Ingénieur, plus de 3 ans en production, qui dirige des équipes de quatre de bout en bout,
-        de la planification au déploiement. A créé de zéro une marketplace de plus de 10&nbsp;000
-        chalets, construit aujourd'hui une plateforme en microservices .NET, et publie des
-        applications Flutter sur les deux stores pour plus de 5&nbsp;000 personnes."""),
-('<li><b>10,000+</b><span>chalets on a marketplace I led</span></li>',
- '<li><b>+10 000</b><span>chalets sur une marketplace que j\'ai dirigée</span></li>'),
-('<li><b>50 s → 5 s</b><span>search page load time on that marketplace</span></li>',
- '<li><b>50 s → 5 s</b><span>chargement de la recherche sur cette marketplace</span></li>'),
-('<li><b>99.8%</b><span>crash-free sessions, SOC Rugby app</span></li>',
- '<li><b>99,8 %</b><span>de sessions sans crash, application SOC Rugby</span></li>'),
 
-('<h2>Experience</h2>', '<h2>Expérience</h2>'),
-('<h3>Technical director — AzertyUI</h3>', '<h3>Directeur technique — AzertyUI</h3>'),
-('<p class="cv-job-when">2024 — present</p>', '<p class="cv-job-when">2024 — auj.</p>'),
-('<p class="cv-job-org">AzertyUI · Malissard, France · remote</p>',
- '<p class="cv-job-org">AzertyUI · Malissard, France · télétravail</p>'),
-('<li>Lead a <b>team of 4</b> (planning, coding, code review, deployment) building the company management platform: absences, expenses, payslips, contracts. <b>.NET microservices</b> behind an API Gateway, <b>gRPC</b> between services, <b>Angular 21</b>.</li>',
- '<li>Dirige une <b>équipe de 4</b> (planification, développement, revue de code, déploiement) sur la plateforme de gestion de l\'entreprise : absences, notes de frais, fiches de paie, contrats. <b>Microservices .NET</b> derrière une API Gateway, <b>gRPC</b> entre services, <b>Angular 21</b>.</li>'),
-('<li>Built the server monitoring dashboard: SSH login tracking and alerts, per-developer <b>WireGuard VPN</b> access, container monitoring, downtime alerts, automated backups.</li>',
- '<li>Tableau de bord de supervision des serveurs : suivi des connexions SSH et alertes, accès <b>VPN WireGuard</b> par développeur, supervision des conteneurs, alertes de panne, sauvegardes automatisées.</li>'),
 
-('<h3>Team lead — chalet-montagne.com</h3>', '<h3>Team lead — chalet-montagne.com</h3>'),
-('<p class="cv-job-org">AzertyUI · ski-chalet rental marketplace, 10,000+ chalets</p>',
- '<p class="cv-job-org">AzertyUI · marketplace de location de chalets, +10 000 chalets</p>'),
-('<li>Led <b>4 engineers for 14 months</b> building the platform from scratch on Symfony, SOLID and SonarQube-gated. Search pages went from <b>20–50 s to 4–6 s</b>, image bandwidth down <b>~60%</b>.</li>',
- '<li>Direction de <b>4 ingénieurs pendant 14 mois</b> pour créer la plateforme de zéro sur Symfony, selon SOLID et contrôlée par SonarQube. Pages de recherche passées de <b>20–50 s à 4–6 s</b>, bande passante images <b>~60 %</b> en moins.</li>'),
-('<li>Delivered the public booking site, owner back office and admin dashboard (revenue tracking, user blocking, secure user impersonation), plus suspicious-login detection, cron jobs and <b>390+ PHPUnit tests</b> behind GitLab CI/CD.</li>',
- '<li>Livraison du site de réservation, du back-office propriétaires et du tableau de bord admin (suivi des revenus, blocage d\'utilisateurs, connexion sécurisée en tant qu\'utilisateur), plus la détection de connexions suspectes, des tâches cron et <b>+390 tests PHPUnit</b> derrière GitLab CI/CD.</li>'),
 
-('<h3>Mobile engineer — SOC Rugby</h3>', '<h3>Ingénieur mobile — SOC Rugby</h3>'),
-('<p class="cv-job-org">AzertyUI · official app of the Chambéry rugby club</p>',
- '<p class="cv-job-org">AzertyUI · application officielle du club de rugby de Chambéry</p>'),
-('<li>Built and published the Flutter app to the App Store and Google Play for <b>2,000+ fans</b>: match calendar and reminders, live scores, messaging, screens translated from Figma.</li>',
- '<li>Application Flutter développée et publiée sur l\'App Store et Google Play pour <b>+2 000 supporters</b> : calendrier et rappels des matchs, scores en direct, messagerie, écrans traduits depuis Figma.</li>'),
-('<li>Owned releases with Codemagic CI/CD, certificates and provisioning; <b>99.8% crash-free</b> sessions, monitored with Sentry.</li>',
- '<li>Publications portées de bout en bout avec Codemagic CI/CD, certificats et provisioning ; <b>99,8 % de sessions sans crash</b>, suivi via Sentry.</li>'),
 
-('<h3>Mobile engineer (part-time) — SmartCare</h3>', '<h3>Ingénieur mobile (temps partiel) — SmartCare</h3>'),
-('<p class="cv-job-org">Hope Horizon Health &amp; Care · Tunisia · remote</p>',
- '<p class="cv-job-org">Hope Horizon Health &amp; Care · Tunisie · télétravail</p>'),
-('<li>Only mobile engineer on a patient–doctor app live on Google Play, used by <b>40+ doctors and 3,000+ patients</b>: messaging, push notifications, appointments and reminders, Google Maps, QR scanning, medical AI.</li>',
- '<li>Seul ingénieur mobile d\'une application patients–médecins disponible sur Google Play, utilisée par <b>+40 médecins et +3 000 patients</b> : messagerie, notifications push, rendez-vous et rappels, Google Maps, scan de QR codes, IA médicale.</li>'),
-('<li>Built the FastAPI and MongoDB backend on AWS with GitHub Actions, and the ReactJS web.</li>',
- '<li>Développement du backend FastAPI et MongoDB sur AWS avec GitHub Actions, et du web ReactJS.</li>'),
 
-('<h3>Engineering intern — warehouse terminal</h3>', "<h3>Stagiaire ingénieur — terminal d'entrepôt</h3>"),
-('<li>Shipped <b>five warehouse-management modules</b> and a forklift tablet app on Microsoft Dynamics 365 Business Central, over C#/.NET and REST.</li>',
- "<li><b>Cinq modules de gestion d'entrepôt</b> et une application tablette pour caristes livrés sur Microsoft Dynamics 365 Business Central, en C#/.NET et REST.</li>"),
 
-('<dt>Databases</dt>', '<dt>Bases de données</dt>'),
-('<dd>Flutter, Dart, SwiftUI, GetX, Provider, Firebase, Xcode, App Store and Google Play releases</dd>',
- '<dd>Flutter, Dart, SwiftUI, GetX, Provider, Firebase, Xcode, publications App Store et Google Play</dd>'),
-('<dt>Quality</dt>', '<dt>Qualité</dt>'),
-('<dd>PHPUnit, PyTest, SonarQube, Sentry, code review, SOLID, AI-assisted development (Claude Code)</dd>',
- '<dd>PHPUnit, PyTest, SonarQube, Sentry, revue de code, SOLID, développement assisté par IA (Claude Code)</dd>'),
 
-('<h2>Education</h2>', '<h2>Formation</h2>'),
-('<b>Engineering degree, Applied Computer Science</b>', "<b>Diplôme d'ingénieur, informatique appliquée</b>"),
-('          National School of Engineers of Sousse (ENISo), Tunisia — EUR-ACE accredited',
- "          École Nationale d'Ingénieurs de Sousse (ENISo), Tunisie — accréditation EUR-ACE"),
-('<b>Summer exchange</b>', "<b>Échange d'été</b>"),
-("          Murang'a University of Technology, Kenya — campus networking and a React Native registration app",
- "          Murang'a University of Technology, Kenya — réseau du campus et application d'inscription React Native"),
-('<em>Jul – Aug 2024</em>', '<em>juil. – août 2024</em>'),
 
-('<h2>Languages</h2>', '<h2>Langues</h2>'),
-('<li><b>French</b><em>B2 — daily working language with French clients</em></li>',
- '<li><b>Français</b><em>B2 — langue de travail quotidienne avec les clients français</em></li>'),
-('<li><b>English</b><em>B2 — TOEIC</em></li>', '<li><b>Anglais</b><em>B2 — TOEIC</em></li>'),
-('<li><b>German</b><em>B1</em></li>', '<li><b>Allemand</b><em>B1</em></li>'),
 
-('<h2>Activities</h2>', '<h2>Activités</h2>'),
-('<li><b>Treasurer, IEEE IAS student branch</b>ENISo · <em>2022 – 2023</em></li>',
- '<li><b>Trésorier, branche étudiante IEEE IAS</b>ENISo · <em>2022 – 2023</em></li>'),
-('<li><b>Interests</b>Gym, cycling, camping</li>', "<li><b>Centres d'intérêt</b>Musculation, cyclisme, camping</li>"),
 
-('<h2>Availability</h2>', '<h2>Disponibilité</h2>'),
-("""        Open to remote roles, relocation in the EU and freelance projects. Based at UTC+1,
-        overlapping a full European day. Answers within the day. Can start within two weeks.""",
- """        Ouvert au télétravail, à une mobilité dans l'UE et aux missions freelance. Basé à UTC+1,
-        une journée européenne entière en commun. Réponse dans la journée. Disponible sous deux
-        semaines."""),
 ]
 
 
@@ -724,6 +523,10 @@ def main():
                   '<link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/">',
                   '<link rel="alternate" hreflang="fr" href="https://ghaithmeftah.github.io/fr/">\n'
                   '<link rel="alternate" hreflang="en" href="https://ghaithmeftah.github.io/">')
+
+    s, n = re.subn(r'<article id="case-alpilink".*?</article>', lambda m: MISSION_FR, s, count=1, flags=re.S)
+    if n != 1:
+        sys.exit('make-fr: mission block not found')
 
     for old, new in PATHS:
         s = s.replace(old, new)

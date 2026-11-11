@@ -37,11 +37,12 @@ UI = {
         "nav": [("/#work", "Work"), ("/#said", "Said"), ("/#lab", "Lab"), ("/#path", "Path"), ("/#hire", "Hire me")],
         "skip": "Skip to content", "crumb_home": "Ghaith Mefteh", "crumb_services": "Services",
         "call": "Book a 30-min call", "read_cv": "Read the CV",
-        "avail": "Open to remote roles, EU relocation and freelance · answers within the day",
+        "avail": "Open to freelance projects · answers within the day",
+        "avail_hire": "Open to remote roles and EU relocation · answers within the day",
         "faq_h": "Questions people ask first", "more_h": "Other ways I can help",
         "see_case": "See the case study",
         "contact_h": "Tell me what you are building",
-        "contact_lede": "A short call or an email is enough to start. I answer within the day, in CET working hours.",
+        "contact_lede": "A short call or an email is enough to start, in CET working hours.",
         "email_me": "Email me", "dock_email": "Email me",
         "labels": {"hire": "Hiring a remote engineer", "flutter": "Flutter mobile apps", "symfony": "Symfony and PHP web",
                    "dotnet": ".NET backends and APIs", "fullstack": "Full-stack freelance"},
@@ -52,11 +53,12 @@ UI = {
         "nav": [("/fr/#work", "Projets"), ("/fr/#said", "Avis"), ("/fr/#lab", "Labo"), ("/fr/#path", "Parcours"), ("/fr/#hire", "Me recruter")],
         "skip": "Aller au contenu", "crumb_home": "Ghaith Mefteh", "crumb_services": "Services",
         "call": "Réserver un appel de 30 min", "read_cv": "Lire le CV",
-        "avail": "Ouvert au télétravail, à une mobilité dans l'UE et au freelance · réponse dans la journée",
+        "avail": "Ouvert aux missions freelance · réponse dans la journée",
+        "avail_hire": "Ouvert au télétravail et à une mobilité dans l'UE · réponse dans la journée",
         "faq_h": "Les questions qu'on me pose d'abord", "more_h": "Les autres façons de travailler ensemble",
         "see_case": "Voir l'étude de cas",
         "contact_h": "Parlez-moi de votre projet",
-        "contact_lede": "Un court appel ou un e-mail suffit pour commencer. Je réponds dans la journée, aux heures de bureau (CET).",
+        "contact_lede": "Un court appel ou un e-mail suffit pour commencer, aux heures de bureau (CET).",
         "email_me": "M'écrire", "dock_email": "M'écrire",
         "labels": {"hire": "Recruter un ingénieur à distance", "flutter": "Applications mobiles Flutter", "symfony": "Web Symfony et PHP",
                    "dotnet": "Backends et API .NET", "fullstack": "Full-stack en freelance"},
@@ -68,9 +70,9 @@ UI = {
 CASES = {
     "soc": {
         "img": "soc-results", "w": 460, "h": 997, "anchor": "#case-soc",
-        "en": ("SOC Rugby, Chambéry", "The rugby club's official app on the App Store and Google Play: calendar, live scores, rankings, messaging and push notifications. Flutter with GetX and SQLite, plus SwiftUI; released through Codemagic, watched by Sentry.",
+        "en": ("SOC Rugby, Chambéry", "The rugby club's official app on the App Store and Google Play, built solo: calendar, live scores, rankings, messaging and push notifications. Flutter with GetX and SQLite, plus an iOS home-screen widget in SwiftUI; released through Codemagic, watched by Sentry.",
                "2,000+ fans · 99.8% crash-free sessions", "SOC Rugby app, results screen with the club's matchday scores"),
-        "fr": ("SOC Rugby, Chambéry", "L'application officielle du club de rugby sur l'App Store et Google Play : calendrier, scores en direct, classements, messagerie et notifications. Flutter avec GetX et SQLite, plus SwiftUI ; publiée via Codemagic, surveillée par Sentry.",
+        "fr": ("SOC Rugby, Chambéry", "L'application officielle du club de rugby sur l'App Store et Google Play, développée seul : calendrier, scores en direct, classements, messagerie et notifications. Flutter avec GetX et SQLite, plus un widget d'écran d'accueil iOS en SwiftUI ; publiée via Codemagic, surveillée par Sentry.",
                "+2 000 supporters · 99,8 % de sessions sans crash", "Application SOC Rugby, écran des résultats par journée"),
     },
     "smartcare": {
@@ -82,20 +84,20 @@ CASES = {
     },
     "chalet": {
         "img": "cm-listings", "w": 1400, "h": 714, "anchor": "#case-chalet",
-        "en": ("chalet-montagne.com", "A French ski-chalet marketplace rebuilt on Symfony while it kept selling: legacy data and business logic moved first, then a new search engine behind caching, query optimisation and on-demand WebP images. I led the team of four for 14 months.",
+        "en": ("chalet-montagne.com", "A French ski-chalet marketplace rebuilt on Symfony while it kept selling: legacy data and business logic moved first, then a new search engine behind caching, query optimisation and on-demand WebP images. I built the core solo from April 2025, then led a team of four to delivery in July 2026.",
                "10,000+ chalets · search 20–50 s → 4–6 s · 390+ tests · ~60% less image bandwidth", "chalet-montagne.com listing page with filters and chalet cards"),
-        "fr": ("chalet-montagne.com", "Une place de marché de chalets au ski refondue sur Symfony sans jamais arrêter de vendre : données et logique métier migrées d'abord, puis un nouveau moteur de recherche avec cache, requêtes optimisées et images WebP à la demande. J'ai dirigé l'équipe de quatre pendant 14 mois.",
+        "fr": ("chalet-montagne.com", "Une place de marché de chalets au ski refondue sur Symfony sans jamais arrêter de vendre : données et logique métier migrées d'abord, puis un nouveau moteur de recherche avec cache, requêtes optimisées et images WebP à la demande. J'ai développé seul le cœur à partir d'avril 2025, puis dirigé une équipe de quatre jusqu'à la livraison en juillet 2026.",
                "+10 000 chalets · recherche de 20–50 s à 4–6 s · +390 tests · ~60 % de bande passante image en moins", "Page de résultats chalet-montagne.com avec filtres et fiches de chalets"),
     },
     "platform": {
-        "img": "motion/platform", "ext": "jpg", "w": 1600, "h": 900, "anchor": "#case-platform",
+        "img": "motion/platform", "ext": "jpg", "w": 1600, "h": 900, "anchor": None,
         "en": ("AzertyUI company platform", "Absences, expenses, tickets, contracts and payslips in one place, on .NET (ASP.NET Core) microservices behind an API Gateway, talking over gRPC, with Angular 21 in front. I lead the four engineers building it, plus the company's server monitoring.",
                "team of 4 led · microservices · gRPC · Angular 21", "Schematic of the AzertyUI platform: Angular app, API Gateway, .NET services over gRPC"),
         "fr": ("Plateforme interne AzertyUI", "Absences, notes de frais, tickets, contrats et fiches de paie au même endroit, sur des microservices .NET (ASP.NET Core) derrière une API Gateway, qui se parlent en gRPC, avec Angular 21 devant. Je dirige les quatre ingénieurs qui la construisent, ainsi que la supervision des serveurs.",
                "équipe de 4 dirigée · microservices · gRPC · Angular 21", "Schéma de la plateforme AzertyUI : application Angular, API Gateway, services .NET en gRPC"),
     },
     "lmobile": {
-        "img": "lmobile-warehouse", "w": 1200, "h": 600, "anchor": "#case-lmobile",
+        "img": "lmobile-warehouse", "w": 1200, "h": 600, "anchor": None,
         "en": ("L-Mobile warehouse terminal", "Five warehouse-management modules on tablets mounted on forklifts, integrated with Microsoft Dynamics 365 Business Central over C#/.NET and REST, in an enterprise stack I learned on the job.",
                "5 modules shipped · D365 Business Central", "Warehouse aisle with forklifts and tracked positions"),
         "fr": ("Terminal d'entrepôt L-Mobile", "Cinq modules de gestion d'entrepôt sur des tablettes montées sur chariots élévateurs, intégrés à Microsoft Dynamics 365 Business Central en C#/.NET et REST, dans une stack d'entreprise apprise sur le terrain.",
@@ -131,7 +133,7 @@ PAGES = {
             "desc": "Freelance full-stack developer: database, API, web front end and mobile app. .NET, Symfony, FastAPI, Angular, React, Flutter. Remote from UTC+1.",
             "crumb": "Full-stack", "service": "Full-stack web and mobile development",
             "h1": "A freelance full-stack developer who builds the whole feature",
-            "answer": "I take a feature from the database to the screen: the schema, the API, the web front end and the mobile app, deployed and tested. Three years in production, a team of four led, and products used by 5,000+ people.",
+            "answer": "I take a feature from the database to the screen: the schema, the API, the web front end and the mobile app, deployed and tested. Technical director at AzertyUI leading a team of four, with apps used by 2,000+ fans and 3,000+ patients.",
             "what_h": "What I build",
             "what": ["Web applications with Angular or React in front of a .NET, Symfony or FastAPI backend",
                      "Mobile apps in Flutter, released to the App Store and Google Play",
@@ -141,14 +143,14 @@ PAGES = {
             "proof_h": "Products I have shipped end to end",
             "how_h": "How a project runs",
             "faq": [("Do you work on the frontend or the backend?", "Both, and the database under them. Most of my projects needed the whole path, and owning it end to end is where I am most useful."),
-                    ("Can you join an existing team and codebase?", "Yes. I set the code-review standard for two teams of four and have taken over legacy code that was still in production.")],
+                    ("Can you join an existing team and codebase?", "Yes. I review every pull request on a team of four, and rebuilt a legacy marketplace while it was still in production.")],
         },
         "fr": {
             "title": "Développeur full-stack freelance à distance | Ghaith Mefteh",
             "desc": "Développeur full-stack freelance : base de données, API, front web et application mobile. .NET, Symfony, FastAPI, Angular, React, Flutter. UTC+1.",
             "crumb": "Full-stack", "service": "Développement web et mobile full-stack",
             "h1": "Un développeur full-stack freelance qui construit la fonctionnalité entière",
-            "answer": "Je mène une fonctionnalité de la base de données jusqu'à l'écran : le schéma, l'API, le front web et l'application mobile, déployés et testés. Trois ans en production, une équipe de quatre dirigée, et des produits utilisés par plus de 5 000 personnes.",
+            "answer": "Je mène une fonctionnalité de la base de données jusqu'à l'écran : le schéma, l'API, le front web et l'application mobile, déployés et testés. Directeur technique chez AzertyUI à la tête d'une équipe de quatre, avec des applications utilisées par +2 000 supporters et +3 000 patients.",
             "what_h": "Ce que je construis",
             "what": ["Des applications web en Angular ou React devant un backend .NET, Symfony ou FastAPI",
                      "Des applications mobiles Flutter, publiées sur l'App Store et Google Play",
@@ -158,7 +160,7 @@ PAGES = {
             "proof_h": "Des produits livrés de bout en bout",
             "how_h": "Comment se déroule un projet",
             "faq": [("Vous travaillez sur le front ou le back ?", "Les deux, et la base de données en dessous. La plupart de mes projets demandaient tout le chemin, et c'est en le portant de bout en bout que je suis le plus utile."),
-                    ("Pouvez-vous rejoindre une équipe et un code existants ?", "Oui. J'ai fixé les standards de revue de code de deux équipes de quatre et repris du code legacy encore en production.")],
+                    ("Pouvez-vous rejoindre une équipe et un code existants ?", "Oui. Je relis chaque pull request d'une équipe de quatre, et j'ai refondu une place de marché legacy encore en production.")],
         },
     },
     "flutter": {
@@ -168,10 +170,10 @@ PAGES = {
             "desc": "Freelance Flutter developer shipping to the App Store and Google Play: SOC Rugby (2,000+ fans, 99.8% crash-free), SmartCare (3,000+ patients).",
             "crumb": "Flutter", "service": "Flutter mobile app development",
             "h1": "A freelance Flutter developer who ships to both stores",
-            "answer": "I build Flutter apps from the Figma design to the App Store and Google Play, and I can write the API behind them too. My apps are used by 5,000+ people, the latest at 99.8% crash-free sessions.",
+            "answer": "I build Flutter apps from the Figma design to the App Store and Google Play, and I can write the API behind them too. SOC Rugby runs at 99.8% crash-free sessions for 2,000+ fans; SmartCare serves 40+ doctors and 3,000+ patients.",
             "what_h": "What I build",
             "what": ["iOS and Android apps in Flutter and Dart, from your Figma design, screen by screen",
-                     "State with GetX or Provider, offline data with SQLite or Hive, native pieces in SwiftUI when needed",
+                     "State with GetX or Provider, offline data with SQLite or Hive, widget and integration tests, iOS home-screen widgets in SwiftUI",
                      "Push notifications, real-time messaging, maps, Google Sign-In and QR scanning",
                      "Releases end to end: Codemagic CI/CD, signing, provisioning, Xcode builds and store review",
                      "The backend when you need one: FastAPI or Symfony, MongoDB or MySQL, on AWS"],
@@ -185,10 +187,10 @@ PAGES = {
             "desc": "Développeur Flutter freelance, publié sur l'App Store et Google Play : SOC Rugby (+2 000 supporters, 99,8 % sans crash), SmartCare (+3 000 patients).",
             "crumb": "Flutter", "service": "Développement d'applications mobiles Flutter",
             "h1": "Un développeur Flutter freelance qui publie sur les deux stores",
-            "answer": "Je construis des applications Flutter de la maquette Figma jusqu'à l'App Store et Google Play, et je peux aussi écrire l'API derrière. Mes applications sont utilisées par plus de 5 000 personnes, la dernière à 99,8 % de sessions sans crash.",
+            "answer": "Je construis des applications Flutter de la maquette Figma jusqu'à l'App Store et Google Play, et je peux aussi écrire l'API derrière. SOC Rugby tourne à 99,8 % de sessions sans crash pour +2 000 supporters ; SmartCare sert +40 médecins et +3 000 patients.",
             "what_h": "Ce que je construis",
             "what": ["Des applications iOS et Android en Flutter et Dart, depuis votre maquette Figma, écran par écran",
-                     "L'état avec GetX ou Provider, les données hors ligne avec SQLite ou Hive, du SwiftUI natif si besoin",
+                     "L'état avec GetX ou Provider, les données hors ligne avec SQLite ou Hive, des tests de widgets et d'intégration, des widgets d'écran d'accueil iOS en SwiftUI",
                      "Notifications push, messagerie en temps réel, cartes, connexion Google et lecture de QR codes",
                      "Les publications de bout en bout : CI/CD Codemagic, signature, provisioning, builds Xcode et validation des stores",
                      "Le backend si vous en avez besoin : FastAPI ou Symfony, MongoDB ou MySQL, sur AWS"],
@@ -276,10 +278,10 @@ PAGES = {
         "film": "hero", "case_keys": ["platform", "chalet", "soc"], "mail_subject": "Opportunity for Ghaith", "is_hire": True,
         "en": {
             "title": "Hire a Remote Software Engineer (EU) | Ghaith Mefteh",
-            "desc": "Full-stack and mobile engineer for remote roles or EU relocation: .NET, Symfony, Angular, React, Flutter. Team lead, UTC+1, starts within two weeks.",
+            "desc": "Full-stack and mobile engineer for remote roles or EU relocation: .NET, Symfony, Angular, React, Flutter. Technical director, UTC+1, EU Blue Card eligible.",
             "crumb": "Hiring", "service": None,
             "h1": "A remote software engineer you can hire, or relocate to the EU",
-            "answer": "Full-stack and mobile engineer, three years in production and technical director at AzertyUI, leading a team of four. Remote from Nabeul at UTC+1, or relocating within the EU, and able to start within two weeks.",
+            "answer": "Full-stack and mobile engineer: 2+ years full-time, plus a year part-time during my degree. First engineering hire at AzertyUI, promoted to technical director, I lead a team of four. Remote from Nabeul at UTC+1, or relocating within the EU.",
             "what_h": "Roles I fit",
             "what": ["Full-stack engineer: .NET or Symfony behind, Angular or React in front",
                      "Backend engineer: ASP.NET Core microservices, Symfony/PHP or Python/FastAPI",
@@ -290,16 +292,16 @@ PAGES = {
             "how_h": "How hiring me works",
             "how": [("Remote, or relocation within the EU", "I work from Nabeul, Tunisia, at UTC+1: a full European day of overlap, plus the US East Coast morning. I am also open to relocating within the EU."),
                     ("Employment or contract", "Employment through an employer of record, or a contractor agreement. Tell me what your company uses."),
-                    ("Start within two weeks", "Or on a date agreed for the role. CVs in English and French are on the CV page, in full-stack and mobile versions.")],
-            "faq": [("Do you need visa sponsorship?", "Not for remote work. For on-site roles in the EU, relocation is something we would arrange together with your company."),
+                    ("A start date agreed for the role", "CVs in English and French are on the CV page, in full-stack and mobile versions.")],
+            "faq": [("Do you need a work permit?", "Tunisian citizen: no permit needed for remote work; needs an EU work permit for on-site roles (EU Blue Card eligible)."),
                     ("What do your colleagues and clients say?", "Three recommendations are on my LinkedIn profile and quoted word for word on the portfolio, from the client of chalet-montagne.com, a SmartCare project manager and an AzertyUI teammate.")],
         },
         "fr": {
             "title": "Recruter un ingénieur logiciel à distance | Ghaith Mefteh",
-            "desc": "Ingénieur full-stack et mobile, en télétravail ou mobilité UE : .NET, Symfony, Angular, React, Flutter. Lead d'équipe, UTC+1, disponible sous 2 semaines.",
+            "desc": "Ingénieur full-stack et mobile, en télétravail ou mobilité UE : .NET, Symfony, Angular, React, Flutter. Directeur technique, UTC+1, éligible Carte bleue UE.",
             "crumb": "Recrutement", "service": None,
             "h1": "Un ingénieur logiciel à recruter, à distance ou avec mobilité dans l'UE",
-            "answer": "Ingénieur full-stack et mobile, trois ans en production, directeur technique chez AzertyUI où je dirige une équipe de quatre. En télétravail depuis Nabeul en UTC+1, ou avec mobilité dans l'UE, et disponible sous deux semaines.",
+            "answer": "Ingénieur full-stack et mobile : plus de 2 ans à temps plein, plus un an à temps partiel pendant mes études. Premier ingénieur recruté chez AzertyUI, promu directeur technique, je dirige une équipe de quatre. En télétravail depuis Nabeul en UTC+1, ou avec mobilité dans l'UE.",
             "what_h": "Les postes qui me correspondent",
             "what": ["Ingénieur full-stack : .NET ou Symfony derrière, Angular ou React devant",
                      "Ingénieur backend : microservices ASP.NET Core, Symfony/PHP ou Python/FastAPI",
@@ -310,8 +312,8 @@ PAGES = {
             "how_h": "Comment me recruter",
             "how": [("Télétravail, ou mobilité dans l'UE", "Je travaille depuis Nabeul, en Tunisie, en UTC+1 : une journée européenne entière en commun, plus la matinée de la côte Est américaine. Je suis aussi ouvert à une mobilité dans l'UE."),
                     ("Salariat ou contrat", "Un emploi via une société de portage (employer of record), ou un contrat de prestation. Dites-moi ce que votre entreprise utilise."),
-                    ("Disponible sous deux semaines", "Ou à une date convenue pour le poste. Les CV en français et en anglais sont sur la page CV, en versions full-stack et mobile.")],
-            "faq": [("Avez-vous besoin d'un visa ?", "Pas pour le télétravail. Pour un poste sur site dans l'UE, la mobilité s'organise ensemble avec votre entreprise."),
+                    ("Une date de début convenue pour le poste", "Les CV en français et en anglais sont sur la page CV, en versions full-stack et mobile.")],
+            "faq": [("Avez-vous besoin d'un permis de travail ?", "Nationalité tunisienne : aucun permis requis en télétravail ; permis de travail UE nécessaire pour un poste sur site (éligible Carte bleue européenne)."),
                     ("Que disent vos collègues et clients ?", "Trois recommandations figurent sur mon profil LinkedIn et sont citées mot pour mot sur le portfolio : le client de chalet-montagne.com, un chef de projet SmartCare et un collègue d'AzertyUI.")],
         },
     },
@@ -360,7 +362,7 @@ def case_card(k, lang, ui):
           <h3>{e(title)}</h3>
           <p>{e(text)}</p>
           <p class="pcard-nums">{e(nums)}</p>
-          <a class="pcard-link" href="{ui['home']}{cs['anchor']}">{e(ui['see_case'])}</a>
+          {f'<a class="pcard-link" href="{ui["home"]}{cs["anchor"]}">{e(ui["see_case"])}</a>' if cs['anchor'] else ''}
         </div>
       </article>"""
 
@@ -440,7 +442,7 @@ def page(key, lang):
       <a class="btn btn-solid" href="mailto:{MAIL}?subject={subject}">{e(ui['email_me'])}</a>
       <a class="btn btn-ghost" href="{CAL}" target="_blank" rel="noopener">{e(ui['call'])}</a>
     </div>
-    <p class="hero-avail"><span class="avail-dot"></span>{e(ui['avail'])}</p>
+    <p class="hero-avail"><span class="avail-dot"></span>{e(ui['avail_hire'] if p.get('is_hire') else ui['avail'])}</p>
   </div>
 </section>
 
